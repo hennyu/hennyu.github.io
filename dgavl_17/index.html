@@ -1,22 +1,582 @@
 <html>
     <head>
-        <link rel="stylesheet" href="../css/reveal.css" />
-        <link rel="stylesheet" href="../css/theme/serif.css" />
+        <title>Topic Modeling als Methode für Themenanalyse in großen Textsammlungen</title>
+        <meta name="author" content="Ulrike Henny-Krahmer" />
+        <meta name="description" content="Slides" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../reveal/css/reveal.css" />
+        <link rel="stylesheet" href="../reveal/css/theme/serif.css" />
+        <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+        <style type="text/css">
+            .reveal .slides{
+                font-size: 24pt;
+            }
+            .reveal small,
+            .reveal ul.small,
+            .reveal table.small{
+                font-size: 0.7em;
+            }
+            .reveal h1{
+                font-size: 1.6em;
+            }
+            .reveal h2{
+                font-size: 1.5em;
+            }
+            .reveal img.logo{
+                margin: 0 0.25em;
+            }
+            .reveal section img{
+                border: none;
+                vertical-align: bottom;
+                margin: 0;
+            }
+            .reveal td.middle{
+                vertical-align: middle;
+            }
+            .reveal li{
+                margin: 0.2em 0;
+            }
+            .reveal li li{
+                font-size: smaller;
+            }
+            .reveal a{
+                color: #762E9E;
+            }</style>
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
-                <section>Slide 1</section>
-                <section>Slide 2</section>
                 <section>
-                    <section>Vertical Slide 1</section>
-                    <section>Vertical Slide 2</section>
+                    <h2><em>Literatur aus der Vogelperspektive:</em></h2>
+                    <h1>Topic Modeling als Methode für Themenanalyse in großen Textsammlungen</h1>
+                    <hr />
+                    <small>Ulrike Henny-Krahmer<br />(CLiGS, Würzburg)</small>
+                    <br />
+                    <br />
+                    <small>DGAVL-Workshop "Digital Humanities in der
+                        Literaturwissenschaft"<br />Bochum, 7. Juni 2017</small>
+                    <br />
+                    <br />
+                    <small>Folien: <a href="https://hennyu.github.io/dgavl_17"
+                            >https://hennyu.github.io/dgavl_17</a></small>
+                    <br />
+                    <hr />
+                    <p>
+                        <img height="40" src="img/basics/UWUE.jpg" class="logo" />
+                        <img height="80" src="img/basics/CLiGS.jpg" class="logo" />
+                        <img height="40" src="img/basics/BMBF.jpg" class="logo" />
+                    </p>
+                </section>
+                <section>
+                    <h2>Überblick</h2>
+                    <ul>
+                        <li>Was ist Topic Modeling?</li>
+                        <li>Beispielanalysen: <ul>
+                                <li>Jockers, Roman</li>
+                                <li>Rhody, Lyrik</li>
+                                <li>Schöch, Drama</li>
+                            </ul>
+                        </li>
+                        <li>"Schrauben": Korpuskuratierung &amp; Modellparameter</li>
+                        <li>Fazit</li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                        <h2>Was ist Topic Modeling?</h2>
+                    </section>
+                    <section>
+                        <h3>Was ist Topic Modeling?</h3>
+                        <ul>
+                            <li>Topic Modeling ist eine Methode der quantitativen Textanalyse</li>
+                            <li>Ziel: Aufdecken "versteckter" semantischer Strukturen <ul>
+                                    <li>Hintergrund: Distributionelle Semantik</li>
+                                    <li>J. R. Firth: "You shall know a word by the company it keeps"
+                                        (1957)</li>
+                                    <!-- John Rupert -->
+                                    <li>Wiederkehrende Themen / Motive / Diskurse werden
+                                        identifiziert</li>
+                                </ul>
+                            </li>
+                            <li>Wichtig: automatisch &amp; ohne explizites semantisches Wissen!</li>
+                            <!-- Vorteil: gleichlautende Wörter mit mehreren Bedeutungen können in 
+                            verschiedenen Topics landen -->
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Wie funktioniert Topic Modeling?</h3>
+                        <ul>
+                            <li>gegeben: Dokumente &amp; Wörter</li>
+                            <li>gesucht: versteckte "Topics"</li>
+                            <li>Statistik: <ul>
+                                    <li>Welche Wörter kommen innerhalb von Dokumenten und zwischen
+                                        Dokumenten gemeinsam vor?</li>
+                                    <li>Ableiten von Topics aus den Wortverteilungen</li>
+                                </ul>
+                            </li>
+                            <li>Ergebnis: ein Topic-Modell</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Topic-Modell: Topics mit Wörtern</h3>
+                        <img src="img/blei.png" />
+                        <small><em>David M. Blei (2012): Probabilistic Topic Models. Communications
+                                of the ACM, Vol. 55, No. 4, p. 78.</em></small>
+                    </section>
+                    <section>
+                        <h3>Topic-Modell: Topics mit Wörtern</h3>
+                        <table class="small">
+                            <tr>
+                                <td>0</td>
+                                <td>katholisch religion könig katholik kaiser protestantisch handeln
+                                    niederland provinz protestantismus</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>erziehung erzieher tugend mensch ideell zögling gesellschaft
+                                    abhandlung historisch inner</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>grenze nationalität heutig sprachgrenze südlich süddeutsch
+                                    gebiet inner muttersprache einheitsstaat</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>bahn bahnlinie konzession bahnbau projekt geplant annullierung
+                                    britisch anwenden ausdrücklich</td>
+                            </tr>
+                            <tr>
+                                <td>27</td>
+                                <td>virtuose pianoforte talent vater virtuos knabe welt
+                                    klavierlehrer portrait instrument</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h3>Tools</h3>
+                        <table class="small">
+                            <tr>
+                                <th>Name</th>
+                                <th></th>
+                                <th></th>
+                                <th>Developer</th>
+                                <th>Language</th>
+                                <th>Link</th>
+                            </tr>
+                            <tr>
+                                <td>MALLET</td>
+                                <td><em>machine learning for language toolkit</em></td>
+                                <td class="middle"><img src="img/blackbox.png" /></td>
+                                <td>David Mimno</td>
+                                <td>Java</td>
+                                <td><a href="http://mallet.cs.umass.edu/topics.php" target="_blank"
+                                        >http://mallet.cs.umass.edu/topics.php</a></td>
+                            </tr>
+                            <tr>
+                                <td>Gensim</td>
+                                <td><em>topic modeling for humans</em></td>
+                                <td class="middle"><img src="img/blackbox.png" /></td>
+                                <td>Radim Řehůřek</td>
+                                <td>Python</td>
+                                <td><a href="https://radimrehurek.com/gensim" target="_blank"
+                                        >https://radimrehurek.com/gensim</a></td>
+                            </tr>
+                            <tr>
+                                <td>tmw</td>
+                                <td><em>topic modeling workflow</em></td>
+                                <td class="middle"><img src="img/workflow.png" /></td>
+                                <td>Christof Schöch</td>
+                                <td>Python</td>
+                                <td><a href="https://github.com/cligs/tmw" target="_blank"
+                                        >https://github.com/cligs/tmw</a></td>
+                            </tr>
+                            <tr>
+                                <td>dfr-browser</td>
+                                <td><em>a simple topic-model browser</em></td>
+                                <td class="middle"><img src="img/visual.png" /></td>
+                                <td>Andrew Goldstone</td>
+                                <td>JavaScript</td>
+                                <td><a href="http://agoldst.github.io/dfr-browser/" target="_blank"
+                                        >http://agoldst.github.io/dfr-browser/</a></td>
+                            </tr>
+                        </table>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Beispielanalysen</h2>
+                    </section>
+                    <section>
+                        <h3>Jockers (2013), Roman</h3>
+                        <ul>
+                            <li>Korpus: 3.346 englischsprachige Romane (England/Schottland/Wales,
+                                Irland, USA) aus dem 19. Jahrhundert</li>
+                            <li>Ziele: thematischen Reichtum im Korpus erfassen; narrative Sujets
+                                und wiederkehrende Themen und Motive verstehen</li>
+                            <!-- die im literarischen Ökosystem operieren -->
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Jockers (2013), Roman</h3>
+                        <h4>Vorgehen</h4>
+                        <ul>
+                            <li>Segmentierung der Romane (1000 Wörter)</li>
+                            <li>Lemmatisierung (Substantive)</li>
+                            <li>Entfernen von häufigen Wörtern (<em>stopwords</em>) und
+                                Eigennamen</li>
+                            <li>Topic-Modeling mit Mallet (500 Topics)</li>
+                            <li>Auswertung Topic-Modell + Metadaten</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Jockers (2013), Roman</h3>
+                        <h4>Ergebnisse</h4>
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="img/AMERICAN_SLAVERY.png"><img
+                                            src="img/AMERICAN_SLAVERY.png" width="250" height="250"
+                                         /></a>
+                                </td>
+                                <td>
+                                    <a href="img/AMERICAN_SLAVERY_2.png"><img
+                                            src="img/AMERICAN_SLAVERY_2.png" width="250"
+                                            height="250" /></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="img/AMERICAN_SLAVERY_3.png"><img
+                                            src="img/AMERICAN_SLAVERY_3.png" width="250"
+                                            height="250" /></a>
+                                </td>
+                                <td>
+                                    <a href="img/AMERICAN_SLAVERY_4.png"><img
+                                            src="img/AMERICAN_SLAVERY_4.png" width="250"
+                                            height="250" /></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h3>Jockers (2013), Roman</h3>
+                        <h4>Ergebnisse</h4>
+                        <ul>
+                            <li>Tendenzen nach Nation, Gender, Zeit</li>
+                            <li>Bestätigung mancher Intuitionen, Herausforderung anderer</li>
+                        </ul>
+                        <blockquote>"The words returned from the model paint both setting and
+                            subject; the result is a useful and quantifiable representation of a
+                            very particular theme [...] These are macro trends we are exploring, and
+                            they provide a generalized view of the whole"</blockquote>
+                        <!-- nicht notwendigerweise Aussagen über einzelne Romane oder Autoren -->
+                        <!-- 
+                                "nations and genders have clear thematic preferences or tendencies"
+                            Gender: 
+                            - Frauen: "affection and happiness" doppelt so häufig bei weiblichen Autoren, 
+                            auch "female fashion" häufiger, "infants" (Kinderbetreuung) doppelt so häufig,
+                            Emotionen
+                            - Männer: überrepräsentiert sind "Villains and Traitors", "Quarrels and Dueling",
+                            "Enemies"
+                            - andere Themen aber nicht gender-spezifisch: rural theme, wealth, business affairs,
+                            social rank, humor, laughter
+                            
+                            Nation:
+                            - USA: slavery, "American Indians", aber auch in den irischen Romanen 
+                            (insb. Autor Mayne Reid);
+                            Set of themes largely about the natural world: "Wilderness", "The Frontier",
+                            "The Sea", "Native Americans", "Trees"
+                            - Irish: "Tenants and Landlords" (in 34% der Irischen Romane das Wichtigste);
+                            "Wit and Humor", "Doubt and Fear", "Misfortune", "Health and Disease", "Terror",
+                            "Silence", "Tears and Sorrow", "Grief"
+                            - English: "Royalty, "Music", "Private Education", "Running of Hounds",
+                            "Shooting Sports", "Art"
+                            - Scottish: viel mit dem englischen gemeinsam, darüber hinaus "Religion",
+                            "Witches, Wizards, Superstition"
+                            
+                            
+                            Zeit: -->
+                    </section>
+                    <section>
+                        <h3>Rhody (2012), Lyrik</h3>
+                        <ul>
+                            <li>Korpus: 4500 ekphrastische Gedichte in englischer Sprache
+                                (hauptsächlich 20. Jahrhundert)</li>
+                            <!-- literarische Beschreibung eines Werks der bildenden Kunst;
+                            literarische bzw. rhetorische Form, durch welche etwas sehr anschaulich 
+                            und bildlich beschrieben oder geschildert wird;
+                            literarische Visualisierungsstrategie -->
+                            <li>Ziele: herausfinden, wie Topic Modeling-Algorithmen mit Bildsprache
+                                umgehen; Tradition und Genre der Ekphrase auf großer Datengrundlage
+                                untersuchen</li>
+                            <!-- Contemporary critical models of ekphrasis define the genre through 
+                                the identification of recurring tropes invoked by poets 
+                                confronted by the differences between linguistic and visual media
+                            - our most recognized critical model for ekphrasis turns on 
+                            the axis of difference, otherness, hostility, and competition
+                            - the “canonical” texts used to trace the long-standing tradition of ekphrasis
+                            have been based until just recently on examples exclusively by men
+                            -->
+                            <!-- both LDA and our existing model of ekphrasis presuppose that 
+                                latent patterns of language, when discovered, can be used to describe
+                                the corpus as a whole. Organizing a corpus of poetry in terms of 
+                                its participation in recognized conventions of language 
+                                seemed in keeping with LDA’s assumptions that texts are composed
+                                of a fixed number of topics, and so I was drawn to the prospect of 
+                                using LDA to uncover ways poets enter into, disrupt, or perpetuate 
+                                the ongoing discourses associated with the tropes that typify ekphrasis -->
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Rhody (2012), Lyrik</h3>
+                        <h4>Vorgehen</h4>
+                        <ul>
+                            <li>Metadaten: Autor, Gender</li>
+                            <li>keine Segmentierung der Texte (vollständige Gedichte)</li>
+                            <li>keine Lemmatisierung</li>
+                            <li>Entfernen von häufigen Wörtern (<em>stopwords</em>)</li>
+                            <li>Topic-Modeling mit Mallet (60 Topics)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Rhody (2012), Lyrik</h3>
+                        <h4>Ergebnisse</h4>
+                        <table class="small">
+                            <tr>
+                                <td>4</td>
+                                <td>de la el en green verde con los mi se</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>blue red white bird color green yellow black wings birds</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>thy thou thee art thine st doth heaven hast hath</td>
+                            </tr>
+                            <tr>
+                                <td>32</td>
+                                <td>night light moon stars day dark sun sleep sky wind</td>
+                            </tr>
+                            <tr>
+                                <td>54</td>
+                                <td>tree green summer flowers grass trees flower spring leaves
+                                    sun</td>
+                            </tr>
+                            <tr>
+                                <td>58</td>
+                                <td>gertrude guitar inside blue stein beginning sieve cloud type
+                                    end</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h3>Rhody (2012), Lyrik</h3>
+                        <h4>Ergebnisse: The Starry Night (Anne Sexton)</h4>
+                        <a href="img/thestarrynight.jpg"><img src="img/thestarrynight.jpg" /></a>
+                    </section>
+                    <section>
+                        <h3>Rhody (2012), Lyrik</h3>
+                        <h4>Ergebnisse</h4>
+                        <ul>
+                            <li>Topic-Typen: OCR/Sprache/Dialekt; Topics langer Gedichte; semantisch
+                                transparente Topics; semantisch opake Topics</li>
+                        </ul>
+                        <!-- the assumption that the topics are “thematic” in the same way
+                            as Blei’s would be incorrect. For example, the night and natural world
+                            of “The Starry Night” are actually painted representations of those
+                            concepts [...]  -->
+                        <blockquote> "My research confirms, to a degree, Ted Underwood’s suspicion
+                            that topics in literary studies are better understood as a
+                            representation of “discourse” (language as it is used and as it
+                            participates in recognized social forms) rather than a thematic string
+                            of coherent terms." </blockquote>
+                    </section>
+                    <section>
+                        <h3>Schöch (2017), Drama</h3>
+                        <ul>
+                            <li>Korpus: 391 französische Dramen der Klassik und Aufklärung
+                                (1630-1789)</li>
+                            <li>Ziele: Unterscheidung von Untergattungen (Tragödie, Komödie,
+                                Tragikomödie) anhand von Topic-Verteilungen; ermitteln von
+                                Topic-Typen</li>
+                            <!-- was sind die dominanten Themen in den Untergattungen?
+                                welche Gruppen ergeben sich auf Grundlage der Themenverteilung?
+                                entsprechen die gefundenen Gruppen traditionellen Genre-Unterscheidungen? -->
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Schöch (2017), Drama</h3>
+                        <h4>Vorgehen</h4>
+                        <ul>
+                            <li>Segmentierung der Dramen (1000 Wörter)</li>
+                            <li>Lemmatisierung (Substantive, Verben, Adjektive)</li>
+                            <li>Entfernen von häufigen Wörtern (<em>stopwords</em>) und
+                                Eigennamen</li>
+                            <li>Topic-Modeling mit Mallet und tmw (60 Topics)</li>
+                            <li>Auswertung Topic-Modell + Metadaten</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Schöch (2017), Drama</h3>
+                        <h4>Ergebnisse</h4>
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="img/wordle_tp014x.png"><img src="img/wordle_tp014x.png"
+                                            width="300" height="250" /></a>
+                                </td>
+                                <td>
+                                    <a href="img/wordle_tp039x.png"><img src="img/wordle_tp039x.png"
+                                            width="300" height="250" /></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="img/wordle_tp053x.png"><img src="img/wordle_tp053x.png"
+                                            width="300" height="250" /></a>
+                                </td>
+                                <td>
+                                    <a href="img/topic-score-distribution.png"><img
+                                            src="img/topic-score-distribution.png" width="300"
+                                            height="250" /></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <h3>Schöch (2017), Drama</h3>
+                        <h4>Ergebnisse</h4>
+                        <ul>
+                            <li>untergattungsspezifische Topics werden erkennbar
+                                ("mittelspezifisch")</li>
+                            <li>viele der gefundenen Themen lassen sich in Beziehung zu klaren,
+                                abstrakten Themen setzen (z.B. Liebe, Tod, Verbrechen)</li>
+                            <li>aber auch Topics, die sich auf Figuren, Setting, bestimmte
+                                Tätigkeiten beziehen</li>
+                        </ul>
+                        <blockquote> "The latter types of topics [...] show that taking a method
+                            such as Topic Modeling, developed initially for collections of
+                            non-fictional prose such as scholarly journal articles or newspapers,
+                            and adapting it to the domain of literary texts, actually changes the
+                            meaning of the word 'topic'" </blockquote>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>"Schrauben": <br />Korpuskuratierung &amp; Modellparameter</h2>
+                    </section>
+                    <section>
+                        <h3>Korpuskuratierung</h3>
+                        <ul>
+                            <li>Welche Dokumente?</li>
+                            <li>Wie viele Dokumente?</li>
+                            <!-- Grenzboten-Graphik -->
+                            <li>Segmentierung</li>
+                            <li>Stopwords</li>
+                            <!-- was wird im aktuellen Mimno-Artikel dazu gesagt? -->
+                            <li>Lemmatisierung</li>
+                            <!-- kann je nach Sprache mehr oder weniger wichtig sein -->
+                            <!-- Beispiel-Topic-Wordclouds aus dem Grenzboten -->
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Modellparameter</h3>
+                        <ul>
+                            <li>Anzahl der Topics</li>
+                            <!-- Beispiel-Topic-Wordclouds aus dem Grenzboten -->
+                            <li>Iterationen</li>
+                            <li>Hyperparameter (Optimierung)</li>
+                            <!-- hyperparameters alpha and beta (affecting the distributional 
+                                profile of the words in each topic and that of the topics in each document, respectively -->
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Fazit</h2>
+                        <ul>
+                            <li>Topic Modeling kann aufdecken, wie Themen in Sammlungen
+                                literarischer Texten entfaltet werden</li>
+                            <li>Topics sind dabei oft nicht abstrakte Themen</li>
+                            <li>Entscheidungen hinsichtlich Korpus und Modell beeinflussen Art und
+                                Qualität der Ergebnisse</li>
+                            <li>ein Topic-Modell und seine Interpretation sind vor allem eine Sicht
+                                auf die Texte aus der Distanz</li>
+                            <!--  oder im Wechselspiel Distanz-Nähe -->
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Literaturhinweise</h3>
+                        <ul class="small">
+                            <li>Blei, David M. (2012): "Probabilistic Topic Models." In:
+                                    <em>Communications of the ACM</em> 55.4.
+                                doi:10.1145/2133806.2133826.</li>
+                            <li>Jockers, Matthew L. (2013). <em>Macroanalysis. Digital Methods &amp;
+                                    Literary History.</em> Urbana, Chicago, and Springfield:
+                                University of Illinois Press.</li>
+                            <li>Rhody, Lisa M. (2012): "Topic Modeling and Figurative Language." In:
+                                    <em>Journal of Digital Humanities</em> 2.1. <a
+                                    href="http://journalofdigitalhumanities.org/2-1/topic-modeling-and-figurative-language-by-lisa-m-rhody/"
+                                    target="_blank"
+                                    >http://journalofdigitalhumanities.org/2-1/topic-modeling-and-figurative-language-by-lisa-m-rhody/</a></li>
+                            <li>Schofield, Alexandra; Magnusson, Måns and David Mimno (2017):
+                                "Pulling Out the Stops: Rethinking Stopword Removal for Topic
+                                Models." In: <em>Proceedings of 15th Conference of the EACL</em>.
+                                Vol. 2, Short Papers, pp.432-436. <a
+                                    href="https://mimno.infosci.cornell.edu/papers/schofield_eacl_2017.pdf"
+                                    target="_blank"
+                                    >https://mimno.infosci.cornell.edu/papers/schofield_eacl_2017.pdf</a></li>
+                            <li>Schöch, Christof (2017): "Topic Modeling Genre: An Exploration of
+                                French Classical and Enlightenment Drama." [Preview] In: <em>Digital
+                                    Humanities Quarterly</em> 11.2. <a
+                                    href="http://www.digitalhumanities.org/dhq/vol/11/2/000291/000291.html"
+                                    target="_blank"
+                                    >http://www.digitalhumanities.org/dhq/vol/11/2/000291/000291.html</a></li>
+                            <li>Schöch, Christof (2016): "Topic Modeling with MALLET: Hyperparameter
+                                Optimization". In: <em>The Dragonfly's Gaze</em>, Marseille: Open
+                                Edition. <a href="https://dragonfly.hypotheses.org/1051"
+                                    target="_blank">https://dragonfly.hypotheses.org/1051</a>.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Vielen Dank!</h3>
+                        <p>Folien: <a href="https://hennyu.github.io/dgavl_17"
+                                >https://hennyu.github.io/dgavl_17</a></p>
+                        <p>CLiGS-Gruppe: <a href="http://cligs.hypotheses.org/" target="_blank"
+                                >http://cligs.hypotheses.de/</a></p>
+                        <p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+                                >CC-BY 4.0</a></p>
+                    </section>
                 </section>
             </div>
         </div>
-        <script src="../js/reveal.js"></script>
+        <script src="../reveal/lib/js/head.min.js"></script>
+        <script src="../reveal/js/reveal.js"></script>
         <script>
-			Reveal.initialize();
-		</script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
     </body>
 </html>
