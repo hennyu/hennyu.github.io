@@ -477,14 +477,26 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                         <h3>Korpuskuratierung</h3>
                         <ul>
                             <li>Welche Dokumente?</li>
+                            <!-- Bedeutung der Vergleichbarkeit
+                            - Sprache
+                            - Gattung
+                            - Epoche
+                            - Autoren
+                            - Länge (ähnlich, wie lang?)
+                            - Einfluss auf die Ergebnisse: was möchte man vergleichen?
+                            - Verfügbarkeit -->
                             <li>Wie viele Dokumente?</li>
                             <!-- Grenzboten-Graphik -->
                             <li>Segmentierung</li>
                             <li>Stopwords</li>
-                            <!-- was wird im aktuellen Mimno-Artikel dazu gesagt? -->
+                            <!-- aktueller Mimno-Artikel:
+                            - oft wird angenommen, eine manuell kuratierte Stopwordliste würden TM verbessern
+                            - aber: zeitaufwendig, basiert auf subjektiven Urteilen
+                            - über das Entfernen sehr häufiger Wörter hinaus habe das aber nur einen geringen Effekt
+                            - man könnte weitere stopwords auch nach der Modellierung entfernen
+                            -->
                             <li>Lemmatisierung</li>
                             <!-- kann je nach Sprache mehr oder weniger wichtig sein -->
-                            <!-- Beispiel-Topic-Wordclouds aus dem Grenzboten -->
                         </ul>
                     </section>
                     <section>
@@ -496,7 +508,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                         <h3>Modellparameter</h3>
                         <ul>
                             <li>Anzahl der Topics</li>
-                            <!-- Beispiel-Topic-Wordclouds aus dem Grenzboten -->
                             <li>Iterationen</li>
                             <li>Hyperparameter (Optimierung)</li>
                             <!-- hyperparameters alpha and beta (affecting the distributional 
@@ -515,8 +526,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                                 Qualität der Ergebnisse</li>
                             <li>ein Topic-Modell und seine Interpretation sind vor allem eine Sicht
                                 auf die Texte aus der Distanz</li>
-                            <!--  oder im Wechselspiel Distanz-Nähe -->
                         </ul>
+                        <aside class="notes">oder im Wechselspiel Distanz-Nähe</aside>
                     </section>
                     <section>
                         <h3>Literaturhinweise</h3>
