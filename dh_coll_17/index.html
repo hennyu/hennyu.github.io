@@ -47,6 +47,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 			    margin-left: -1.8em;
 			    padding-right: 1em;
 			}
+			.reveal ol.sublist2 > li:before{
+			    content: "4. ";
+			    margin-left: -1.8em;
+			    padding-right: 1em;
+			}
 			.reveal li{
 			    margin: 0.2em 0;
 			}
@@ -383,14 +388,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 				<section>
 					<section>
 						<h2>4. Analyse</h2>
-						<ul>
+						<ol class="sublist2">
 							<li>Topic Modeling</li>
 							<li>Klassifikation</li>
 							<li>Clustering</li>
-						</ul>
+						</ol>
 					</section>
 					<section>
-						<h3>Topic Modeling</h3>
+						<h3>4.1 Topic Modeling</h3>
 						<p>Ziel: Ermitteln von Themen, die in den Romanen eine Rolle spielen</p>
 					</section>
 					<section>
@@ -431,7 +436,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 						<p><small>(erstellt mit TMW)</small></p>
 					</section>
 					<section>
-						<h3>Klassifikation</h3>
+						<h3>4.2 Klassifikation</h3>
 						<p>Ziel: Ermitteln von Themen, die für die Einordnung der Romane in
 							bestimmte Untergattungen zentral sind</p>
 					</section>
@@ -559,7 +564,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 						</ul>
 					</section>
 					<section>
-						<h3>Clustering</h3>
+						<h3>4.3 Clustering</h3>
 						<p>Ziel: Überprüfen, ob Romane sich auf der Grundlage<br /> (zunächst aller)
 							ihrer Themen nach den Untergattungen gruppieren<br /> (ohne dass die
 							Untergattungen vorher festgelegt sind)</p>
@@ -610,7 +615,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 				</section>
 				<section>
 					<section>
-						<h2>Fazit</h2>
+						<h2>5. Fazit</h2>
 					</section>
 					<section>
 						<h3>Fazit I</h3>
