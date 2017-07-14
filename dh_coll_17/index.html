@@ -1,0 +1,738 @@
+<html>
+	<head>
+		<title>Roman-Typen als Topic-Modell-Klassen</title>
+		<meta name="author" content="Ulrike Henny-Krahmer" />
+		<meta name="description" content="Slides" />
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../reveal/css/reveal.css" />
+		<link rel="stylesheet" href="../reveal/css/theme/serif.css" />
+		<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+		<style type="text/css">
+			.reveal .slides{
+			    font-size: 24pt;
+			}
+			.reveal small,
+			.reveal ul.small,
+			.reveal table.small{
+			    font-size: 0.7em;
+			}
+			.reveal h1{
+			    font-size: 1.6em;
+			}
+			.reveal h2{
+			    font-size: 1.5em;
+			}
+			.reveal img.logo{
+			    margin: 0 0.25em;
+			}
+			.reveal section img{
+			    border: none;
+			    vertical-align: bottom;
+			    margin: 0;
+			}
+			.reveal td.middle{
+			    vertical-align: middle;
+			}
+			.reveal td.top{
+			    vertical-align: top;
+			}
+			.reveal ol.sublist1 > li:before{
+			    content: "2. ";
+			    margin-left: -1.8em;
+			    padding-right: 1em;
+			}
+			.reveal li{
+			    margin: 0.2em 0;
+			}
+			.reveal li li{
+			    font-size: smaller;
+			}
+			.reveal li.dash{
+			    list-style-type: none;
+			}
+			.reveal li.dash:before{
+			    content: "- "
+			}
+			.reveal a{
+			    color: #762E9E;
+			}</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2><em>Werkstattbericht:</em></h2>
+					<h1>Roman-Typen als Topic-Modell-Klassen?</h1>
+					<hr />
+					<small>Ulrike Henny-Krahmer<br />(CLiGS, Würzburg)</small>
+					<br />
+					<br />
+					<small>Kolloquium "Digital Humanities – Aktuelle Forschungsthemen"<br />Köln, 6.
+						Juli 2017</small>
+					<br />
+					<br />
+					<small>Folien: <a href="https://hennyu.github.io/dh_coll_17"
+							>https://hennyu.github.io/dh_coll_17</a></small>
+					<br />
+					<hr />
+					<p>
+						<img height="40" src="img/basics/UWUE.jpg" class="logo" />
+						<img height="80" src="img/basics/CLiGS.jpg" class="logo" />
+						<img height="40" src="img/basics/BMBF.jpg" class="logo" />
+					</p>
+				</section>
+				<section>
+					<h2>Überblick</h2>
+					<ol>
+						<li>Kontext &amp; Fragestellung</li>
+						<li>Hintergrund: <em>Literarische Gattungen, DH-Methoden</em></li>
+						<li>Korpus</li>
+						<li>Analyse: <em>Topic Modeling, Klassifikation &amp; Clustering</em></li>
+						<li>Fazit</li>
+					</ol>
+				</section>
+				<section>
+					<section>
+						<h2>1. Kontext &amp; Fragestellung</h2>
+					</section>
+					<section>
+						<h3>CLiGS</h3>
+						<ul>
+							<li>Nachwuchsgruppe "Computergestützte Literarische Gattungsstilistik",
+									<a href="http://cligs.hypotheses.org"
+									>http://cligs.hypotheses.org</a></li>
+							<li>disziplinäre Verortung: zwischen Literaturwissenschaften,
+								Computerlinguistik und Informatik</li>
+							<li>Gegenstand: spanischsprachige und französische Literatur, 17./18.
+								und 19. bis frühes 20. Jahrhundert</li>
+						</ul>
+					</section>
+					<section>
+						<h3>CLiGS, Ziele</h3>
+						<ul>
+							<li>einzelne literarische Gattungen beschreiben</li>
+							<li>das Konzept "Gattung" neu denken</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Fragestellung</h3>
+						<p><em>Roman-Typen als Topic-Modell-Klassen?</em></p>
+						<ul>
+							<li>Kann man verschiedene Roman-Typen (oder Roman-Untergattungen) anhand
+								ihrer Themen beschreiben?</li>
+							<li>Topic Modeling als Verfahren zum automatischen Ermitteln von
+								Themen</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Fragestellung</h3>
+						<p><em>Roman-Typen als Topic-Modell-Klassen?</em></p>
+						<ul>
+							<li>Klassen als ein Konzept der Beschreibung von
+								Roman-Untergattungen</li>
+							<li>Sind abgeschlossene, klar begrenzte Klassen ein gutes Konzept zur
+								Beschreibung von Roman-Untergattungen und was wären
+								Alternativen?</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>2. Hintergrund</h2>
+						<ol class="sublist1">
+							<li>Literarische Gattungen, Roman-Untergattungen</li>
+							<li>DH-Methoden <ul>
+									<li>Topic Modeling</li>
+									<li>Klassifikation &amp; Clustering</li>
+								</ul>
+							</li>
+						</ol>
+					</section>
+					<section>
+						<h3>2.1 Literarische Gattungen, Roman-Untergattungen</h3>
+					</section>
+					<section>
+						<h3>Gattungen, Untergattungen</h3>
+						<p>Es gibt sie!</p>
+						<img src="img/coerp.png" />
+						<p><small>Corpus of English Religious Prose, <a
+									href="http://coerp.uni-koeln.de/" target="_blank"
+									>http://coerp.uni-koeln.de/</a>, Screenshot</small></p>
+					</section>
+					<section>
+						<h3>Literarische Gattungen, Roman-Untergattungen</h3>
+						<p>Es gibt sie!</p>
+						<img src="img/thalia1.png" />
+						<p><small>Thalia.de, <a href="https://www.thalia.de/shop/home/show/"
+									target="_blank">https://www.thalia.de/shop/home/show/</a>,
+								Screenshot</small></p>
+					</section>
+					<section>
+						<h3>Literarische Gattungen, Roman-Untergattungen</h3>
+						<p>Es gibt sie!</p>
+						<img src="img/thalia2.png" width="700" />
+						<p><small>Thalia.de, <a
+									href="https://www.thalia.de/shop/romane-erzaehlungen-3/show/"
+									target="_blank"
+									>https://www.thalia.de/shop/romane-erzaehlungen-3/show/</a>,
+								Screenshot</small></p>
+					</section>
+					<section>
+						<h3>Roman-Untergattungen, Fragen:</h3>
+						<ul>
+							<li>Was sind sie eigentlich?</li>
+							<li>Gibt es eine Systematik?</li>
+							<li>Kann man Unterschiede an den Texten selbst erkennen?</li>
+							<li>Mit welchen Konzepten kann man sie beschreiben?</li>
+							<li>Mit welchen Methoden kann man sie untersuchen?</li>
+						</ul>
+					</section>
+					<section>
+						<h3>2.2 DH-Methoden</h3>
+					</section>
+					<section>
+						<h3>Topic-Modeling</h3>
+					</section>
+					<section>
+						<h3>Was ist Topic Modeling?</h3>
+						<ul>
+							<li>Topic Modeling ist eine Methode der quantitativen Textanalyse</li>
+							<li>Ziel: Aufdecken "versteckter" semantischer Strukturen <ul>
+									<li>Hintergrund: Distributionelle Semantik</li>
+									<li>J. R. Firth: "You shall know a word by the company it keeps"
+										(1957)</li>
+									<!-- John Rupert -->
+									<li>Wiederkehrende Themen / Motive / Diskurse werden
+										identifiziert</li>
+								</ul>
+							</li>
+							<li>Wichtig: automatisch &amp; ohne explizites semantisches Wissen!</li>
+						</ul>
+						<aside class="notes"> - Vorteil: gleichlautende Wörter mit mehreren
+							Bedeutungen können in verschiedenen Topics landen </aside>
+					</section>
+					<section>
+						<h3>Wie funktioniert Topic Modeling?</h3>
+						<ul>
+							<li>gegeben: Dokumente &amp; Wörter</li>
+							<li>gesucht: versteckte "Topics"</li>
+							<li>Statistik: <ul>
+									<li>Welche Wörter kommen innerhalb von Dokumenten und zwischen
+										Dokumenten gemeinsam vor?</li>
+									<li>Ableiten von Topics aus den Wortverteilungen</li>
+								</ul>
+							</li>
+							<li>Ergebnis: ein Topic-Modell</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Topic-Modell: Topics mit Wörtern</h3>
+						<img src="img/blei.png" />
+						<small><em>David M. Blei (2012): Probabilistic Topic Models. Communications
+								of the ACM, Vol. 55, No. 4, p. 78.</em></small>
+					</section>
+					<section>
+						<h3>Topic-Modell: Topics mit Wörtern (Beispiel)</h3>
+						<table class="small">
+							<tr>
+								<td>0</td>
+								<td>katholisch religion könig katholik kaiser protestantisch handeln
+									niederland provinz protestantismus</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>erziehung erzieher tugend mensch ideell zögling gesellschaft
+									abhandlung historisch inner</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>grenze nationalität heutig sprachgrenze südlich süddeutsch
+									gebiet inner muttersprache einheitsstaat</td>
+							</tr>
+							<tr>
+								<td>14</td>
+								<td>bahn bahnlinie konzession bahnbau projekt geplant annullierung
+									britisch anwenden ausdrücklich</td>
+							</tr>
+							<tr>
+								<td>27</td>
+								<td>virtuose pianoforte talent vater virtuos knabe welt
+									klavierlehrer portrait instrument</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h3>Tools</h3>
+						<table class="small">
+							<tr>
+								<th>Name</th>
+								<th></th>
+								<th></th>
+								<th>Developer</th>
+								<th>Language</th>
+								<th>Link</th>
+							</tr>
+							<tr>
+								<td>MALLET</td>
+								<td><em>machine learning for language toolkit</em></td>
+								<td class="middle"><img src="img/blackbox.png" /></td>
+								<td>Andrew McCallum et al.</td>
+								<td>Java</td>
+								<td><a href="http://mallet.cs.umass.edu/topics.php" target="_blank"
+										>http://mallet.cs.umass.edu/topics.php</a></td>
+							</tr>
+							<tr>
+								<td>Gensim</td>
+								<td><em>topic modeling for humans</em></td>
+								<td class="middle"><img src="img/blackbox.png" /></td>
+								<td>Radim Řehůřek</td>
+								<td>Python</td>
+								<td><a href="https://radimrehurek.com/gensim" target="_blank"
+										>https://radimrehurek.com/gensim</a></td>
+							</tr>
+							<tr>
+								<td>tmw</td>
+								<td><em>topic modeling workflow</em></td>
+								<td class="middle"><img src="img/workflow.png" /></td>
+								<td>Christof Schöch</td>
+								<td>Python</td>
+								<td><a href="https://github.com/cligs/tmw" target="_blank"
+										>https://github.com/cligs/tmw</a></td>
+							</tr>
+							<tr>
+								<td>dfr-browser</td>
+								<td><em>a simple topic-model browser</em></td>
+								<td class="middle"><img src="img/visual.png" /></td>
+								<td>Andrew Goldstone</td>
+								<td>JavaScript</td>
+								<td><a href="http://agoldst.github.io/dfr-browser/" target="_blank"
+										>http://agoldst.github.io/dfr-browser/</a></td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h3>Klassifikation &amp; Clustering</h3>
+					</section>
+					<section>
+						<h3>Klassifikation &amp; Clustering</h3>
+						<ul>
+							<li>Verfahren aus dem Bereich Maschinelles Lernen</li>
+							<li>zur automatische Ermittlung von Textgruppen</li>
+							<li>eine ganze Reihe verschiedener Algorithmen (SVM, Decision Trees,
+								k-means, ...)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Klassifikation</h3>
+						<ul>
+							<li>überwacht</li>
+							<li>die Gruppen stehen fest</li>
+							<li><em>Was gehört in welche Gruppe?</em></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Clustering</h3>
+						<ul>
+							<li>unüberwacht</li>
+							<li>die Gruppen stehen nicht fest</li>
+							<li><em>Was passt zusammen?</em></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>3. Korpus</h2>
+					</section>
+					<section>
+						<h3>Korpus</h3>
+						<ul>
+							<li>Hispanoamerikanischer Roman im 19. Jahrhundert</li>
+							<li>Roman-Untergattungen: vor allem historische, sentimentale, soziale
+								und kostrumbristische Romane</li>
+							<li>Textsammlung: rund 200 Romane aus Mexiko, Argentinien, Kuba</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Korpus</h3>
+						<p><small>Romane über die Jahrzehnte, Vergleich von Korpus und
+								Bibliographie</small></p>
+						<img src="img/corpus-bib.png" width="750" />
+					</section>
+					<section>
+						<h3>Korpus</h3>
+						<p><small>Romane im Korpus über die Jahrzehnte und nach Ländern</small></p>
+						<img src="img/author-country.png" width="700" />
+					</section>
+					<section>
+						<h3>Korpus</h3>
+						<p><small>Anteile von Romanen verschiedener Untergattungen</small></p>
+						<img src="img/piechart-subgenre.png" width="500" />
+					</section>
+					<section>
+						<h3>Korpus</h3>
+						<p><small>Länge der Romane im Korpus in Tokens</small></p>
+						<img src="img/dokumentlaengen.png" width="700" />
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>4. Analyse</h2>
+						<ul>
+							<li>Topic Modeling</li>
+							<li>Klassifikation</li>
+							<li>Clustering</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Topic Modeling</h3>
+						<p>Ziel: Ermitteln von Themen, die in den Romanen eine Rolle spielen</p>
+					</section>
+					<section>
+						<h3>Topic Modeling</h3>
+						<ul>
+							<li>Vorverarbeitung: Lemmatisierung, Segmentierung</li>
+							<li>Tool: Mallet</li>
+							<li>Anzahl Topics: 80</li>
+							<li>Auswertung mit TMW und eigenen Skripten</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Topic Modeling, Ergebnisse</h3>
+						<p><small>Anteile der Topics in der Textsammlung<br /> (links absteigend,
+								rechts aufsteigend nach Wichtigkeit)</small></p>
+						<img src="img/stacked.png" width="650" />
+						<p><small>(eigene Darstellung, mit <em>pygal</em>)</small></p>
+					</section>
+					<section>
+						<h3>Topic Modeling, Ergebnisse</h3>
+						<p><small>Beispiel-Topic 34: palabra-asunto-posible
+								(Wort-Angelegenheit-möglich)</small></p>
+						<img src="img/wordle_tp034.png" width="700" />
+						<p><small>(erstellt mit TMW)</small></p>
+					</section>
+					<section>
+						<h3>Topic Modeling, Ergebnisse</h3>
+						<p><small>Beispiel-Topic 39: corazón-lágrima-alma
+							(Herz-Träne-Seele)</small></p>
+						<img src="img/wordle_tp039.png" width="700" />
+						<p><small>(erstellt mit TMW)</small></p>
+					</section>
+					<section>
+						<h3>Topic Modeling, Ergebnisse</h3>
+						<p><small>Beispiel-Topic 43: ejército-enemigo-prisionero
+								(Heer-Feind-Gefangener)</small></p>
+						<img src="img/wordle_tp043.png" width="700" />
+						<p><small>(erstellt mit TMW)</small></p>
+					</section>
+					<section>
+						<h3>Klassifikation</h3>
+						<p>Ziel: Ermitteln von Themen, die für die Einordnung der Romane in
+							bestimmte Untergattungen zentral sind</p>
+					</section>
+					<section>
+						<h3>Klassifikation</h3>
+						<ul>
+							<li>hier verwendet: Decision Trees</li>
+							<li>mit Python und der Bibliothek <em>sklearn</em></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Klassifikation, Entscheidungsbaum</h3>
+						<p><small>3 Klassen: historical, sentimental, costumbrista</small></p>
+						<p><small>Optimale Baumtiefe: 4 | Genauigkeit: 97,2% im Training, 58,3% im
+								Test</small></p>
+						<img src="img/tree1.png" width="1200" />
+						<p><small>(Darstellung erstellt mit <em>sklearn</em>)</small></p>
+					</section>
+					<section>
+						<h3>Klassifikation, Merkmale</h3>
+						<table>
+							<tr>
+								<td><img src="img/features1.png" width="300" /></td>
+								<td class="top">
+									<p><small>3 Klassen: historical, sentimental,
+											costumbrista</small></p>
+									<p><small>für die Entscheidung wichtige Merkmale:</small></p>
+									<ol>
+										<li>Topic 43<br />
+											<small>ejército-enemigo-prisionero
+												(Heer-Feind-Gefangener)<br /> → <em>historical</em>
+												vs. <em>sentimental</em></small></li>
+										<li>Topic 24<br />
+											<small>caballo-campo-noche (Pferd-Feld-Nacht)<br /> →
+												<em>costumbrista</em> vs.
+												<em>historical</em></small></li>
+										<li>Topic 39<br />
+											<small>corazón-lágrima-alma (Herz-Träne-Selle)<br /> →
+												<em>sentimental</em> vs.
+												<em>costumbrista</em></small></li>
+									</ol>
+									<p>...</p>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h3>Klassifikation, Entscheidungsbaum</h3>
+						<p><small>4 Klassen: historical, sentimental, costumbrista,
+							social</small></p>
+						<p><small>Optimale Baumtiefe: 5 | Genauigkeit: 90,1% im Training, 41,9% im
+								Test</small></p>
+						<img src="img/tree2.png" width="1000" />
+						<p><small>(Darstellung erstellt mit <em>sklearn</em>)</small></p>
+					</section>
+					<section>
+						<h3>Klassifikation, Merkmale</h3>
+						<table>
+							<tr>
+								<td><img src="img/features2.png" width="300" /></td>
+								<td class="top">
+									<p><small>4 Klassen: historical, sentimental, costumbrista,
+											social</small></p>
+									<p><small>für die Entscheidung wichtige Merkmale:</small></p>
+									<ol>
+										<li>Topic 6<br />
+											<small>enemigo-soldado-sangre (Feind-Soldat-Blut)<br />
+												→ <em>historical</em> vs.
+												<em>sentimental</em></small></li>
+										<li>Topic 64<br />
+											<small>dinero-peso-negocio (Geld-Peso-Geschäft)<br /> →
+												<em>social</em> vs.
+											<em>sentimental</em></small></li>
+										<li>Topic 39<br />
+											<small>corazón-lágrima-alma (Herz-Träne-Selle)<br /> →
+												<em>social</em> vs.
+											<em>costumbrista</em></small></li>
+										<li>Topic 37<br />
+											<small>doctor-inglés-calle
+												(Arzt-englisch/Engländer-Straße)<br /> →
+												<em>social</em> vs.
+											<em>costumbrista</em></small></li>
+									</ol>
+									<p>...</p>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h3>Klassifikation, Entscheidungsbaum</h3>
+						<p><small>2 Klassen: historical, sentimental</small></p>
+						<p><small>Optimale Baumtiefe: 1 | Genauigkeit: 83,3% im Training, 83,3% im
+								Test</small></p>
+						<img src="img/tree3.png" width="200" />
+						<p><small>(Darstellung erstellt mit <em>sklearn</em>)</small></p>
+					</section>
+					<section>
+						<h3>Klassifikation, Merkmale</h3>
+						<table>
+							<tr>
+								<td><img src="img/features3.png" width="300" /></td>
+								<td class="top">
+									<p><small>2 Klassen: historical, sentimental</small></p>
+									<p><small>für die Entscheidung wichtiges Merkmal:</small></p>
+									<ol>
+										<li>Topic 43<br />
+											<small>ejército-enemigo-prisionero
+												(Heer-Feind-Gefangener)<br /> → <em>historical</em>
+												vs. <em>sentimental</em></small></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h3>Klassifikation</h3>
+						<ul>
+							<li>mehr verschiedene Untergattungen machen die Entscheidung
+								schwieriger</li>
+							<li>besonders gut klappt es bei historischen vs. sentimentalen
+								Romanen</li>
+							<li>schon mit wenigen, charakteristischen Topics aus dem Topic-Modell
+								können verschiedene Arten von Romanen relativ gut unterschieden
+								werden; es sind nicht alle Topics nötig</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Clustering</h3>
+						<p>Ziel: Überprüfen, ob Romane sich auf der Grundlage<br /> (zunächst aller)
+							ihrer Themen nach den Untergattungen gruppieren<br /> (ohne dass die
+							Untergattungen vorher festgelegt sind)</p>
+					</section>
+					<section>
+						<h3>Clustering</h3>
+						<ul>
+							<li>hier verwendet: k-means</li>
+							<li>mit Python und der Bibliothek <em>sklearn</em></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Clustering</h3>
+						<p><small>3 Cluster | 95 Romane<br />3 Untergattungen: historical (39),
+								sentimental (33), costumbrista (23)</small></p>
+						<img src="img/cluster1.png" width="650" />
+						<p><small>(eigene Darstellung, mit <em>pygal</em>)</small></p>
+					</section>
+					<section>
+						<h3>Clustering</h3>
+						<p><small>5 Cluster | 95 Romane<br />3 Untergattungen: historical (39),
+								sentimental (33), costumbrista (23)</small></p>
+						<img src="img/cluster3.png" width="650" />
+						<p><small>(eigene Darstellung, mit <em>pygal</em>)</small></p>
+					</section>
+					<section>
+						<h3>Clustering</h3>
+						<p><small>7 Cluster | 95 Romane<br />3 Untergattungen: historical (39),
+								sentimental (33), costumbrista (23)</small></p>
+						<img src="img/cluster2.png" width="650" />
+						<p><small>(eigene Darstellung, mit <em>pygal</em>)</small></p>
+					</section>
+					<section>
+						<h3>Clustering</h3>
+						<ul>
+							<li>wird die Clusterzahl entsprechend der Zahl der (angenommenen)
+								Untergattungen gewählt, passen die sich ergebenden Gruppen nicht zu
+								den Untergattungen</li>
+							<li><span style="text-decoration: underline;">Annahme</span>: weitere
+								Differenzierung könnte helfen → Erhöhung der Clusterzahl</li>
+							<li><span style="text-decoration: underline;">aber</span>: auch bei mehr
+								Clustern als (angenommenen) Untergattungen ergeben sich kaum
+								"saubere" Gruppen (in denen nur Romane eines Typs vorkommen)</li>
+							<li><span style="text-decoration: underline;">auffällig</span>: immer
+								ein besonders großer Cluster (von <em>mainstream</em>-Romanen?)</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Fazit</h2>
+					</section>
+					<section>
+						<h3>Fazit I</h3>
+						<ul>
+							<li>Mit Hilfe von Topic-Modeling lassen sich verschiedene Roman-Typen
+								beschreiben</li>
+							<li>Geht man von bekannten Roman-Untergattungen aus... <ul>
+									<li class="dash">lassen sich manche von ihnen gut als <span
+											style="text-decoration: underline;"
+											>Topic-Modell-Klassen</span> abbilden, z.B. historische
+										Romane vs. sentimentale Romane</li>
+									<li class="dash">ist dies bei anderen Untergattungen viel
+										schwieriger, z.B. bei kostumbristischen Romane und
+										Gesellschaftsromanen</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Fazit II</h3>
+						<ul>
+							<li><span style="text-decoration: underline;">(offene)
+									Topic-Cluster</span> statt (geschlossenen) Klassen: Zuordnung zu
+								bekannten Untergattungen immer noch schwierig</li>
+							<li>näher zu untersuchen: <ul>
+									<li class="dash">möglicherweise ist das Gewicht einzelner,
+										charakteristischer Topics aussagekräftiger als die
+										Verteilung aller Topics aus dem Topic-Modell in den
+										Romanen</li>
+									<li class="dash">was passiert, wenn man andere Text-Merkmale
+										(über Topics hinaus oder statt Topics) hinzunimmmt</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Fazit III</h3>
+						<ul>
+							<li>Für (die hispanoamerikanischen) Roman-Untergattungen könnte das
+								bedeuten, dass... <ul>
+									<li class="dash">die Zuordnung einzelner Romane zu
+										Untergattungen überprüft werden muss</li>
+									<li class="dash">weitere Gattungsmodelle in Betracht gezogen
+										werden müssen <ul>
+											<li class="dash">prototypische vs. randständige
+												Vertreter?</li>
+											<li class="dash">Frage nach Mischgattungen (insb. hist.
+												+ sent.)</li>
+										</ul>
+									</li>
+									<li class="dash">zumindest bestimmte Untergattungen für die
+										Texte eine geringere Rolle spielen als andere</li>
+									<li class="dash">es zwar Text-Typen gibt, die näher untersucht
+										werden können, diese aber nicht unbedingt mit Untergattungen
+										gleichzusetzen sind</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Literaturhinweise</h3>
+						<ul class="small">
+							<li>Blei, David M. (2012): "Probabilistic Topic Models." In:
+									<em>Communications of the ACM</em> 55.4.
+								doi:10.1145/2133806.2133826.</li>
+							<li>Goldstone, Andrew (2013-2015): "DFR-browser". <a
+									href="http://agoldst.github.io/dfr-browser/" target="_blank"
+									>http://agoldst.github.io/dfr-browser/</a></li>
+							<li>Hempfer, Klaus W. (2010): "Zum begrifflichen Status der
+								Gattungsbegriffe: Von 'Klassen' zu 'Familienähnlichkeiten' und
+								'Prototypen'". In: <em>Zeitschrift für französische Sprache und
+									Literatur</em> 120, 14-32.</li>
+							<li>McCallum, Andrew Kachites (2002): "MALLET: A Machine Learning for
+								Language Toolkit." <a href="http://mallet.cs.umass.edu/"
+									target="_blank">http://mallet.cs.umass.edu/</a></li>
+							<li>Pedregosa et al. (2011): "Scikit-learn: Machine Learning in Python".
+								In: <em>Journal of Machine Learning Research</em> 12, 2825-2830. <a
+									href="http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html"
+									target="_blank"
+									>http://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html</a></li>
+							<li>Řehůřek, Radim und Sojka, Petr (2012): "Software Framework for Topic
+								Modelling with Large Corpora". In: <em>Proceedings of the LREC 2010
+									Workshop on New Challenges for NLP Frameworks</em>, 45-50. <a
+									href="http://is.muni.cz/publication/884893/en" target="_blank"
+									>http://is.muni.cz/publication/884893/en</a></li>
+							<li>Schöch, Christof (2015): "Topic Modeling Workflow in Python" (tmw).
+								Version 0.2.0. Würzburg: CLiGS. <a
+									href="https://github.com/cligs/tmw" target="_blank"
+									>https://github.com/cligs/tmw</a></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Vielen Dank!</h3>
+						<p>Folien: <a href="https://hennyu.github.io/dh_coll_17"
+								>https://hennyu.github.io/dh_coll_17</a></p>
+						<p>CLiGS-Gruppe: <a href="http://cligs.hypotheses.org/" target="_blank"
+								>http://cligs.hypotheses.de/</a></p>
+						<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+								>CC-BY 4.0</a></p>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+		    controls: true,
+		    progress: true,
+		    history: true,
+		    center: true,
+		    transition: 'slide', // none/fade/slide/convex/concave/zoom
+		    // Optional reveal.js plugins
+		    dependencies: [
+		        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+		        { src: '../reveal/plugin/notes/notes.js', async: true }
+		        ]
+		    });
+		</script>
+	</body>
+</html>
