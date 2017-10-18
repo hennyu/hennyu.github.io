@@ -78,8 +78,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                         <img height="40" src="img/basics/BMBF.jpg" class="logo" />
                     </p>
                     <aside class="notes">
-						<p>Buenos días. Me alegro mucho de que tenga la oportunidad de presentar el proyecto Bib-ACMé en este congreso.</p>
-						<p>La bibliografía digital que voy a presentar hoy forma parte de mi proyecto de tesis doctoral sobre subgéneros de novelas hispanoamericanas del siglo diecinueve.</p>
+						<p>Buenos días. Me alegro mucho de que tenga la oportunidad de presentar el proyecto Bib-ACMé en este congreso. Cómo no soy hablante nativa del español, he preferido preparar mi ponencia en vez de hablar libremente y espero que, no obstante, se me pueda seguir bien.</p>
+						<p>La bibliografía digital que voy a presentar hoy, forma parte de mi proyecto de tesis doctoral sobre subgéneros de novelas hispanoamericanas del siglo diecinueve.</p>
 						<p>En un contexto más amplio, Bib-ACMé se encaja dentro del proyecto de marco CLiGS (un grupo de investigación que trabaja en la „Estilística computacional del género literario“) y que está basado en la Universidad de Würzburg en Alemania.</p>
                     </aside>
                 </section>
@@ -96,7 +96,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                         </li>
                         <li>Conclusiones y perspectivas</li>
                     </ul>
-                    <aside class="notes"></aside>
+                    <aside class="notes">
+						<p>Mi presentación tiene las siguientes partes:</p>
+						<p>Primero, me gustaría remitir al campo general de las bibliografías digitales, para explicar las necesidades que llevaron a la creación de Bib-ACMé.</p>
+						<p>Luego, quiero bosquejar los objetivos de Bib-ACMé, los fuentes que se consultaron para la bibliografía y los criterios de selección que se aplicaron.</p>
+						<p>Voy a hacer algunas observaciones acerca del modelo de datos detrás de Bib-ACMé y concluir con la presentación de la aplicación web y algunos análisis que desarrollé a partir de los datos básicos de la bibliografía.</p>
+                    </aside>
                 </section>
 				<section>
 					<h2>¿Bibliografías digitales?</h2>
@@ -120,13 +125,33 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							</td>
 						</tr>
 					</table>
-					
+					<aside class="notes">
+						<p>Las bibliografías, ya están digitales?</p>
+						<p>Aparentemente, sí.</p>
+						<p>Somos muchos los que ya estamos acostumbrados a trabajar con gestores de referencias bibliográficas como Zotero, EndNote o Citavi, los que permiten hacer búsquedas y exportar las referencias bibliográficas en diferentes formatos.</p>
+						<p>Asimismo, la gran mayoría de los catálogos de bibliotecas está digitalizada, por ejemplo el <em>catálogo de la Biblioteca Nacional de la República Argentina</em>.</p>
+						<p>Además, hay portales digitales que se basan en diccionarios bibliográficos, como la <em>Enciclopedia de la Literatura en México</em>.</p>
+						<p>Algunas de las obras bibliográficas que no están integradas en portales o catálogos sistemáticos y estructurados, por lo menos se han digitalizado y se ofrecen, o en formato HTML (como en el caso del <em>Diccionario de la literatura cubana</em> en Cervantes Virtual) o en un PDF escaneado (como en el caso de la <em>Bibliografía Cubana del Siglo XIX</em> de Carlos Trelles).</p>
+						<p>Sin embargo, todavía hay bastante que desear:</p>
+						<p>Hay mucho más bibliografías, sobre todo históricas o especializadas, que sólo existen en formato impreso. Si nos limitamos a lo que encontramos en las bibliografías digitales corrientes, nos perdimos mucho.</p>
+						<p>Las bibliografías que existen en formato digital no son necesariamente adecuados para accesos analíticos, automatizados, por ejemplo en casos, en que sólo se ofrecen motores visuales de búsqueda, pero no interfaces técnicos.</p>
+						<p>Otro punto es que a veces no se sabe nada sobre los criterios de selección y clasificación de los datos, que se encuentran en los portales y diccionarios de literatura digitales.</p>
+					</aside>
 				</section>
 				<section>
 					<section>
 						<h2>Bib-ACMé</h2>
 						<em>Bibliografía digital de novelas argentinas, cubanas y mexicanas (1810-1930)</em>
 						<br/><br/><small><a href="http://bibacme.cligs.digital-humanities.de" target="_blank">http://bibacme.cligs.digital-humanities.de</a></small>
+						<aside class="notes">
+							<p>Las razones por las cuales compilé la <em>Bibliografía digital de novelas argentinas, cubanas y mexicanas</em> (o Bib-ACMé, en forma abreviada), son las siguientes:</p>
+							<p>Para mi tesis estoy analizando un corpus electrónico de novelas decimonónicas hispanoamericanas con métodos cuantitativos. El interés no se centra por tanto en autores u obras individuales o canónicas, sino en la multitud de textos producidos durante todo el siglo.</p>
+							<p>Al final, el fin del trabajo es poder presentar resultados que se puedan relacionar con la historia de la literatura correspondiente.</p>
+							<p>Pero, obviamente, no va a ser posible crear un corpus completo, que refleje la producción entera de las novelas en los tres países escogidos.</p>
+							<p>Sin embargo, para poder interpretar los resultados de los análisis adecuadamente, es importante tener al menos una idea de cuántas obras fueron publicadas por cuántos autores, en cuántas ediciones, y también, cuándo y dónde se publicaron – y poder ver cuáles de ellas forman parte del corpus a mano.</p>
+							<p>En estadística, la totalidad de las obras sobre las que se pretende decir algo, se llamaría <em>población</em> o <em>universo</em>. La parte de las obras presentes en el corpus que efectivamente se analizan se llamaría el <em>muestreo</em>.</p>
+							<p>Una manera de acercarse al <em>universo</em> de las novelas hispanoamericanas es utilizar informaciones bibliográficas, lo que he hecho compilando la bibliografía digital Bib-ACMé que aquí se presenta.</p>
+						</aside>
 					</section>
 					<section>
                         <h3>Objetivos</h3>
@@ -136,7 +161,13 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                             <li>permitir <strong>comparar un corpus</strong> determinado de novelas con el conjunto de novelas de referencia (<em>población estadística</em>)</li>
                             <li>facilitar el <strong>análisis</strong> de los datos bibliográficos desde diversas perspectivas y de manera automática y cuantitativa</li>
                         </ul>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Los objetivos de Bib-ACMé son entonces de</p>
+							<p><strong>reunir</strong> datos bibliográficos sobre novelas argentinas, cubanas y mexicanas que se publicaron entre 1830 y 1910</p>
+							<p>hacer posible una <strong>visión amplia y general</strong> de las publicaciones del período</p>
+							<p>permitir <strong>comparar el corpus</strong> con el conjunto de novelas de referencia, y</p>
+							<p>facilitar el <strong>análisis</strong> de los datos bibliográficos desde diversas perspectivas y de manera automática y cuantitativa</p>
+                        </aside>
                     </section>
                     <section>
                         <h3>Fuentes</h3>
@@ -154,7 +185,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							<br/><small>Internet Archive</small>
 							<br/><small>Wikisource</small>
                         </ul>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Las fuentes que consulté para obtener las informaciones bibliográficas relevantes, fueron por un lado bibliografías impresas.</p>
+							<p>También consulté publicaciones bibliográficos accesibles en formato digital.</p>
+							<p>Para obras que no aparecen en las bibliografías mencionadas, pero que todavía son relevantes, consulté además archivos digitales generales, como <em>Hathi Trust Digital Library</em>, el <em>Internet Archive</em> y <em>Wikisource</em>.</p>
+                        </aside>
                     </section>
                     <section>
 						<h3>Criterios de selección</h3>
@@ -163,6 +198,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							<li>Novelas de autores de origen argentino, cubano, mexicano</li>
 							<li>Novelas publicadas en Argentina, Cuba, México &amp; entre 1830 y 1910</li>
 						</ul>
+						<aside class="notes">
+							<p>Para poder combinar y unificar las informaciones sacadas de las diferentes fuentes bibliográficas, y también para que sean comparables con los fines del corpus de novelas asociado con la bibliografía, fue necesario determinar <strong>criterios de selección</strong>. Porque algunas de las bibliografías existentes, reúnen literatura de todo tipo (y no sólo novelas) – e incluso los que sólo registran novelas, están basadas en criterios diversos de selección.</p>
+							<p>Los criterios que he seguido para Bib-ACMé fueron los siguientes:</p>
+							<p>Por <strong>novela</strong> se entiende una obra literaria narrativa escrita predominantemente en prosa y de una cierta extensión.</p>
+							<p>Se incluyen novelas largas con más de 35.000 palabras, y también novelas cortas, con un número de palabras entre 5 y 35.000 palabras. Este criterio se aplicó siempre cuando fue posible verificar el número de palabras de una novela, consultando su <em>full text</em>.</p>
+							<p>En los casos en que esto no fue posible, se tomó en cuenta si la edición llevaba la palabra „novela“ en el título o subtítulo, y también, si se considera novela en la crítica literaria.</p>
+							<p>Sólo se incluyeron novelas que fueron publicadas entre los años 1830 y 1910, y que fueron publicadas en los países Argentina, Cuba y México, o bien, por autores de origen argentino, cubano y mexicano.</p>
+						</aside>
                     </section>
                     <section>
                         <h3>Modelo de datos</h3>
@@ -173,25 +216,41 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                         </ul>
                         <br/><br/>
                         <small>Download:<br/> <a href="http://bibacme.cligs.digital-humanities.de/sobre/datos" target="_blank">http://bibacme.cligs.digital-humanities.de/sobre/datos</a></small>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Codificé los datos bibliográficos seleccionados en TEI, siguiendo un modelo que se basa en los conceptos de FRBR [= Requerimientos funcionales para registros bibliográficos].</p>
+							<p>El primer concepto es el del <strong>autor</strong>. El autor es la persona responsable del contenido artístico de la novela.</p>
+							<p>El segundo concepto es la <strong>obra</strong>, que es el producto de la creación artística.</p>
+							<p>El tercer concepto que se utiliza es la <strong>edición</strong>. Este concepto no se relaciona directamente con una de las definiciones en FRBR, sino que combina aspectos de la <strong>expresión</strong> (que en FRBR es la „realización artística de una obra“ = edición separada), así como de la <strong>manifestación</strong> (que en es FRBR la „materialización física de una expresión de una obra“ = subsiguiente tirada).</p>
+							<p>Por la falta de tiempo no puedo mostrar o discutir más detalles de la codificación en TEI, pero para quienes estén interesados, se puede hacer un <em>download</em> de todos los datos sobre autores, obras y ediciones en la página web de Bib-ACMé.</p>
+                        </aside>
                     </section>
                     <section>
                         <h3>Aplicación web</h3>
                         <p><a href="http://bibacme.cligs.digital-humanities.de" target="_blank">http://bibacme.cligs.digital-humanities.de</a></p>
                         <img src="img/fig6.png" width="700"/>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>A partir de los datos codificados en TEI, desarrollé una aplicación web, la cual incluye una documentación básica de los fines de la bibliografía, de sus fuentes, y de los procedimientos seguidos en su creación.</p>
+							<p>Los elementos centrales del menú de la página web corresponden al modelo de datos subyacente, así que se puede navegar por autores, obras y ediciones.</p>
+						</aside>
                     </section>
                     <section>
                         <h3>Aplicación web: Búsqueda</h3>
                         <img src="img/fig7.png" width="500"/>
                         <p><small><a href="http://bibacme.cligs.digital-humanities.de/ediciones?letra=&obra=&autor=Fernández+de+Lizardi,+José+Joaquín&decada=1840&pais=MX&orden=cronologico#" target="_blank">http://bibacme.cligs.digital-humanities.de/ediciones?letra=&amp;obra=&amp;autor=Fernández+de+Lizardi,+José+Joaquín&amp;decada=1840&amp;pais=MX&amp;orden=cronologico#</a></small></p>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Con una función de búsqueda simples, es posible filtrar las entradas en las listas de autores, de obras y de ediciones según varios criterios, por ejemplo el nombre del autor, la década y el país de publicación de la obra.</p>
+							<p>El ejemplo dado es una búsqueda por las ediciones de obras escritas por el autor José Joaquín Fernández de Lizardi, que se publicaron en México, en la década de los años 1830 a 1840.</p>
+							<p>Si bien hay posibilidades de navegación y búsqueda en la página web de Bib-ACMé, quiero destacar que el objetivo principal de este proyecto no fue ofrecer una aplicación web muy desarrollada en términos de usabilidad fácil – por esto, por ejemplo, no hay ninguna función de búsqueda de texto completo –, sino que el fin de Bib-ACMé fue sobre todo la creación y oferta de los datos básicos bibliográficos para que se puedan explorar analíticamente.</p>
+                        </aside>
                     </section>
                     <section>
                         <h3>Análisis: Autores por sexo</h3>
                         <img src="img/fig8.png" width="400"/>
                         <p><small><a href="http://bibacme.cligs.digital-humanities.de/sinopsis/autores-por-sexo" target="_blank">http://bibacme.cligs.digital-humanities.de/sinopsis/autores-por-sexo</a></small></p>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Realizé ya algunos de los análisis evidentes. Aquí vemos, por ejemplo, los porcentajes de autores masculinos y femeninos de las obras en la bibliografía. El 92.8 % de los autores son hombres y sólo un 5.3 % son mujeres.</p>
+							<p>En algunos casos, no se podía verificar el sexo de los autores – por ejemplo de los autores anónimos. – <em>nota bene</em>, una pregunta interesante es cómo tratar y identificar a los autores anónimos en la bibliografía. Actualmente, el o la autora Anónima es una ecritora prolífica, porque tiene quince obras registradas en Bib-ACMé.</p>
+                        </aside>
                     </section>
                     <section>
                         <h3>Análisis: Obras por año</h3>
@@ -210,19 +269,27 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							</tr>
                         </table>
                         <p><small><a href="http://bibacme.cligs.digital-humanities.de/sinopsis/obras-por-ano" target="_blank">http://bibacme.cligs.digital-humanities.de/sinopsis/obras-por-ano</a></small></p>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Otro tipo de sinopsis es la que vemos en esta diapositiva: Cuántas obras se publicaron a lo largo del siglo diecinueve en Argentina, Cuba y México? Lo que aquí se contó fueron sólo las primeras ediciones de cada obra.</p>
+							<p>Lo que vemos es que la mayoría de las obras se publicó en México y que la novela se desarrolla sobre todo a partir de la mitad del siglo, en México y también en Argentina, al menos cuando se consideran las cantidades de novelas nuevas que se publicaron.</p>
+							<p>En Cuba, por el contrario, las cantidades son más estables y hay más novelas publicadas tempranamente. Será porque Cuba tenía un intercambio constante con funcionarios y escritores españoles y porque siguió ser colonia hasta finales del siglo? Otra posibilidad es que todavía faltan informaciones bibliográficas relevantes para Cuba.</p>
+					    </aside>
                     </section>
                     <section>
                         <h3>Análisis: Obras por autor</h3>
                         <img src="img/fig12.png" width="800"/>
                         <p><small><a href="http://bibacme.cligs.digital-humanities.de/sinopsis/obras-por-autor" target="_blank">http://bibacme.cligs.digital-humanities.de/sinopsis/obras-por-autor</a></small></p>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Qué más se puede sacar de los datos bibliográficos? Por ejemplo, preguntar cuántas obras publicó el autor típico en el siglo diecinueve. La respuesta es: una! [276 autores] Y quién es el o la autora que publicó 34 novelas? Es el argentino Eduardo Gutiérrez que popularizó la novela gauchesca.</p>
+						</aside>
                     </section>
                     <section>
                         <h3>Análisis: Ediciones por obra</h3>
                         <img src="img/fig13.png" width="700"/>
                         <p><small><a href="http://bibacme.cligs.digital-humanities.de/sinopsis/ediciones-por-obra" target="_blank">http://bibacme.cligs.digital-humanities.de/sinopsis/ediciones-por-obra</a></small></p>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Cuántas ediciones se publicaron por obra? En la mayoría de los casos [952]: una! Lo que se ve es que los autores prolíficos o al menos los autores publicados prolíficamente son la excepción.</p>
+						</aside>
                     </section>
                     <section>
                         <h3>Análisis: corpus vs. bibliografía</h3>
@@ -230,12 +297,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							<li>220 Novelas en el corpus</li>
 							<li>Bibliografía: 488 autores, 1274 obras, 1779 ediciones</li>
                         </ul>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Finalmente, queda la comparación del corpus de textos de la tesis con el número de textos en la bibliografía. Actualmente, el corpus consiste de 220 novelas. La bibliografía, en comparación, consta de 1274 obras, como seis veces más de la cantidad de novelas en el corpus.</p>
+                        </aside>
                     </section>
                     <section>
                         <h3>Análisis: corpus vs. bibliografía</h3>
                         <img src="img/fig14.png" width="700"/>
-                        <aside class="notes"></aside>
+                        <aside class="notes">
+							<p>Si se comparan las cantidades de novelas en el corpus con las de la bibliografía por décadas, se nota que la década de los años 30 está comparablemente infrarepresentada en el corpus [con un 6 %], mientras que la década de los años 60 está comparablemente sobrerepresentada [con un 24 %]. El promedio es de un 18%.</p>
+                        </aside>
                     </section>
                 </section>
                 <section>
@@ -249,7 +320,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							de la información bibliográfica en contextos científicos digitales.</li>
 							<li>¿<strong>Workflow</strong>: libro impreso - escaneo - OCR - TEI?</li>
 						</ul>
-						<aside class="notes"></aside>
+						<aside class="notes">
+							<p>Por lo dicho, estoy por un lado muy agradecida por los esfuerzos que se han hecho hasta ahora en la creación y oferta de bibliografías digitales.</p>
+							<p>Pero, por otro lado, quiero también advocar por la orientación futura de estos esfuerzos en las direcciones siguientes, con el fin de apoyar investigaciones históricas basadas en datos bibliográficos:</p>
+							<p>Primero, la concentración en los DATOS BÁSICOS, en la creación de MODELOS de datos bibliográficos diferenciados y significativos (por ejemplo codificados en formato XML-TEI), en las que las categorías utilizadas están explicados detalladamente y en las que también se codifican informaciones incompletos, dudosos y alternativos.</p>
+							<p>Segundo, la concentración en los DATOS implica asimismo la oferta de los mismos en interfaces técnicos, que van más allá de una búsqueda individual y que son accesibles a análisis computacionales y cuantitativos.</p>
+							<p>A este respecto, espero que los datos creados en Bib-ACMé serán útiles en otros contextos más allá del proyecto CLiGS, para el cual fueron preparados inicialmente.</p>
+							<p>Finalmente, un deseo para el futuro sería el desarrollo de WORKFLOWS para la digitalización de más obras bibliográficas, que actualmente sólo existen en formato impreso, en el sentido de una extracción automática de las informaciones estructurados (como el autor, título, año y lugar de una publicación).</p>
+						</aside>
 					</section>
 			    </section>
 				<section>
@@ -261,6 +339,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							>http://cligs.hypotheses.de/</a></p>
 					<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
 							>CC-BY 4.0</a></p>
+					<aside class="notes">
+						<p>Con esto quiero concluir, y muchas gracias por la atención!</p>
+					</aside>
 				</section>
                 </section>
             </div>
