@@ -1,0 +1,284 @@
+<html>
+    <head>
+        <title>Bib-ACMé: Bibliografía digital de novelas argentinas, cubanas y mexicanas (1810-1930)</title>
+        <meta name="author" content="Ulrike Henny-Krahmer" />
+        <meta name="description" content="Slides" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../reveal/css/reveal.css" />
+        <link rel="stylesheet" href="../reveal/css/theme/sky_custom.css" />
+        <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+        <style type="text/css">
+            .reveal .slides{
+                font-size: 24pt;
+            }
+            .reveal small,
+            .reveal ul.small,
+            .reveal table.small{
+                font-size: 0.7em;
+            }
+            .reveal ul.middle {
+				font-size: 0.8em;
+			}
+			.reveal ul.middle li {
+				margin-bottom: 0.7em;
+			}
+            .reveal h1{
+                font-size: 1.6em;
+            }
+            .reveal h2{
+                font-size: 1.5em;
+            }
+            .reveal img.logo{
+                margin: 0 0.25em;
+            }
+            .reveal section img{
+                border: none;
+                vertical-align: bottom;
+                margin: 0;
+            }
+            .reveal td.middle{
+                vertical-align: middle;
+            }
+            .reveal li{
+                margin: 0.2em 0;
+            }
+            .reveal li li{
+                font-size: smaller;
+            }
+            .reveal a{
+                color: #762E9E;
+            }</style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h2><em>Bib-ACMé:</em></h2>
+                    <h1>Bibliografía digital de novelas argentinas, cubanas y mexicanas (1810-1930)</h1>
+                    <hr />
+                    <small>Ulrike Henny-Krahmer<br />(CLiGS, Universidad Würzburg, Alemania)</small>
+                    <br />
+                    <br />
+                    <small>HDH2017 "Sociedades, políticas, saberes"<br />Málaga, 19 de Octubre, 2017</small>
+                    <br />
+                    <br />
+                    <small>Diapositivas en: <a href="https://hennyu.github.io/dgavl_17"
+                            >https://hennyu.github.io/hdh_17</a></small>
+                    <br />
+                    <hr />
+                    <p>
+                        <img height="40" src="img/basics/UWUE.jpg" class="logo" />
+                        <img height="80" src="img/basics/CLiGS.jpg" class="logo" />
+                        <img height="40" src="img/basics/BMBF.jpg" class="logo" />
+                    </p>
+                </section>
+                <section>
+                    <h2>Índice</h2>
+                    <ul>
+                        <li>¿Bibliografías digitales?</li>
+                        <li>Bib-ACMé<ul>
+                                <li>Objetivos</li>
+                                <li>Fuentes &amp; criterios de seleccíon</li>
+                                <li>Modelo de datos</li>
+                                <li>Aplicación web &amp; análisis</li>
+                            </ul>
+                        </li>
+                        <li>Conclusiones y perspectivas</li>
+                    </ul>
+                    <aside class="notes"></aside>
+                </section>
+				<section>
+					<h2>¿Bibliografías digitales?</h2>
+					<table>
+						<tr>
+							<td>
+								<img src="img/fig3.png" width="300" />
+								<br/><small><em>Carlos Trelles: Bibliografía Cubana del Siglo XIX</em></small>
+							</td>
+							<td style="vertical-align: top; text-align: center;">
+								<img src="img/fig5.png" width="150" />
+								<br/><small><em>Diccionario de la literatura cubana (en Cervantes Virtual)</em></small>
+								<br/><br/><img src="img/fig1.png" width="500" />
+								<br/><small><em>Software Zotero</em></small>
+							</td>
+							<td style="vertical-align: top;">
+								<img src="img/fig2.png" width="500" />
+								<br/><small><em>Enciclopedia de la Literatura en México (elem.mx)</em></small>
+								<br/><br/><img src="img/fig4.png" width="300" />
+								<br/><small><em>Biblioteca Nacional de la República Argentina</em></small>
+							</td>
+						</tr>
+					</table>
+					
+				</section>
+				<section>
+					<section>
+						<h2>Bib-ACMé</h2>
+						<em>Bibliografía digital de novelas argentinas, cubanas y mexicanas (1810-1930)</em>
+						<br/><br/><small><a href="http://bibacme.cligs.digital-humanities.de" target="_blank">http://bibacme.cligs.digital-humanities.de</a></small>
+					</section>
+					<section>
+                        <h3>Objetivos</h3>
+                        <ul class="middle">
+                            <li><strong>reunir datos bibliográficos</strong> sobre novelas argentinas, cubanas y mexicanas que se publicaron entre 1830 y 1910</li>
+                            <li>hacer posible una <strong>visión amplia y general</strong> de las publicaciones del período</li>
+                            <li>permitir <strong>comparar un corpus</strong> determinado de novelas con el conjunto de novelas de referencia (<em>población estadística</em>)</li>
+                            <li>facilitar el <strong>análisis</strong> de los datos bibliográficos desde diversas perspectivas y de manera automática y cuantitativa</li>
+                        </ul>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+                        <h3>Fuentes</h3>
+                        <p>Bibliografías impresas:</p>
+                            <small>Iguiniz: <em>Bibliografía de novelistas mexicanos: ensayo biográfico, bibliográfico y crítico</em>, 1926.</small>
+                            <br/><small>Torres-Rioseco: <em>Bibliografía de la novela mejicana</em>, 1933.</small>
+                            <br/><small>Lichtblau: <em>The Argentine Novel: an annotated bibliography</em>, 1997.</small>
+                        </ul>
+                        <p>Diccionarios bibliográficos digitales:</p>
+							<small><em>Diccionario de la literatura cubana</em>, 1999.</small>
+							<br/><small><em>Enciclopedia de la literatura en México</em>, 2016.</small>
+                        </ul>
+                        <p>Además:</p>
+							<small>HathiTrust Digital Library</small>
+							<br/><small>Internet Archive</small>
+							<br/><small>Wikisource</small>
+                        </ul>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+						<h3>Criterios de selección</h3>
+						<ul>
+							<li>Novelas cortas (5-35.000 palabras) y largas (&gt; 35.000 palabras)</li>
+							<li>Novelas de autores de origen argentino, cubano, mexicano</li>
+							<li>Novelas publicadas en Argentina, Cuba, México &amp; entre 1830 y 1910</li>
+						</ul>
+                    </section>
+                    <section>
+                        <h3>Modelo de datos</h3>
+                        <ul>
+                            <li>Modelización de los datos en TEI</li>
+                            <li>Modelo basado en los principios de FRBR</li>
+                            <li>Conceptos básicos: <strong>autores</strong>, <strong>obras</strong>, <strong>ediciones</strong></li>
+                        </ul>
+                        <br/><br/>
+                        <small>Download:<br/> <a href="http://bibacme.cligs.digital-humanities.de/sobre/datos" target="_blank">http://bibacme.cligs.digital-humanities.de/sobre/datos</a></small>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+                        <h3>Aplicación web</h3>
+                        <p><a href="http://bibacme.cligs.digital-humanities.de" target="_blank">http://bibacme.cligs.digital-humanities.de</a></p>
+                        <img src="img/fig6.png" width="700"/>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+                        <h3>Aplicación web: Búsqueda</h3>
+                        <img src="img/fig7.png" width="500"/>
+                        <p><small><a href="http://bibacme.cligs.digital-humanities.de/ediciones?letra=&obra=&autor=Fernández+de+Lizardi,+José+Joaquín&decada=1840&pais=MX&orden=cronologico#" target="_blank">http://bibacme.cligs.digital-humanities.de/ediciones?letra=&amp;obra=&amp;autor=Fernández+de+Lizardi,+José+Joaquín&amp;decada=1840&amp;pais=MX&amp;orden=cronologico#</a></small></p>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+                        <h3>Análisis: Autores por sexo</h3>
+                        <img src="img/fig8.png" width="400"/>
+                        <p><small><a href="http://bibacme.cligs.digital-humanities.de/sinopsis/autores-por-sexo" target="_blank">http://bibacme.cligs.digital-humanities.de/sinopsis/autores-por-sexo</a></small></p>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+                        <h3>Análisis: Obras por año</h3>
+                        <table>
+							<tr>
+								<td style="vertical-align:middle;"><small>Argentina</small></td>
+								<td><img src="img/fig9.png" width="500"/></td>
+							</tr>
+							<tr>
+								<td style="vertical-align:middle;"><small>Cuba</small></td>
+								<td><img src="img/fig10.png" width="500"/></td>
+							</tr>
+							<tr>
+								<td style="vertical-align:middle;"><small>México</small></td>
+								<td><img src="img/fig11.png" width="500"/></td>
+							</tr>
+                        </table>
+                        <p><small><a href="http://bibacme.cligs.digital-humanities.de/sinopsis/obras-por-ano" target="_blank">http://bibacme.cligs.digital-humanities.de/sinopsis/obras-por-ano</a></small></p>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+                        <h3>Análisis: Obras por autor</h3>
+                        <img src="img/fig12.png" width="800"/>
+                        <p><small><a href="http://bibacme.cligs.digital-humanities.de/sinopsis/obras-por-autor" target="_blank">http://bibacme.cligs.digital-humanities.de/sinopsis/obras-por-autor</a></small></p>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+                        <h3>Análisis: Ediciones por obra</h3>
+                        <img src="img/fig13.png" width="700"/>
+                        <p><small><a href="http://bibacme.cligs.digital-humanities.de/sinopsis/ediciones-por-obra" target="_blank">http://bibacme.cligs.digital-humanities.de/sinopsis/ediciones-por-obra</a></small></p>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+                        <h3>Análisis: corpus vs. bibliografía</h3>
+                        <ul>
+							<li>220 Novelas en el corpus</li>
+							<li>Bibliografía: 488 autores, 1274 obras, 1779 ediciones</li>
+                        </ul>
+                        <aside class="notes"></aside>
+                    </section>
+                    <section>
+                        <h3>Análisis: corpus vs. bibliografía</h3>
+                        <img src="img/fig14.png" width="800"/>
+                        <aside class="notes"></aside>
+                    </section>
+                </section>
+                <section>
+					<section>
+						<h2>Conclusiones y perspectivas</h2>
+						<ul class="middle">
+							<li>El <strong>modelo de datos</strong> puede considerarse el fundamento para una bibliografía digital aprovechable en análisis formales e
+							investigaciones sensibles a determinados conceptos bibliográficos (como lo son por ejemplo "autor", "obra", "edición").</li>
+							<li>La <strong>TEI</strong> es uno de los formatos que pueden cumplir estos puntos esenciales.</li>
+							<li>Por consecuencia, el <strong>acceso</strong> al conjunto de los datos en su formato básico es esencial para permitir la (re)utilización
+							de la información bibliográfica en contextos científicos digitales.</li>
+							<li>¿<strong>Workflow</strong>: libro impreso - escaneo - OCR - TEI?</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+			    </section>
+				<section>
+					<h2>¡Gracias por la atención!</h2>
+					<p>Diapositivas en: <a href="https://hennyu.github.io/hdh_17"
+							>https://hennyu.github.io/dgavl_17</a></p>
+					<p>Bib-ACMé: <a href="http://bibacme.cligs.digital-humanities.de/" target="_blank">http://bibacme.cligs.digital-humanities.de/</a></p>
+					<p>CLiGS: <a href="http://cligs.hypotheses.org/" target="_blank"
+							>http://cligs.hypotheses.de/</a></p>
+					<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+							>CC-BY 4.0</a></p>
+				</section>
+                </section>
+            </div>
+        </div>
+        <script src="../reveal/lib/js/head.min.js"></script>
+        <script src="../reveal/js/reveal.js"></script>
+        <script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+    </body>
+</html>
