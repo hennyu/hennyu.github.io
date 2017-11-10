@@ -1,0 +1,898 @@
+<html>
+    <head>
+        <title>Introduction to Topic Modeling for literary texts</title>
+        <meta name="author" content="Ulrike Henny-Krahmer" />
+        <meta name="description" content="Slides" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../reveal/css/reveal.css" />
+        <link rel="stylesheet" href="../reveal/css/theme/serif.css" />
+        <!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+        <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+        <style type="text/css">
+            .reveal .slides{
+                font-size: 24pt;
+            }
+            .reveal small,
+            .reveal ul.small,
+            .reveal table.small{
+                font-size: 0.7em;
+            }
+            .reveal ul.middle {
+				font-size: 0.8em;
+			}
+			.reveal ul.middle li {
+				margin-bottom: 0.7em;
+			}
+			
+            .reveal h1{
+                font-size: 1.6em;
+            }
+            .reveal h2, .reveal h3, .reveal h4{
+                font-size: 1.5em;
+            } 
+            .reveal img.logo{
+                margin: 0 0.25em;
+            }
+            .reveal section img{
+                border: none;
+                vertical-align: bottom;
+                margin: 0;
+            }
+            .reveal td.middle{
+                vertical-align: middle;
+            }
+            .reveal li{
+                margin: 0.2em 0;
+            }
+            .reveal li li{
+                font-size: smaller;
+            }
+            .reveal a {
+				color: purple;
+			}
+            </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Introduction to Topic Modeling for literary texts</h1>
+                    <hr />
+                    <small>Ulrike Henny-Krahmer<br />(CLiGS, University of Würzburg, Germany)</small>
+                    <br />
+                    <br />
+                    <small>Workshop at the Symposium "Questioning Models. Intersectionality in Digital Humanities."<br />Cologne, 10 November, 2017</small>
+                    <br />
+                    <br />
+                    <small>Slides at: <a href="https://hennyu.github.io/qum_17"
+                            >https://hennyu.github.io/qum_17</a></small>
+                    <br />
+                    <hr />
+                    <p>
+                        <img height="40" src="img/basics/UWUE.jpg" class="logo" />
+                        <img height="80" src="img/basics/CLiGS.jpg" class="logo" />
+                        <img height="40" src="img/basics/BMBF.jpg" class="logo" />
+                    </p>
+                    <aside class="notes">
+						<p></p>
+					</aside>
+                </section>
+                <section>
+						<h2>Overview</h2>
+						<ul>
+							<li>Introduction</li>
+							<li>Corpus preparation</li>
+							<li>Using MALLET and tmw</li>
+							<li>Post processing, visualization and interpretation of results</li>
+						</ul>
+						<aside class="notes">
+							<p></p>
+						</aside>
+                </section>
+                <section>
+					<section>
+						<h2>Topic Modeling: An Introduction</h2>
+					</section>
+					<section>
+						<h2>Topic Modeling: An Introduction</h2>
+						<ol>
+							<li>What is Topic Modeling and how does it work?</li>
+							<li>Application fields</li>
+						</ol>
+					</section>
+					<section>
+						<h3>1. What is Topic Modeling and how does it work?</h3>
+					</section>
+					<section>
+						<h4>What is Topic Modeling?</h4>
+						<blockquote>"Topic modeling is complicated and potentially messy but useful and even fun. The best way to understand how it works is to try it."</blockquote>
+						<small>
+							(Megan R. Brett, "Topic Modeling: A Basic Introduction")
+						</small>
+					</section>
+					<section>
+						<h4>What is Topic Modeling?</h4>
+						<ul>
+							<li class="fragment fade-in">Topic Modeling is a quantitative method in text analysis</li>
+							<li class="fragment fade-in">distributions of words are detected statistically in a corpus of documents</li>
+							<li class="fragment fade-in">Topic Modeling is especially useful for large collections of texts</li>
+						</ul>
+					</section>
+					<section>
+						<h4>The goal of Topic Modeling is...</h4>
+						<p>...to detect hidden semantic structures.</p>
+					</section>
+					<section>
+						<h4>How does it work?</h4>
+						<p>Basic idea from Distributional Semantics:</p>
+						<blockquote>"a word is characterized by the company it keeps"</blockquote>
+						<small>(John Firth, 1957)</small>
+					</section>
+					<section>
+						<h4>How does it work?</h4>
+						<ul>
+							<li class="fragment fade-in">Topic Modeling identifies automatically recurring themes, motives, discourses</li>
+							<li class="fragment fade-in">important: without explicit semantic knowledge!</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Where does it come from?</h4>
+						<ul>
+							<li>Topic Modeling has primarilly been developed empirically</li>
+							<li>originally developed for Information Retrieval (search for subject-matters)</li>
+							<li>current method, widely-used: LDA (Latent Dirichlet Allocation), 2003</li>
+						</ul>
+						<aside class="notes">
+							<p>precursors: PLSA (Probabilistic Latent Semantic Analysis) / LSI (Latent Semantic Indexing), 1999</p>
+						</aside>
+					</section>
+					<section>
+						<h4>How does it work?</h4>
+						<p><em>basic idea</em></p>
+						<ul>
+							<li>discovers words that occur together again and again, that is, words that occur in similar contexts ⇒ Topics</li>
+							<li>calculates how important each topic is in each document</li>
+						</ul>
+					</section>
+					<section>
+						<h4>How does it work?</h4>
+						<p><em>a little bit more technically</em></p>
+						<ul>
+							<li>a topic is a distribution of probabilities of words</li>
+							<li>a document is a distribution of probabilities of topics</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Words, Topics, Documents</h4>
+						<p><img height="500" data-src="img/tm_blei.png"></img></p>
+						<small>(David Blei, "Probabilistic Topic Models", 2012)</small>
+					</section>
+					<section>
+						<h4>Generative, iterative</h4>
+						<p><em>generative</em></p>
+						<ul>
+							<li>at the heart of the technique is a generative model</li>
+							<li>how could the documents have come into being?</li>
+						</ul>
+						<p><em>iterative</em></p>
+						<pre>
+<code class="hljs groovy">for each __document__ in the collection:
+
+	choose a topic distribution
+
+		for each __word__ in the document:
+
+			choose a topic, to which the word belongs
+			choose a word from the topic
+
+repeat the whole process!</code></pre>
+					</section>
+					<section>
+						<h4>Generative, iterative</h4>
+						<p><img height="500" data-src="img/tm_steyvers1.png"></img></p>
+						<small>(Steyvers and Griffiths, "Probabilistic Topic Modeling", 2006)</small>
+					</section>
+					<section>
+						<h4>Generative, iterative</h4>
+						<p><img height="500" data-src="img/tm_steyvers2.png"></img></p>
+						<small>(Steyvers and Griffiths, "Probabilistic Topic Modeling", 2006)</small>
+						<aside class="notes">
+							<p>As we can see, the good thing about Topic Modeling is that it can deal with homonyms</p>
+						</aside>
+					</section>
+					<section>
+						<h4>And this is how it works exactly:</h4>
+						<p><img height="500" data-src="img/sharris_more-explicit-in-step-two.jpg"></img></p>
+					</section>
+					<section>
+						<h4>And this is how it works exactly...</h4>
+						<iframe src="https://player.vimeo.com/video/53080123" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/53080123">Topic Modeling Workshop: Mimno</a> from <a href="https://vimeo.com/mithinmd">MITH in MD</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+						<aside class="notes">
+							<p>about gibbs sampling starting at minute XXX</p>
+						</aside>
+					</section>
+					<section>
+						<h4>Terms and concepts</h4>
+						<p class="fragment fade-in">The <strong>process</strong> might be a black box.</p>
+						<p class="fragment fade-in">But the <strong>results</strong> are not.</p>
+						<p class="fragment fade-in">And what we <strong>put into</strong> the process, neither!</p>
+						<p class="fragment fade-in"><em>word, topic, document</em> have a special meaning in topic modeling</p>
+						<aside class="notes">
+							<p>Even if we as humanists do not get to understand the process in its entirety, we should be able to interpret the results.</p>
+							<p>For that, we need to understand the definitions of the basic terms and the concepts used in Topic Modeling.</p>
+						</aside>
+					</section>
+					<section>
+						<h4>Terms and concepts</h4>
+						<p><em>words</em></p>
+						<ul>
+							<li>tokens</li>
+							<li>sentences are splitted by tokenization</li>
+							<li>tokens are not always words</li>
+							<li>"Topic Modeling" can also be a token</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Terms and concepts</h4>
+						<p><em>documents</em></p>
+						<ul>
+							<li>not: sequences of words and punctuation marks</li>
+							<li>but: a collection of word counts</li>
+							<li>e.g. ["to" : 2, "be" : 2, "or" : 1, "not" : 1]</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Terms and concepts</h4>
+						<p><em>corpus</em></p>
+						<ul>
+							<li>a collection of documents</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Terms and concepts</h4>
+						<p><em>topics</em></p>
+						<ul>
+							<li>in the underlying model, they are at first not what a text, discourse, conversation is about</li>
+							<li>technically: a probability distribution over a word vocabulary</li>
+						</ul>
+						<p class="fragment fade-in"><strong>important:</strong> before we start topic modeling, we decide ourselves what a <em>word</em> and a <em>document</em> is!</p>
+					</section>
+					<section>
+						<h4>How can topics be understood?</h4>
+						<ul>
+							<li>themes of texts</li>
+							<li>elements of discourse</li>
+							<li>literary motives</li>
+							<li>... ?</li>
+						</ul>
+						<aside class="notes">
+							<p>Anwendung auf literarische Texte verändert die Bedeutung des Wortes "topic".</p>
+						</aside>
+					</section>
+					<section>
+						<h4>How can topics be understood?</h4>
+						<small>examples from Spanish American novels</small>
+						<p>"school"</p>
+						<img height="450" data-src="img/hispam_wordle_tp007.png"></img>
+					</section>
+					<section>
+						<h4>How can topics be understood?</h4>
+						<small>examples from Spanish American novels</small>
+						<p>"travel"</p>
+						<img height="450" data-src="img/hispam_wordle_tp013.png"></img>
+					</section>
+					<section>
+						<h4>How can topics be understood?</h4>
+						<small>examples from Spanish American novels</small>
+						<p>"French intervention in Mexico (1861-1867)"</p>
+						<img height="450" data-src="img/hispam_wordle_tp008.png"></img>
+					</section>
+					<section>
+						<h4>How can topics be understood?</h4>
+						<small>examples from Spanish American novels</small>
+						<p>"description of landscape"</p>
+						<img height="450" data-src="img/hispam_wordle_tp010.png"></img>
+					</section>
+					<section>
+						<h4>How can topics be understood?</h4>
+						<p><small>alternative visualization for <strong>words in topics</strong></small></p>
+						<img height="500" data-src="img/treemap_tp14.svg"></img>
+						<aside class="notes">
+							<p>topic [tab] word [tab] weight</p>
+							<p>where weight is proportional to the probability of the word in the topic. Divide by the sum of the weights for a topic to get the normalized probability.</p>
+						</aside>
+					</section>
+					<section>
+						<h4>How can topics be understood?</h4>
+						<p><small>visualization for <strong>topics in documents</strong></small></p>
+						<img height="500" data-src="img/treemap_nh0004.svg"></img>
+						<p><small><em>Roberto Payró, El falso Inca (Argentina, 1905)</em></small></p>
+						<aside class="notes">
+							<p>La interesante historia de Pedro Chamijo, el "El Falso Inca", escrito en un tono divertido, que no puede ocultar la tragedia que la ignorancia y la brutalidad de los conquistadores españoles representados por las tribus nativas de América del Sur.
+El escenario es el Obispado de Cordoba del Tucumán, sentado en Santiago del Estero de la ciudad, con jurisdicción en la zona de Tarija
+Pedro Chamijo (Sevilla, 1602 – Lima, 3 de enero de 1667), también conocido como Pedro Bohórquez e Inca Hualpa, fue un aventurero español de que tras probar fortuna infructuosamente en diversos oficios en el Perú, logró alrededor de 1656 hacerse coronar como Inca de los calchaquíes, engañando tanto a estos como a los gobernantes y clérigos españoles. Su historia casi legendaria tiene mucho que ver con la picaresca, con final trágico.</p>
+						</aside>
+					</section>
+					<section>
+						<h4>How can topics be understood?</h4>
+						<p><small>The Starry Night (Anne Sexton), in a Topic Model by Lisa Rhody (2012)</small></p>
+						<img height="500" data-src="img/thestarrynight.jpg"></img>
+						<aside class="notes">
+							<p>Rhody: "topic keyword distributions in poetry are not “thematic” in the way that topic models of non-fiction documents are"</p>
+							<p>Wörter aus 3 Topics hervorgehoben</p>
+							<p>grün: night, blau: natural world, gelb: abstraker, intruder words</p>
+							<p>auch wenn grün und blau zunächst thematisch scheinen, sind sie hier so nicht zu werten</p>
+						</aside>
+					</section>
+					<section>
+						<h3>2. Application fields</h3>
+					</section>
+					<section>
+						<h4>Application scenarios</h4>
+						<ul>
+							<li class="fragment fade-in">Information Retrieval: search not for single terms, but for themes / semantic fields</li>
+							<li class="fragment fade-in">Recommender Systems: suggestion of semantically similar research articles</li>
+							<li class="fragment fade-in">Exploration of text collections</li>
+							<li class="fragment fade-in">Questions from literary and cultural history</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Research contributions</h4>
+						<ul>
+							<li class="fragment fade-in">Cameron Blevins: "Topic Modeling Martha Ballard's Diary" (2010): diary, over time</li>
+							<li class="fragment fade-in">Ted Underwood und Andrew Goldstone (2012): "What can topic models of PMLA teach us...": history of disciplines</li>
+							<li class="fragment fade-in">Lisa Rhody, "Topic Modeling and Figurative Language" (2012): poetry, Ekphrasis</li>
+							<li class="fragment fade-in">Matthew Jockers, Macroanalysis (2013): novel, nationality, gender</li>
+							<li class="fragment fade-in">Ben Schmidt: "Typical TV episodes" (2014): TV series, over time</li>
+							<li class="fragment fade-in">Christof Schöch, "Topic Modeling Genre" (2017): drama, subgenres</li>
+						</ul>
+						<aside class="notes">
+							<p>Underwood/Goldstone: wie könnte man die Narrative der Geschichte von Disziplinen subtiler, komplexer machen</p>
+							<p>PMLA: Journal of the Modern Language Association of America, essays on language and literature</p>
+							<p>Strukturalismus Mitte des 20. Jhs.</p>
+							<p>aber die Artikel, in denen dieses Topic sehr wichtig ist, passen nicht dazu, sind nicht besonders "strukturalistisch"</p>
+							<p>- Topic Modeling ZWINGT dazu, auf die KONKRETE SPRACHLICHE PRAXIS zu achten</p>
+							<p>Rhody: ekphrastic, is a vivid, often dramatic, verbal description of a visual work of art, either real or imagined</p>
+							<p>Schmidt: epidosic structure of TV series, divided into minutes, quantifying the fundamental shared elements of plot arcs</p>
+							<p>- Beispiel Law and Order -- murder body blood case am Anfang -- court case Mr. trial lawyer am Ende</p>
+						</aside>
+					</section>
+					<section>
+						<h4>Example analysis: Prototype Theory and Subgenres of the Spanish American Novel</h4>
+						<p>Literary genres as classes, as prototypes, as families</p>
+					</section>
+					<section>
+						<h4>Prototype Theory and Subgenres of the Spanish American Novel</h4>
+						<p>Corpus</p>
+						<table>
+							<tr>
+								<td><img height="400" data-src="img/corpus1.png"></img></td>
+								<td><img height="400" data-src="img/corpus2.png"></img></td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h4>Prototype Theory and Subgenres of the Spanish American Novel</h4>
+						<p>Example topic</p>
+						<img height="450" data-src="img/prototopic.png"></img>
+					</section>
+					<section>
+						<h4>Prototype Theory and Subgenres of the Spanish American Novel</h4>
+						<p>Topic-based distances to prototypes</p>
+						<img height="450" data-src="img/protoboxplot.png"></img>
+					</section>
+					<section>
+						<h4>Prototype Theory and Subgenres of the Spanish American Novel</h4>
+						<p>Topic-based distances between all novels</p>
+						<img height=450" data-src="img/distances.png"></img>
+					</section>
+                </section>
+                <section>
+					<section>
+						<h2>Topic Modeling: Corpus Preparation</h2>
+					</section>
+					<section>
+						<h2>Topic Modeling: Corpus Preparation</h2>
+						<ol>
+							<li>needed: Texts</li>
+							<li>Text selection</li>
+							<li>Metadata</li>
+							<li>Natural Language Processing</li>
+						</ol>
+					</section>
+					<section>
+						<h3>needed: Texts</h3>
+						<ul>
+							<li>for Topic Modeling, <em>full texts</em> are needed</li>
+							<li><em>many</em> texts are needed</li>
+							<li>metadata are useful</li>
+						</ul>
+					</section>
+					<section>
+						<h3>needed: Texts</h3>
+						<p class="fragment fade-in">How about questions of variation and normalization?</p>
+						<p class="fragment fade-in">How well do I need to know the texts from close reading?</p>
+						<p class="fragment fade-in">⇒ What is the research question?</p>
+					</section>
+					<section>
+						<h3>Text selection</h3>
+						<ul>
+							<li>What kind of texts?</li>
+							<li>How many texts?</li>
+							<li>How long should or can they be?</li>
+						</ul>
+					</section>
+					<section>
+						<h4>What kind of texts?</h4>
+						<p>To consider:</p>
+						<ul>
+							<li>a topic model is primarily a model of a <strong>text collection</strong></li>
+							<li>it is possible that a topic does not relate to a single text anymore</li>
+							<li>the importance of comparability (<em>language, genre, epoch, authors</em>)</li>
+							<li>the issue of availability</li>
+						</ul>
+						<aside class="notes">
+							<p>always depending on what one wants to find out</p>
+						</aside>
+					</section>
+					<section>
+						<h4>How many texts?</h4>
+						<img height=500" data-src="img/diagnostik_100t.png"></img>
+					</section>
+					<section>
+						<h4>How many texts?</h4>
+						<img height=500" data-src="img/diagnostik_500t.png"></img>
+					</section>
+					<section>
+						<h4>How long should or can they be?</h4>
+						<ul>
+							<li>ideal: similar length</li>
+							<li>no definite answers yet</li>
+							<li>workarounds: segmentation of texts, (combination of texts)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Metadata</h3>
+						<ul>
+							<li>for example: author, title, publication year, gender of the author, subgenre of the text, literary movement, narrative perspective, etc.</li>
+							<li>common format: CSV (<em>comma-separated values</em>)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Metadata</h3>
+						<p>Example</p>
+						<img height=450" data-src="img/metadata.png"></img>
+					</section>
+					<section>
+						<h3>Natural Language Processing</h3>
+						<p class="fragment fade-in">text as linguistic code</p>
+						<p class="fragment fade-in">the basis for</p>
+						<ul>
+							<li class="fragment fade-in">text mining</li>
+							<li class="fragment fade-in">topic modeling!</li>
+							<li class="fragment fade-in">distant reading</li>
+						</ul>
+						<aside class="notes">
+							<p>formalization</p>
+						</aside>
+					</section>
+					<section>
+						<h3>Natural Language Processing</h3>
+						<ul>
+							<li>tokenization</li>
+							<li>lemmatization</li>
+							<li>part-of-speech tagging</li>
+							<li>stopword lists</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Part-of-speech tagging</h3>
+						<p>Example: TreeTagger</p>
+						<p><a href="http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/" target="_blank">http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/</a></p>
+					</section>
+					<section>
+						<h3>Stopwords</h3>
+						<ul>
+							<li>words that should be removed before processing the text further</li>
+							<li>very frequent words, which render results less meaningful</li>
+							<li>for example:
+								<ul>
+									<li>function words like articles, conjunctions, prepositions</li>
+									<li>nouns which are semantically not specific (e.g. "thing")</li>
+									<li>proper names (for example in novels)</li>
+								</ul>
+							</li>
+						</ul>
+						<aside class="notes">
+							<p>Stopwords: aktueller Aufsatz von Mimno (Bedeutung manuell kuratierter Stopwordlisten überbewertet; zeitaufwendig; subjektiv; nur geringer Effekt) - Entfernen auch nach Modellierung möglich
+- Lemmatisierung: je nach Sprache mehr oder weniger wichtig; je nach Erkenntnisziel</p>
+						</aside>
+					</section>
+					<section>
+						<h3>Stopword lists</h3>
+						<ul>
+							<li>often part of text mining or NLP software</li>
+							<li>general lists for individual languages</li>
+							<li>or generated for a specific corpus
+								<ul>
+									<li>e.g. the most frequent words</li>
+									<li>all function words</li>
+									<li>all proper names</li>
+									<li>...</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+                </section>
+                <section>
+					<section>
+						<h2>Topic Modeling: Using MALLET and tmw</h2>
+					</section>
+					<section>
+						<h2>Topic Modeling: Using MALLET and tmw</h2>
+						<ul>
+							<li>Workflow (overview)</li>
+							<li>Tools (overview)</li>
+							<li>MALLET</li>
+							<li>tmw</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Overview of the workflow</h3>
+						<a href="img/2_topic-modeling-workflow.png"><img height="500" data-src="img/2_topic-modeling-workflow.png"></img></a>
+						<p>(Mallet und Python; see <a href="http://github.com/cligs/tmw">http://github.com/cligs/tmw</a>.)</p>
+					</section>
+					<section>
+						<h3>Implementation: MALLET and Python</h3>
+						<ul>
+							<li>MALLET (Machine Learning for Language Toolkit, <a href="https://github.com/mimno/Mallet" target="_blank">https://github.com/mimno/Mallet</a>): the actual Topic Modeling </li>
+							<li>Python (Programming language, <a href="https://www.python.org/" target="_blank">https://www.python.org/</a>): everything else (tmw)</li>
+						</ul>
+                    </section>
+                    <section>
+						<h3>Parameters in the workflow</h3>
+						<ul>
+							<li>preprocessing: length of text segments, lemmatization, feature selection</li>
+							<li>modeling: number of topics, number of iterations, mode of optimization</li>
+							<li>visualization: calculation of means, normalization of values	</li>
+						</ul>
+                    </section>
+                    <section>
+						<h3>Use MALLET</h3>
+						<p>Where we start from:</p>
+						<ul>
+							<li>MALLET is installed (and we know in which directory!)</li>
+							<li>We have a working directory (downloaded materials) with:
+							<ul>
+								<li>a folder with a text corpus</li>
+								<li>a text file with a stop word list</li>
+								<li>a folder for the output ("model/")</li>
+							</ul>
+							</li>
+						</ul>
+                    </section>
+                    <section>
+						<h3>Call MALLET</h3>
+						<p>Two steps:</p>
+						<ul>
+							<li><em>import</em>
+								<ul>
+									<li>converts all text files into the MALLET corpus format</li>
+									<li>considers the stopwords, writes a binary file</li>
+								</ul>
+							</li>
+							<li><em>train-topics</em>
+								<ul>
+									<li>does the actual topic modeling</li>
+									<li>writes some output files</li>
+								</ul>
+							</li>
+						</ul>
+                    </section>
+                    <section>
+						<h3>MALLET "import"</h3>
+						<ul>
+							<li>tell the computer: use MALLET</li>
+							<li>tell MALLET: import the texts, and</li>
+							<li>... where are the text files</li>
+							<li>... where should the imported corpus be saved</li>
+							<li>... use stopwords, from a stopwords file</li>
+						</ul>
+                    </section>
+                    <section>
+						<h3>MALLET "import" (Linux, Mac)</h3>
+						<pre><code class="hljs groovy">
+/home/ulrike/Programme/mallet-2.0.8RC3/bin/mallet 
+import-dir --input /home/ulrike/Dokumente/english-novels-N/corpus 
+--output /home/ulrike/Dokumente/english-novels-N/model/novels.mallet 
+--keep-sequence 
+--remove-stopwords TRUE 
+--stoplist-file /home/ulrike/Dokumente/english-novels-N/stopwords-english-novels-N.txt
+						</code></pre>
+						<aside class="notes">
+							<p>\p{L} matches a single code point in the category "letter".</p>
+						</aside>
+                    </section>
+                    <section>
+						<h3>MALLET "import" (Windows)</h3>
+						<p>(using the cmd Terminal; from C:\Programs\mallet\)</p>
+						<pre><code class="hljs groovy">
+bin\mallet
+import-dir
+--input C:\Users\[USER]\Desktop\english-novels-N\corpus
+--output C:\Users\[USER]\Desktop\english-novels-N\model\novels.mallet
+--keep-sequence
+--remove-stopwords TRUE
+--stoplist-file C:\Users\[USER]\Desktop\english-novels-N\stopwords-english-novels-N.txt			
+						</code></pre>
+                    </section>
+                    <section>
+						<h3>MALLET "train-topics": create the topic model</h3>
+						<ul>
+							<li>tell the computer: use MALLET</li>
+							<li>tell MALLET: model (<em>train-topics</em>), and:</li>
+							<li>... where the corpus file is (<em>--input</em>)</li>
+							<li>... how many topics there are (<em>--num-topics</em>)</li>
+							<li>... how often to optimize intervals (<em>--optimize-interval</em>)</li>
+							<li>... how many words to show (<em>--num-topic-words</em>)</li>
+							<li>... path to the "words-with-topics" (<em>--output-topic-keys</em>)</li>
+							<li>... path to the "topics-per-document" (<em>--output-doc-topics</em>)</li>
+							<li>... path to "words-by-topics" (<em>--topic-word-weights-file</em>)</li>
+						</ul>
+                    </section>
+                    <section>
+						<h3>MALLET "train-topics" (Linux, Mac)</h3>
+						<pre><code class="hljs groovy">
+/home/ulrike/Programme/mallet-2.0.8RC3/bin/mallet train-topics
+--input /home/ulrike/Dokumente/model/novels.mallet
+--num-topics 30
+--optimize-interval 50
+--num-iterations 500
+--num-top-words 30
+--output-topic-keys /home/ulrike/Dokumente/model/topics-with-words.txt
+--output-doc-topics /home/ulrike/Dokumente/model/topics-in-texts.txt
+--topic-word-weights-file /home/ulrike/Dokumente/model/word-weights.txt
+</code></pre>
+                    </section>
+                    <section>
+						<h3>MALLET "train-topics" (Windows)</h3>
+						<pre><code class="hljs groovy">
+bin\mallet
+train-topics
+--input C:\Users\[USER]\Desktop\model\novels.mallet
+--num-topics 30
+--optimize-inteval 50
+--num-iterations 500
+--num-top-words 20
+--output-topic-keys C:\Users\[USER]\Desktop\model\topics-with-words.txt
+--output-doc-topics C:\Users\[USER]\Desktop\model\topics-in-texts.txt
+--topic-word-weights-file C:\Users\[USER]\Desktop\model\word-weights.txt
+</code></pre>
+                    </section>
+                    <section>
+						<h3>Look at the results</h3>
+						<ul>
+							<li>Open the different files that represent the model and look at them</li>
+							<li>Tools to use: gedit or Notepad++ (or Calc/Excel, if necessary, rename the files so that they end with ".csv")</li>
+						</ul>
+                    </section>
+                    <section>
+						<h3>tmw</h3>
+						<ul>
+							<li>tmw has models for:<br/> <strong>preprocessing, topic modeling itself (it calls MALLET), postprocessing, visualization</strong></li>
+							<li>tmw "next": ongoing development
+							<br/><small><a href="https://github.com/cligs/tmw/tree/next">https://github.com/cligs/tmw/tree/next</a></small></li>
+							<li>tmw "simple": simple version (postprocessing and visualization)
+							<br/> <small><a href="https://github.com/cligs/tmw/tree/simple">https://github.com/cligs/tmw/tree/simple</a></small></li>
+						</ul>
+                    </section>
+					<!--
+					Anzahl der Topics
+					Iterationen
+					Hyperparameter (Optimierung)
+					
+					- hyperparameters alpha and beta
+- affecting the distributional profile
+- Alpha: of the words in each topic
+- Beta: of the topics in each document
+					-->
+                </section>
+                
+                
+                <section>
+					<section>
+						<h2>Topic Modeling: Post Processing, Visualization and Interpretation of Results</h2>
+					</section>
+					<section>
+						<h3>Overview of the workflow</h3>
+						<a href="img/2_topic-modeling-workflow.png"><img height="500" data-src="img/2_topic-modeling-workflow.png"></img></a>
+						<p>(Mallet und Python; see <a href="http://github.com/cligs/tmw">http://github.com/cligs/tmw</a>.)</p>
+					</section>
+					<section>
+						<h3>Post Processing</h3>
+						<p>after the topic modeling:</p>
+						<ul>
+							<li>aggregation of results with metadata</li>
+							<li>visualization</li>
+							<li>interpretation</li>
+							<li>evaluation</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Visualization options in tmw</h3>
+						<p>by example (30 portuguese novels)</p>
+						<p>see <a href="https://github.com/cligs/textbox" target="_blank">https://github.com/cligs/textbox</a></p>
+					</section>
+					<section>
+						<h3>Wordclouds (<em>make_wordle_from_mallet</em>)</h3>
+						<img height="500" data-src="img/pt_wordle_tp048.png"></img>
+					</section>
+					<!-- ### treemaps ### -->
+					<section>
+						<h3>Top Topics, normalized (<em>plot_topTopics</em>)</h3>
+						<p>for the author Camilo Castelo Branco</p>
+						<img height="500" data-src="img/pt_tT_normalized-CasteloBranco.png"></img>
+					</section>
+					<section>
+						<h3>Top Items (<em>plot_topItems</em>)</h3>
+						<p>by subgenre</p>
+						<img height="500" data-src="img/pt_tI_by-subgenre-012.png"></img>
+					</section>
+					<section>
+						<h3>Top Items (<em>plot_topItems</em>)</h3>
+						<p>by narrative perspective</p>
+						<img height="500" data-src="img/pt_tI_by-narrative-perspective-024.png"></img>
+					</section>
+					<section>
+						<h3>Heatmap (<em>plot_distinctiveness_heatmap</em>)</h3>
+						<p>distinctive topics for different subgenres</p>
+						<img height="500" data-src="img/pt_dist-heatmap_by-subgenre-zscores.png"></img>
+					</section>
+					<section>
+						<h3>Hands-on with tmw</h3>
+						<ul>
+							<li>Post Processing</li>
+							<li>Visualize</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Hands-on with tmw</h3>
+						<p>needed:</p>
+						<ul>
+							<li>Python is installed</li>
+							<li>a Topic Model is ready</li>
+							<li>notebook <em>Run_Postprocess.ipynb</em> (in the <em>scripts</em> folder)</li>
+							<li>notebook <em>Run_Visualize.ipynb</em> (in the <em>scripts</em> folder)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Hands-on with tmw</h3>
+						<p>how to start a <strong>Jupyter Notebook</strong>:</p>
+						<ul>
+							<li>open a command line</li>
+							<li>(change to the scripts folder with <em>cd PATH</em>)</li>
+							<li>type <em>ipython notebook</em>, press Enter</li>
+							<li>on Windows, the Jupyter Notebook App can be launched by clicking on the icon installed in the start menu</li>
+						</ul>
+					</section>
+                </section>
+                <section>
+					<section>
+						<h2>Conclusions</h2>
+					</section>
+					<!-- 
+					
+					zur Interpretatierbarkeit der Ergebnisse
+					
+					- Ein Topic Model kann Topics hervorbringen, die nach Themen aussehen.
+Es können aber auch andere Arten semantischer Relationen sichtbar werden: Motive, Redeweisen, …
+Oder es ist kein semantischer Zusammenhang erkennbar.
+Bei einer Interpretation sollten möglichst alle Ergebnisse des Topic Models berücksichtigt werden.
+
+
+					Weitere Aspekte:
+Zufälligkeit der Ergebnisse?
+Evaluation von Topic Models
+Was wird erwartet? 
+z.B. semantische Kohärenz von Topics
+dass Topic Models die Dokumente „gut“ beschreiben
+(dass das Modell sich gut für andere Aufgaben einsetzen lässt)
+Wie kann das überhaupt gemessen werden?
+
+
+	Fazit:
+	Topic Modeling ist relativ einfach einzusetzen, es fehlt derzeit aber vor allem noch an Werkzeugen, welche die Modellierung selbst um Vor- und Nachbereitung ergänzen.
+Eine Topic Modeling-Analyse ist vor allem distant reading.  Sie kann der Erschließung großer Textsammlungen dienen, sie kann einen neuen Blick auf Texte ermöglichen.
+Ein Topic Model ist vor dem Hintergrund der Methode zu sehen. Wie die Ergebnisse an traditionelle Fragen angebunden werden können, ist noch weitgehend offen.
+
+
+„As Stephen Ramsay argues in Reading Machines, using algorithms need not propel us towards applying an ersatz scientific and scientistic evidentiary standard to literary interpretation, but rather should reveal and perhaps help amplify our already part-algorithmic literary-critical reading practices, the regular sets of protocols and procedures of analog literary criticism with which we are very—perhaps sometimes too—familiar“ 
+(Rachel Sagner Buurma: The Fictionality Of Topic Modeling: Machine Reading Anthony Trollope's Barsetshire Series)
+
+noch ein Fazit:
+
+    Topic Modeling kann aufdecken, wie Themen in Sammlungen literarischer Texten entfaltet werden
+    Topics sind dabei oft nicht abstrakte Themen
+    Entscheidungen hinsichtlich Korpus und Modell beeinflussen Art und Qualität der Ergebnisse
+    ein Topic-Modell und seine Interpretation sind vor allem eine Sicht auf die Texte aus der Distanz
+
+
+					-->
+					<section>
+						<h2>Discussion, Questions, Comments, Ideas</h2>
+					</section>
+					<section>
+						<h2>References</h2>
+						<p>Theory and method</p>
+						<ul class="small">
+							<li>Blei, D. M. (2012). "Probabilistic topic models". In: <em>Communications of the ACM</em>, 55(4): 77–84. <a href="http://www.cs.princeton.edu/~blei/papers/Blei2012.pdf" target="_blank">http://www.cs.princeton.edu/~blei/papers/Blei2012.pdf</a></li>
+							<li>Steyvers, M. and Griffiths, T. (2006). "Probabilistic Topic Models". In: Landauer, T. et al. (eds), <em>Latent Semantic Analysis: A Road to Meaning</em>. Laurence Erlbaum.</li>
+							<li>Weingart, S. (2012). "Topic Modeling for Humanists: A Guided Tour". In: <em>The Scottbot Irregular</em>. <a href="http://www.scottbot.net/HIAL/?p=19113" target="_blank">http://www.scottbot.net/HIAL/?p=19113</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>References</h2>
+						<p>Examples of Topic Modeling analyses</p>
+						<ul class="small">
+							<li>Blevins, C. (2010). "Topic Modeling Martha Ballard’s Diary". In: <em>Historying</em>. <a href="http://historying.org/2010/04/01/topic-modeling-martha-ballards-diary/" target="_blank">http://historying.org/2010/04/01/topic-modeling-martha-ballards-diary/</a></li>
+							<li>Jockers, M. L. (2013). <em>Macroanalysis - Digital Methods and Literary History</em>. Champaign, IL: University of Illinois Press.</li>
+							<li>Rhody, L. M. (2012). "Topic Modeling and Figurative Language". In: <em>Journal of Digital Humanities</em>, 2(1) <a href="http://journalofdigitalhumanities.org/2-1/topic-modeling-and-figurative-language-by-lisa-m-rhody/" target="_blank">http://journalofdigitalhumanities.org/2-1/topic-modeling-and-figurative-language-by-lisa-m-rhody/</a></li>
+							<li>Schöch, C. (2016). "Topic Modeling Genre: An Exploration of French Classical and Enlightenment Drama". In: <em>Digital Humanities Quarterly</em>. <a href="http://digitalhumanities.org/dhq/" target="_blank">http://digitalhumanities.org/dhq/</a></li>
+							<li>Underwood, T. and Goldstone, A. (2012)." "What can topic models of PMLA teach us about the history of literary scholarship?" In: <em>The Stone and the Shell</em>. <a href="http://tedunderwood.com/2012/12/14/what-can-topic-models-of-pmla-teach-us-about-the-history-of-literary-scholarship/" target="_blank">http://tedunderwood.com/2012/12/14/what-can-topic-models-of-pmla-teach-us-about-the-history-of-literary-scholarship/</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>References</h2>
+						<p>Tools</p>
+						<ul>
+							<li>dfr-browser: <a href="http://agoldst.github.io/dfr-browser/" target="_blank">http://agoldst.github.io/dfr-browser/</a></li>
+							<li>Gensim: <a href="https://radimrehurek.com/gensim" target="_blank">https://radimrehurek.com/gensim</a></li>
+							<li>MALLET: <a href="http://mallet.cs.umass.edu/topics.php" target="_blank">http://mallet.cs.umass.edu/topics.php</a></li>
+							<li>LDAvis Demo: <a href="http://www.kennyshirley.com/LDAvis/" target="_blank">http://www.kennyshirley.com/LDAvis/</a></li>
+							<li>Serendip: <a href="http://vep.cs.wisc.edu/serendip/" target="_blank">http://vep.cs.wisc.edu/serendip/</a></li>
+							<li>tmw: <a href="https://github.com/cligs/tmw" target="_blank">https://github.com/cligs/tmw</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Thank you!</h2>
+						<p>Slides at: <a href="https://hennyu.github.io/qum_17"
+								>https://hennyu.github.io/qum_17</a></p>
+						<p>tmw (next): <a href="https://github.com/cligs/tmw/tree/next" target="_blank">https://github.com/cligs/tmw/tree/next</a></p>
+						<p>CLiGS: <a href="http://cligs.hypotheses.org/" target="_blank"
+								>http://cligs.hypotheses.de/</a></p>
+						<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+								>CC-BY 4.0</a></p>
+					</section>
+                </section>
+            </div>
+        </div>
+        <script src="../reveal/lib/js/head.min.js"></script>
+        <script src="../reveal/js/reveal.js"></script>
+        <script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+    </body>
+</html>
