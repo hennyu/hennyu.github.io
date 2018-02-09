@@ -622,6 +622,8 @@ wiederhole den ganzen Prozess!</code></pre>
 							<li>... wo soll das importierte Korpus gespeichert werden (<em>--output</em>)</li>
 							<li>... entferne Stopwords (<em>--remove-stopwords</em>)</li>
 							<li>... verwende die Stopwords aus einer Stopwords-Datei (<em>--stoplist-file</em>)</li>
+							<li>... lege als Ausgabeformat eine Sequenz fest (<em>--keep-sequence</em>)</li>
+							<li>... lege fest, wie tokenisiert werden soll (<em>--token-regex</em>)</li>
 						</ul>
                     </section>
                     <section>
@@ -632,6 +634,8 @@ import-dir --input TM/Korpora/es/texts
 --output TM/Korpora/es/model.mallet
 --remove-stopwords TRUE 
 --stoplist-file TM/Korpora/es/stopwords.txt
+--keep-sequence TRUE
+--token-regex \p{L}+
 						</code></pre>
 						<aside class="notes">
 							<p>\p{L} matches a single code point in the category "letter".</p>
@@ -646,7 +650,9 @@ import-dir
 --input C:\Users\[USER]\Desktop\TM\Korpora\es\texts
 --output C:\Users\[USER]\Desktop\TM\Korpora\es\model.mallet
 --remove-stopwords TRUE
---stoplist-file C:\Users\[USER]\Desktop\TM\Korpora\es\stopwords.txt			
+--stoplist-file C:\Users\[USER]\Desktop\TM\Korpora\es\stopwords.txt
+--keep-sequence TRUE
+--token-regex \p{L}+		
 						</code></pre>
                     </section>
                     <section>
