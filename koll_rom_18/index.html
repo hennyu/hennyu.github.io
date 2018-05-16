@@ -69,7 +69,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                     <h1>Ansätze für digitale und korpusbasierte Wortschatzanalysen</h1>
                     <h2>spanischer und hispanoamerikanischer Romane des 19. Jahrhunderts</h2>
                     <hr />
-                    <small>José Calvo Tello und Ulrike Henny-Krahmer<br />(CLiGS, Universität Würzburg)</small>
+                    <small>Ulrike Henny-Krahmer und José Calvo Tello<br />(CLiGS, Universität Würzburg)</small>
                     <br />
                     <br />
                     <small>Kolloquium zur romanistischen Sprachwissenschaft<br />16. Mai 2018</small>
@@ -132,27 +132,161 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 						<br/>Stilbegriff: inhaltlich weit gefasst; methodisch auf quantifizierbare Merkmale fokussiert
 						</aside>
 					</section>
+                	
 					<section>
 						<h2>CLiGS-Textbox</h2>
 						<ul>
-							<li>Sammlung historischer literarischer Texte in verschiedenen romanischen Sprachen</li>
-							<li>...</li>
+							<li>9 Sammlung historischer literarischer Texte </li>
+							<li>In verschiedenen romanischen Sprachen: Französisch, Spanisch, Portugiesisch und Italienisch</li>
+							<li>In verschiedenen Gattungen: Roman, Theaterstücke, kürze Erzählungen</li>
 						</ul>
 					</section>
-				</section>
+                	
+                	<section>
+                		<h2>CLiGS-Textbox</h2>
+                		<ul>
+                			<li>Texte: ?</li>
+							<li>Tokens: ?</li>
+							<li>In XML-TEI, PDF und plain text</li>
+                			<li>Metadaten</li>
+							<li>Sprachliche Annotation (Freeling)</li>
+						</ul>
+					</section>
+
+                	<section>
+                		<h2>CLiGS-Textbox</h2>
+                		<ul>
+                			<li><em>Collection of 19th Century Spanish-American Novels (1880-1916)</em>: 24 novels</li>
+                			<li><em>Corpus of Spanish Novels from 1880-1940</em>: 39 novels</li>
+                			<li><em>Collection de nouvelles françaises du dix-neuvième siècle</em>: 28 novellas</li>
+                			<li><em>Collection de romans français du dix-neuvième siècle</em>: 36 novels.</li>
+                			<li><em>Collection de pièces the théâtre français du dix-septième siècle</em>: 100 plays.</li>
+                			<li><em>Collection of 19th Century Portuguese Novels (1840-1910)</em>: 30 novels</li>
+                			<li><em>Collection of Italian Short Stories and Novellas (1880s-1920s)</em>: 90 short stories and novellas</li>
+                			<li><em>Corpus of Spanish Short Stories from 1880-1940</em>: 193 single short stories</li>
+                			<li><em>Collection of Italian Novels (1850 and 1890)</em>: 10 novels</li>
+                		</ul>
+                	</section>
+                	<section>
+                		<h2>CLiGS-Textbox</h2>
+
+                			<img src="img/tei-example.png" />
+                		
+                	</section>
+                	<section>
+                		<h2>CLiGS-Textbox</h2>
+                		<ul>
+                			<li>Als GitHub repository veröffentlicht</li>
+                			<li>Die Texte sind frei verfügbar (CC BY)</li>
+                			<li>In Zenodo archiviert (DOI: 10.5281/zenodo.597430)</li>
+                		</ul>
+                	</section>
+                	
+                	<section>
+                		<h2>CLiGS-Textbox</h2>
+                		
+                		<img src="img/github.png" />
+                		
+                	</section>
+                </section>
+            	
 				<section>
 					<section>
 						<h2>2. Beispiele für digitale Wortschatzanalysen</h2>
 					</section>
 				</section>
 					<section>
-						<h2>Ermittlung distinktiver Merkmale von Textgruppen mit Pyzeta</h2>
-					</section>
+						<section>
+							<h2>Ermittlung distinktiver Merkmale von Textgruppen mit Pyzeta</h2>
+						</section>
+            	
+            	<section>
+            		<h2>Zeta</h2>
+            		<ul>
+            			<li>Maße der Distinktivität von Merkmalen ("keyness")</li>
+            			<li>Von Burrows (2007) vorgeschlagen</li>
+            			<li>Sehr verbreitet in Stylometrie und Digital Humanities</li>
+            			<li>Implementiert in stylo oder pyzeta</li>
+            		</ul>
+            	</section>
+            	
+            	<section>
+            		<h2>Zeta</h2>
+            		<ul>
+            			<li>Welche sind die Wörter, die spanische Romane und hispanoamerikanische Romane unterscheidet?</li>
+            			<li>24 spanische Romane vs. 24 hispanoamerikanische Romanen (Argentinien, Kuba und Mexiko)</li>
+            			<li>Lemmatisiert, Zeta, Split = 10 000</li>
+            		</ul>
+            	</section>
+            	
+            	<section>
+            		<h2>Zeta</h2>
+            		<img src="img/pyzeta0.jpg" />
+            	</section>
+
+            	<section>
+            		<h2>Zeta</h2>
+            		<a href="img/typescatterplot_10000-lemmata-all_author-continent_Europe-America_500-0.3-origzeta.svg" ><img src="img/pyzeta1.jpg" /></a>
+            	</section>
+            	
+            	
+            	<section>
+            		<h2>Vergleich mit Häufigkeiten in CORDE</h2>
+            		<img src="img/boxplot_corde.png" />
+            		
+            	</section>
 				</section>
 				<section>
 					<section>
 						<h2>Analyse von Wortfeldern mit dem <em>Nuevo diccionario histórico del español</em> (NDHE)</h2>
 					</section>
+
+					<section>
+						<h2>NDHE und Wortschatz in Romanen</h2>
+						<ul>
+							<li><em>Nuevo diccionario histórico del español</em>: <a href="http://web.frl.es/DH/">web.frl.es/DH</a></li>
+							<li>José Antonio Pascual und Mar Campos Souto (Instituo Rafael la Pesa, RAE)</li>
+							<li>Reihenfolge der Makrostruktur nach Wortfelder</li>
+							<li>Krankheiten, Waffen, Instrumente...</li>
+						</ul>
+					</section>
+					
+
+					<section>
+						<h2>NDHE und Wortschatz in Romanen</h2>
+						<ul>
+							<li>Tauchen Krankheiten (bzw. Wortschatz über Krankheiten) in naturalistischen Romanen häufiger auf?</li>
+							<li>Tauchen Waffen in <em>gaucho</em> Romanen häufiger auf?</li>
+							<li>Tauchen Waffen in historischen Romanen häufiger auf?</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>NDHE und Wortschatz in Romanen</h2>
+						<ul>
+							<li>Binarisierung von Untergattungen (z.B. naturalistisch vs. nicht-naturalistisch)</li>
+							<li>Lematisiert</li>
+							<li>Behalten nur die Lemmata, die zu einem bestimmten Wortfeld gehören</li>
+							<li>Zum Beispiel, von 481 Lemmata im Bezug auf Krankheiten in NDHE, nur 28 kommen in den Romanen vor</li>
+							<li>Durschnittliche relative Häufigkeit pro Roman</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h2>NDHE: Krankheiten in naturalistischen Roman</h2>
+						<img src="img/boxplot_naturalista_Enfermedades.png" />
+					</section>
+					
+					<section>
+						<h2>NDHE: Waffen in <em>gaucho</em> Roman</h2>
+						<img src="img/boxplot_gaucho_Armas.png" />
+					</section>
+					
+					<section>
+						<h2>NDHE: Waffen in historischen Roman</h2>
+						<img src="img/boxplot_histórico_Armas.png" />
+					</section>
+					
 				</section>
 				<section>
 					<section>
@@ -441,7 +575,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 					<section>
 						<h2>Fazit</h2>
 						<ul>
-							<li>...</li>
+							<li>Verfügbarkeit von literarischen Texten in romanischen Sprachen</li>
+							<li>Integration von Quellen und sprachwissenschaftliche Resourcen</li>
+							<li>Zeta um distinktive Lemmata für Spanien und Hispanoamerika</li>
+							<li>Wortfelder von NDHE definiert(Krankheiten, Waffen) häufiger in bestimmten Romanen (naturalisticher, <em>gaucho</em>, historischer Roman)</li>
 						</ul>
 					</section>
 					<section>
