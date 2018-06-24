@@ -192,26 +192,43 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 				<section>
 					<section>
 						<h2>3. Methods: Sentiment Analysis &amp; Machine Learning</h2>
-					</section>
-					<section>
-						<h2>Methods</h2>
-						<ul>
-							<li>for the sentiment features: Sentiment lexica</li>
-							<li>for subgenre classification: Machine Learning</li>
-						</ul>
 						<aside class="notes">
+							<ul>
+								<li>for the sentiment features: Sentiment lexica</li>
+								<li>for subgenre classification: Machine Learning</li>
+							</ul>
 						</aside>
 					</section>
 					<section>
 						<h2>Methods: Sentiment features</h2>
-						<ul>
-							<li>Sentiment lexica: SentiWordNet 3.0 (Miller, 1995, Baccianella et al., 2010), NRC Emotion Lexicon (Saif and Turney, 2013)</li>
-							<li>SentiWordNet: polarity (positive, negative, neutral)</li>
-							<li>NRC: polarity + 8 basic emotions (Trust, Fear, Joy, Sadness, Anger, Disgust, Anticipation, Surprise)</li>
-							<li>Linguistic annotation with FreeLing (Padró and Stanislovsky, 2012)</li>
-							<li>Separation of direct speech &amp; narrated text</li>
-							<li>Sentiment values per sentence</li>
-						</ul>
+						<table>
+							<tr>
+								<td>
+									<h3>Sentiment lexica:</h3>
+									<table style="border-collapse: collapse; font-size: smaller;">
+										<tr>
+											<th style="border: 1px solid black;">SentiWordNet 3.0</th>
+											<th style="border: 1px solid black;">NRC Emotion Lexicon</th>
+										</tr>
+										<tr>
+											<td style="border: 1px solid black;">Miller, 1995; Baccianella et al., 2010</td>
+											<td style="border: 1px solid black;">Saif and Turney, 2013</td>
+										</tr>
+										<tr>
+											<td style="border: 1px solid black;">polarity (positive, negative, neutral)</td>
+											<td style="border: 1px solid black;">polarity + 8 basic emotions (Trust, Fear, Joy, Sadness, Anger, Disgust, Anticipation, Surprise)</td>
+										</tr>
+									</table>
+								</td>
+								<td>
+									<ul>
+										<li><strong>Linguistic annotation</strong><br/> FreeLing (Padró and Stanislovsky, 2012)</li>
+										<li>Separation of <br/><strong>direct speech <br/>&amp; narrated text</strong></li>
+										<li>Sentiment values per sentence</li>
+									</ul>
+								</td>
+							</tr>
+						</table>
 						<aside class="notes">
 							<ul>
 								<li>SentiWordNet 3.0, an adaptation of WordNet 3.0 for sentiment analysis</li>
@@ -229,11 +246,36 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 					</section>
 					<section>
 						<h2>Methods: Additional features</h2>
-						<table>
+						<table style="border-collapse: collapse; font-size: smaller;">
 							<tr>
-								<td>...</td>
+								<th style="border: 1px solid black;">Feature name</th>
+								<th style="border: 1px solid black;">Description</th>
+								<th style="border: 1px solid black;">Sentence value</th>
+							</tr>
+							<tr>
+								<td style="border: 1px solid black;">emotional</td>
+								<td style="border: 1px solid black;">Proportion of emotional sentences in the text.</td>
+								<td><strong>positive &gt; 1</strong> or <strong>negative &lt; -1</strong></td>
+							</tr>
+							<tr>
+								<td style="border: 1px solid black;">neutral</td>
+								<td style="border: 1px solid black;">Proportion of neutral sentences in the text.</td>
+								<td style="border: 1px solid black;"><strong>-1 &lt;= sentiment value &lt;= 1</strong></td>
+							</tr>
+							<tr>
+								<td style="border: 1px solid black;">positive</td>
+								<td style="border: 1px solid black;">Proportion of positive sentences in the text.</td>
+								<td style="border: 1px solid black;"><strong>positive &gt; 1</strong></td>
+							</tr>
+							<tr>
+								<td style="border: 1px solid black;">negative</td>
+								<td style="border: 1px solid black;">Proportion of negative sentences in the text.</td>
+								<td style="border: 1px solid black;"><strong>negative &lt; -1</strong></td>
 							</tr>
 						</table>
+						<aside class="notes">
+							<p>Threshold 1</p>
+						</aside>
 					</section>
 					<section>
 						<h2>Methods: Subgenre classification</h2>
