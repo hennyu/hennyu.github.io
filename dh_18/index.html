@@ -30,7 +30,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 			.reveal ul.middle li {
 				margin-bottom: 0.7em;
 			}
-			
+			.reveal table td {
+				vertical-align: top;
+			}
             .reveal h1{
                 font-size: 1.6em;
             }
@@ -90,10 +92,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                 <section>
 					<h2>Overview</h2>
 					<ol>
-						<li>Background, Aims, and Hypotheses</li><!-- inkl. "state of the art", aussagekräftigere Überschriften!!! -->
-						<li>Data</li>
-						<li>Methods</li>
-						<li>Results and Discussion</li> <!-- inkl. Conclusion und future work -->
+						<li>Sentiments and Genre: Background, Aims, Hypotheses</li>
+						<li>Data: Spanish American Novels</li>
+						<li>Methods: Sentiment Analysis &amp; Machine Learning</li>
+						<li>Results and Discussion</li>
 					</ol>
 					<aside class="notes">
 					</aside>
@@ -101,47 +103,153 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             	<!-- ############### Background ################### -->
                 <section>
 					<section>
-						<h2>1. Background, Aims, and Hypotheses</h2>
+						<h2>1. Sentiments and Genre: Background, Aims, Hypotheses</h2>
 					</section>
 					<section>
-						<h2>Emotionality, sentiments, and subgenres</h2>
+						<h2>Sentiments and Genre</h2>
 						<ul>
-							<li>expression of emotionality in novels</li>
-							<li>types of novels in 19th century Spanish America: sentimental, historical, costumbrista, anti-slavery, anti-Rosas, ...</li>
-							<li>text mining to assess emotions in texts: Sentiment Analysis (Pang and Lee, 2008)</li>
-							<li>polarity values, emotion values</li>
+							<li><strong>Sentiment Analysis</strong>: computational treatment of sentiment, opinion, emotion in text (Pang and Lee, 2008)</li>
+							<li>Sentiments modelled as <strong>polarity values</strong> or <strong>emotion values</strong></li>
+							<li>Method has been used for <strong>genre analysis</strong> (Kim et al, 2017; Zehe et al., 2016)</li>
+							<li><span style="text-decoration: underline;">Here:</span> analysis of Spanish American novels</li>
 						</ul>
 						<aside class="notes">
+							<ul>
+								<li>polarity: positive, negative, neutral</li>
+								<li>emotion: trust, fear, joy, etc.</li>
+								<li>Kim et al.: analysis of prototypical emotion developments in literary genres for English texts</li>
+								<li>Zehe et al.: prediction of happy endings in German novels</li>
+							</ul>
 						</aside>
 					</section>
 					<section>
-						<h2>Aims</h2>
+						<h2>Aims &amp; Hypotheses</h2>
 						<ul>
-							<li>test hypotheses about sentiments in subgenres</li>
+							<li>Exploration of relationship between sentiments and genre in 19<span>th</span> c. Spanish-American novels</li>
+							<li>Sentiments as linguistic manifestations of emotions on the textual surface</li>
+							<li><strong>Hypothesis 1:</strong> degree and kind of emotionality differs for different subgenres</li>
+							<li><strong>Hypothesis 2:</strong> it matters, whether emotions are expressed in direct speech or narrated text</li>
+							<li><strong>Sidegoal</strong>: test two sentiment lexica for Spanish</li>
 						</ul>
 						<aside class="notes">
+							<ul>
+								<li>second hypothesis here is that not just emotions in general matter,</li>
+								<li>but also whether they are expressed in the direct speech of the characters of the novels or in narrated text</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Example</h2>
+						<p>...</p>
+						<aside class="notes">
+							<ul>
+								<li>assumptions: sentimental novels + love story as basic plot element e.g. in historical or costumbrista novels</li>
+								<li>negative emotions: Cuban anti-slavery novels, Argentina anti-Rosas novels, sociopolitical novels in general</li>
+								<li>anti-slavery novel has been defined in terms of its atmosphere of fear, but also by vigorous interferences of the narrator</li>
+							</ul>
 						</aside>
 					</section>
                 </section>
                 <!-- ############### Data ################### -->
 				<section>
 					<section>
-						<h2>2. Data</h2>
+						<h2>2. Data: Spanish American Novels</h2>
 					</section>
 					<section>
-						<h2></h2>
+						<h2>Data: Spanish American Novels</h2>
+						<table>
+							<tr>
+								<td>
+									<ul>
+										<li>30 <strong>novels</strong>, 1840-1910</li>
+										<li>3 <strong>countries</strong>: <br/>Argentina (16)<br/> Cuba (9) <br/>Mexico (5)</li>
+										<li>16 <strong>authors</strong></li>
+										<li>4 <strong>subgenres</strong>: <br/>sentimental (9)<br/> historical (8)<br/> sociopolitical (7)<br/> costumbrista (6)</li>
+									</ul>
+								</td>
+								<td>
+									<img src="img/Fig1.png" width="900"/>
+									<p style="font-style: italic; font-size: smaller;">Distribution of novels per decade and subgenre</p>
+								</td>
+							</tr>
+						</table>
 						<aside class="notes">
+							<ul>
+								<li>13 novels before 1880, 17 after 1880</li>
+								<li>subcollection of a larger corpus of 19th century Sp.-Am. novels being prepared in the CLiGS group</li>
+								<li>general literary fiction - not easily distinguishable genre fiction</li>
+								<li>assignment of genre-labels non-trivial task</li>
+								<li>genres as given in titles and subtitles collected</li>
+								<li>assignments made in secondary literature considered</li>
+								<li>many variations fount, interpretive step</li>
+								<li>result: 4 broad types of novels: sentimental, historical, sociopolitical, costumbrista</li>
+								<li>costumbrista: novels of manners in the context of the Costumbrista movement</li>
+							</ul>
 						</aside>
 					</section>
 				</section>
 				<!-- ############### Methods ################### -->
 				<section>
 					<section>
-						<h2>3. Methods</h2>
+						<h2>3. Methods: Sentiment Analysis &amp; Machine Learning</h2>
 					</section>
 					<section>
-						<h2></h2>
+						<h2>Methods</h2>
+						<ul>
+							<li>for the sentiment features: Sentiment lexica</li>
+							<li>for subgenre classification: Machine Learning</li>
+						</ul>
 						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Methods: Sentiment features</h2>
+						<ul>
+							<li>Sentiment lexica: SentiWordNet 3.0 (Miller, 1995, Baccianella et al., 2010), NRC Emotion Lexicon (Saif and Turney, 2013)</li>
+							<li>SentiWordNet: polarity (positive, negative, neutral)</li>
+							<li>NRC: polarity + 8 basic emotions (Trust, Fear, Joy, Sadness, Anger, Disgust, Anticipation, Surprise)</li>
+							<li>Linguistic annotation with FreeLing (Padró and Stanislovsky, 2012)</li>
+							<li>Separation of direct speech &amp; narrated text</li>
+							<li>Sentiment values per sentence</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>SentiWordNet 3.0, an adaptation of WordNet 3.0 for sentiment analysis</li>
+								<li>The two lexica differ in how sentiments are modelled and also in their volume</li>
+								<li>SentiWordNet has polarity values (positivity, negativity, neutrality) for WordNet synsets which range between 0 and 1 and sum up to 1</li>
+								<li>The NRC lexicon, in contrast, has only binary values (0 or 1), but those are provided for positivity and negativity as well as eight basic emotions (Trust, Fear, Joy, Sadness, Anger, Disgust, Anticipation, Surprise)</li>
+								<li>SentiWordNet contains 117,653 entries, the NRC lexicon just 14,182.</li>
+								<li>In order to use the sentiment lexica, the texts had to be lemmatized (for NRC)</li>
+								<li>and annotated with WordNet synsets (for SentiWordNet)</li>
+								<li>Each sentence was annotated with FreeLing and the words with sentiment values were determined using the lexicons</li>
+								<li>sentiment values for the words were summed up for each sentence</li>
+								<li>eight basic emotions of the NRC (Trust, Fear, etc.), a sentence is assigned the emotion with a highest value in the sentence</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Methods: Additional features</h2>
+						<table>
+							<tr>
+								<td>...</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Methods: Subgenre classification</h2>
+						<ul>
+							<li><strong>Decision Tree Classifier</strong>: easily interpretable</li>
+							<li>sentences aggregated into 5 sections, divided by section length: 150 data points</li>
+							<li>60 experiments: varying type of features/lexicon, depth of decision tree</li>
+							<li>5-fold cross-validation</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>The advantage of Decision Trees is that they can be easily interpreted.</li>
+								<li>This is desirable in an explorative analysis interested in the kind of 
+								sentiment-based features that are relevant to differentiate novels of different subgenres</li>
+								<li>(even if not the best results in accuracy)</li>
+							</ul>
 						</aside>
 					</section>
 				</section>
@@ -158,24 +266,62 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 				</section>
 				<section>
 					<section>
-						<h2>Conlusion</h2>
+						<h2>Conlusions and Next Steps</h2>
+						<ul>
+							<li>Classification by sentiment features: better understanding of how
+							emotions are expressed linguistically in subgenres</li>
+							<li>Distinction <em>narrated text – direct speech</em> matters</li>
+							<li>For Spanish: NRC Emotion Lexicon better than SentiWordNet, relevance of 8 basic emotions</li>
+							<li>Next: increase corpus size, use other classifiers</li>
+						</ul>
 						<aside class="notes">
+							<ul>
+								<li>Classification by sentiment features contributes to a better understanding of how
+							emotions are expressed linguistically in the different types of novels</li>
+								<li>Distinction narrated text – direct speech matters for subgenre classification by sentiment</li>
+							</ul>
 						</aside>
 					</section>
 					<section>
-						<h2>References</h2>
-						<ul style="font-size: smaller">
-							<li></li>
-						</ul>
-					</section>
-					<section>
-						<h2>Thank you! - Muchas gracias!</h2>
+						<h2>Thank you! - ¡Muchas gracias!</h2>
 						<p>Slides at: <a href="https://hennyu.github.io/dh_18/"
 								>https://hennyu.github.io/dh_18/</a></p>
 						<p>CLiGS: <a href="http://cligs.hypotheses.org/" target="_blank"
 								>http://cligs.hypotheses.de/</a></p>
 						<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
 								>CC-BY 4.0</a></p>
+					</section>
+					<section>
+						<h2>References</h2>
+						<ul style="font-size: 12pt;">
+							<li>Baccianella, S., Esuli, A. and Sebastiani, F. (2010). 
+							SentiWordNet 3.0: An Enhanced Lexical Resource for Sentiment Analysis and Opinion Mining. 
+							<em>Proceedings of LREC 2010.</em> Valletta, Malta: ELRA: 2200-2204. 
+							<a href="http://www.lrec-conf.org/proceedings/lrec2010/summaries/769.html" target="_blank">http://www.lrec-conf.org/proceedings/lrec2010/summaries/769.html</a>. </li>
+							<li>Henríquez Miranda, C. and Guzmán, J. (2017). 
+							A Review of Sentiment Analysis in Spanish. Una Revisión Sobre el Análisis de Sentimientos en Español. <em>TECCIENCIA</em> 12 (22): 35-48. doi: 10.18180/tecciencia.2017.22.5. </li>
+							<li>Hettinger, L., Jannidis, F., Reger, I. and Hotho, A. (2016). 
+							Classification of Literary Subgenres. <em>DHd2016</em>. Leipzig: Universität Leipzig: 154-158. 
+							<a href="http://dhd2016.de/boa.pdf" target="_blank">http://dhd2016.de/boa.pdf</a>.</li>
+							<li>Kim, E., Padó, S. and Klinger, R. (2017). Prototypical Emotion Developments in Literary Genres. 
+							<em>Digital Humanities 2017. Conference Abstracts.</em> Montréal: McGill University. 
+							<a href="https://dh2017.adho.org/abstracts/203/203.pdf" target="_blank">https://dh2017.adho.org/abstracts/203/203.pdf</a>.</li>
+							<li>Miller, G. A. (1995). WordNet: A Lexical Database for English. <em>Communications of the ACM</em> 38 (11), 39-41. </li>
+							<li>Molina, H. B. (2011). <em>Como crecen los hongos. La novela argentina entre 1838 y 1872.</em> Buenos Aires: Teseo. </li>
+							<li>Padró, L. and Stanislovsky, E. (2012). FreeLing 3.0: Towards Wider Multilinguality. 
+							<em>Proceedings of the Language Resources and Evaluation Conference (LREC 2012).</em> 
+							Istanbul, Turkey: ELRA: 2473-2479. 
+							<a href="http://nlp.Isi.upc.edu/publications/papers/padro12.pdf" target="_blank">http://nlp.Isi.upc.edu/publications/papers/padro12.pdf</a>. </li>
+							<li>Pang, B. and Lee, L. (2008). Opinion Mining and Sentiment Analysis. <em>Foundations and Trends in Information Retrieval</em> 2 (1-2): 1-135. </li>
+							<li>Saif, M. and Turney, P. (2013). Crowdsourcing a Word-Emotion Association Lexicon. <em>Computational Intelligence</em> 29 (3), 436-465. </li>
+							<li>Winko, S. (2003). Über Regeln emotionaler Bedeutung in und von literarischen Texten. 
+							In Jannidis, F., Lauer, G., Martínez, M., Winko, S. (eds.), <em>Regeln der Bedeutung</em>. Berlin: de Gruyter, pp. 329-348. </li>
+							<li>Zehe, A., Becker, M., Hettinger, L., Hotho, A., Reger, I., and Jannidis, F. (2016): 
+							Prediction of Happy Endings in German Novels based on Sentiment Information. 
+							<em>Proceedings of DMNLP, Workshop at ECML/PKDD.</em> Riva del Garda, Italy. 
+							<a href="http://ceur-ws.org/Vol-1646/paper2.pdf" target="_blank">http://ceur-ws.org/Vol-1646/paper2.pdf</a> </li>
+							<li>Zó, R. E. (2015). <em>Emociones escriturales. La novela sentimental latinoamericana.</em> Saarbrücken: Editorial Académica Española. </li>
+						</ul>
 					</section>
                 </section>
             </div>
