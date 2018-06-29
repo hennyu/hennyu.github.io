@@ -139,8 +139,27 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 						</aside>
 					</section>
 					<section>
-						<h2>Example</h2>
-						<p>...</p>
+						<h2>Sentence examples</h2>
+						<h3 style="font-size: 20pt; font-weight: bold;">from <em>El Chacho</em> by Eduardo Gutiérrez, 1884, military novel, narrated text:</h3>
+						<table>
+							<tr>
+								<td><p style="font-size: 18pt;">Quiroga entretanto permanecía en Buenos Aires, bebiendo en la inspiración infame
+                    del tirano las más sangrientas ideas, y recibiendo las más terribles
+                    instrucciones.</p></td>
+								<td><p style="font-size: 18pt;"><em>Quiroga, in the meantime, stayed in Buenos Aires, drinking the most blodthirsty
+                     ideas from the infamous inspiration of the tyrant, receiving the most terrible instructions.</em></p></td>
+							</tr>
+						</table>
+                     <h3 style="font-size: 20pt; font-weight: bold;">from <em>Clemencia</em> by Ignacio Manuel Altamirano, 1869, sentimental novel, direct speech:</h3>
+                     <table>
+						<tr>
+							<td><p style="font-size: 18pt;">— ¡Oh! sí podrá usted, Fernando, sí podrá usted. A una mujer tan hermosa como
+                  ésta, lo difícil, lo imposible es no amarla. Es demasiado encantadora para que el
+                  corazón de usted pueda permanecer indiferente.</p></td>
+							<td><p style="font-size: 18pt;"><em>Oh! yes, you can, Fernando, yes, you can. It's difficult, impossible not to love a woman as
+                      beautiful as this one. She is too charming for your heart to remain indifferent.</em></p></td>
+						</tr>
+                     </table>
 						<aside class="notes">
 							<ul>
 								<li>assumptions: sentimental novels + love story as basic plot element e.g. in historical or costumbrista novels</li>
@@ -218,6 +237,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 											<td style="border: 1px solid black;">polarity (positive, negative, neutral)</td>
 											<td style="border: 1px solid black;">polarity + 8 basic emotions (Trust, Fear, Joy, Sadness, Anger, Disgust, Anticipation, Surprise)</td>
 										</tr>
+										<tr>
+											<td style="border: 1px solid black;">117,653 entries</td>
+											<td style="border: 1px solid black;">14,182 entries</td>
+										</tr>
 									</table>
 								</td>
 								<td>
@@ -244,6 +267,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							</ul>
 						</aside>
 					</section>
+					<!--
 					<section>
 						<h2>Methods: Additional features</h2>
 						<table style="border-collapse: collapse; font-size: smaller;">
@@ -255,42 +279,55 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							<tr>
 								<td style="border: 1px solid black;">emotional</td>
 								<td style="border: 1px solid black;">Proportion of emotional sentences in the text.</td>
-								<td><strong>positive &gt; 1</strong> or <strong>negative &lt; -1</strong></td>
+								<td style="border: 1px solid black;">x &lt; -1 | x &gt; 1</td>
 							</tr>
 							<tr>
 								<td style="border: 1px solid black;">neutral</td>
 								<td style="border: 1px solid black;">Proportion of neutral sentences in the text.</td>
-								<td style="border: 1px solid black;"><strong>-1 &lt;= sentiment value &lt;= 1</strong></td>
+								<td style="border: 1px solid black;">-1 &lt;= x &lt;= 1</td>
 							</tr>
 							<tr>
 								<td style="border: 1px solid black;">positive</td>
 								<td style="border: 1px solid black;">Proportion of positive sentences in the text.</td>
-								<td style="border: 1px solid black;"><strong>positive &gt; 1</strong></td>
+								<td style="border: 1px solid black;">x &gt; 1</td>
 							</tr>
 							<tr>
 								<td style="border: 1px solid black;">negative</td>
 								<td style="border: 1px solid black;">Proportion of negative sentences in the text.</td>
-								<td style="border: 1px solid black;"><strong>negative &lt; -1</strong></td>
+								<td style="border: 1px solid black;">x &lt; -1</td>
 							</tr>
 						</table>
 						<aside class="notes">
 							<p>Threshold 1</p>
 						</aside>
-					</section>
+					</section> 
+					-->
 					<section>
 						<h2>Methods: Subgenre classification</h2>
-						<ul>
-							<li><strong>Decision Tree Classifier</strong>: easily interpretable</li>
-							<li>sentences aggregated into 5 sections, divided by section length: 150 data points</li>
-							<li>60 experiments: varying type of features/lexicon, depth of decision tree</li>
-							<li>5-fold cross-validation</li>
-						</ul>
+						<table>
+							<tr>
+								<td>
+									<ul>
+										<li><strong>Decision Tree Classifier</strong>: easily interpretable</li>
+										<li>sentences aggregated into 5 sections, divided by section length: 150 data points</li>
+										<li>60 experiments: varying type of features/lexicon, depth of decision tree</li>
+										<li>5-fold cross-validation</li>
+									</ul>
+								</td>
+								<td style="vertical-align: middle;">
+									<img src="img/decisiontree.png" width="600"/>
+								</td>
+							</tr>
+						</table>
 						<aside class="notes">
 							<ul>
 								<li>The advantage of Decision Trees is that they can be easily interpreted.</li>
 								<li>This is desirable in an explorative analysis interested in the kind of 
 								sentiment-based features that are relevant to differentiate novels of different subgenres</li>
 								<li>(even if not the best results in accuracy)</li>
+								<li>Decision Tree: a tree-like model with a hierarchy of decisions. Each node in the tree represents a rule 
+								and each leaf represents an answer to the decision problem. In a classification problem, the decision path to
+								each class label can be followed in the tree, in this case, the path to the decision of the subgenre of the novel.</li>
 							</ul>
 						</aside>
 					</section>
@@ -301,8 +338,226 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 						<h2>4. Results and Discussion</h2>
 					</section>
 					<section>
-						<h2></h2>
+						<h2>Sentence example</h2>
+						<p style="font-size: 16pt;">from <em>Romualdo. Uno de tantos</em>, by Francisco Calcagno, 1881, anti-slavery novel (narrated text)</p>
+						<h3 style="font-size: 20pt;">SentiWordNet 3.0</h3>
+						<table style="font-size: 14pt;">
+							<tr>
+								<td>La</td>
+								<td>pluma</td>
+								<td>no</td>
+								<td>alcanza</td>
+								<td>a</td>
+								<td>describir</td>
+								<td>las</td>
+								<td>salvajes</td>
+								<td>peripecias</td>
+								<td>de</td>
+								<td>aquella</td>
+								<td>lucha</td>
+								<td>espantosa.</td>
+							</tr>
+							<tr>
+								<td><em>The</em></td>
+								<td><em>quill</em></td>
+								<td><em>not</em></td>
+								<td><em>accomplish</em></td>
+								<td><em>to</em></td>
+								<td><em>describe</em></td>
+								<td><em>the</em></td>
+								<td><em>ferocious</em></td>
+								<td><em>events</em></td>
+								<td><em>of</em></td>
+								<td><em>that</em></td>
+								<td><em>fight</em></td>
+								<td><em>frightening.</em></td>
+							</tr>
+							<tr>
+								<td>-</td>
+								<td style="background-color: #ffffff;">neutral</td>
+								<td>-</td>
+								<td style="background-color: #ffe854;">positive<br/>0.125</td>
+								<td>-</td>
+								<td style="background-color: #ffffff;">neutral</td>
+								<td>-</td>
+								<td style="background-color: #d40000;">negative<br/>0.75</td>
+								<td style="background-color: #ffe854;">positive<br/>0.125</td>
+								<td>-</td>
+								<td>-</td>
+								<td style="background-color: #ffffff;">neutral</td>
+								<td style="background-color: #d40000;">negative<br/>0.625</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="background-color: #d40000;">negative<br/>0.125</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+						<h3 style="font-size: 20pt;">NRC Emotion Lexicon</h3>
+						<table style="font-size: 14pt;">
+							<tr>
+								<td>La</td>
+								<td>pluma</td>
+								<td>no</td>
+								<td>alcanza</td>
+								<td>a</td>
+								<td>describir</td>
+								<td>las</td>
+								<td>salvajes</td>
+								<td>peripecias</td>
+								<td>de</td>
+								<td>aquella</td>
+								<td>lucha</td>
+								<td>espantosa.</td>
+							</tr>
+							<tr>
+								<td><em>The</em></td>
+								<td><em>quill</em></td>
+								<td><em>not</em></td>
+								<td><em>accomplish</em></td>
+								<td><em>to</em></td>
+								<td><em>describe</em></td>
+								<td><em>the</em></td>
+								<td><em>ferocious</em></td>
+								<td><em>events</em></td>
+								<td><em>of</em></td>
+								<td><em>that</em></td>
+								<td><em>fight</em></td>
+								<td><em>frightening.</em></td>
+							</tr>
+							<tr>
+								<td>-</td>
+								<td style="background-color: #ffffff;">neutral</td>
+								<td>-</td>
+								<td style="background-color: #ffffff;">neutral</td>
+								<td>-</td>
+								<td style="background-color: #ffffff;">neutral</td>
+								<td>-</td>
+								<td style="background-color: #d40000;">negative</td>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td style="background-color: #d40000;">negative</td>
+								<td style="background-color: #d40000;">negative</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="background-color: #ff0000;">Anger</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="background-color: #ff0000;">Anger</td>
+								<td style="background-color: #ff54ff;">Disgust</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="background-color: #009600;">Fear</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="background-color: #009700;">Fear</td>
+								<td style="background-color: #009600;">Fear</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Results for subgenre classification</h2>
+						<img src="img/barline.png" width="900"/>
 						<aside class="notes">
+							<ul>
+								<li>scores for the test set!</li>
+								<li>The depth of the Decision Tree was varied between 1 and 15</li>
+								<li>Restricting the tree depth helps to prevent overfitting and usually leads to a better performance of the classifier on the test set</li>
+								<li>The accuracy is given as the mean F1 score obtained from the cross-validation</li>
+								<li>Four different sets of sentiment features were used</li>
+								<li>Features from the SentiWordNet lexicon (WN) and from the NRC lexicon (NRC), both without differentiating between direct speech and narrated text,</li>
+								<li>as well as WN- and NRC-features with separate sentiment values for direct speech and narrated text (WN speech and NRC speech)</li>
+								<li>The results of all experiments are compared to the “most frequent”-baseline</li>
+								<li>baseline obtained with an SVM classifier, using the 5,000 most frequent words</li>
+								<li>highest mean value being at 0.52</li>
+								<li>almost all of them outperform the “most frequent”-baseline (0.3)</li>
+								<li>the results do not reach the best mean score of the MFW classification (0.57)</li>
+								<li>next step will be to combine both sentiment features and MFW</li>
+								<li>results for the two different sentiment lexica, the NRC lexicon performs better than SentiWordNet</li>
+								<li>although the latter covers almost ten times as many words as the first one</li>
+								<li>highest values for both WN and NRC are reached when the sentiment values are calculated separately for direct speech and narrated text</li>
+								<li>best scores are obtained for the feature set “NRC speech”</li>
+								<li>F1 score: the weighted average of the F1 score of each class</li>
+								<li>F1 score: average of precision and recall</li>
+								<li>precision: correct positive results / all positive results (how many false positives?)</li>
+								<li>recall: correct positive results / all relevant samples (how many false negatives?)</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Feature importance</h2>
+						<table>
+							<tr>
+								<td><img src="img/Fig5.png" width="500"/></td>
+								<td>tree depth: 3<br/>feature set: NRC speech</td>
+							</tr>
+						</table>
+						<aside class="notes">
+							<ul>
+								<li>A look into the feature importance shows that the eight basic emotions are crucial</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Feature importance</h2>
+						<table>
+							<tr>
+								<td><img src="img/Fig6.png" width="500"/></td>
+								<td>tree depth: 6<br/>feature set: NRC speech</td>
+							</tr>
+						</table>
+						<aside class="notes">
+							<ul>
+								<li>The most important feature in both example trees is positive speech</li>
+								<li>followed by narrated fear</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h2>Decision tree</h2>
+						<p>tree depth: 3, feature set: NRC speech</p>
+						<img src="img/Fig7.png" width="1000"/>
+						<aside class="notes">
+							<ul>
+								<li>based on the best parameters</li>
+								<li>novels with higher values of positive speech are more likely to be sentimental novels</li>
+								<li>sentimental novels are lower values of trust and higher values of anticipation in narrated text</li>
+								<li>path for historical novels includes less positive speech and more fear and anger in narrated text</li>
+								<li>Costumbrista novels are characterized by less sadness in narrated text than sociopolitical novels</li>
+								<li>more trust in narrated text than sentimental novels</li>
+								<li>Sociopolitical novels differ from historical novels in that they have a lower value of fear and anger in narrated text</li>
+							</ul>
+							<!-- F1 für diesen Baum?
+							samples: Gesamtzahl der Samples im Testset? (warum 112?)
+							value: Zahl der Samples aus den 4 Klassen, Reihenfolge hier: costumbrista, historical, sentimental, sociopolitical
+							 -->
 						</aside>
 					</section>
 				</section>
@@ -314,7 +569,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							emotions are expressed linguistically in subgenres</li>
 							<li>Distinction <em>narrated text – direct speech</em> matters</li>
 							<li>For Spanish: NRC Emotion Lexicon better than SentiWordNet, relevance of 8 basic emotions</li>
-							<li>Next: increase corpus size, use other classifiers</li>
+							<li>Next: increase corpus size, use other classifiers, combine sentiment and other types of features</li>
 						</ul>
 						<aside class="notes">
 							<ul>
