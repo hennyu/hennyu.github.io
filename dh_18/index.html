@@ -248,6 +248,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 										<li><strong>Linguistic annotation</strong><br/> FreeLing (Padró and Stanislovsky, 2012)</li>
 										<li>Separation of <br/><strong>direct speech <br/>&amp; narrated text</strong></li>
 										<li>Sentiment values per sentence</li>
+										<li>Threshold: 1</li>
 									</ul>
 								</td>
 							</tr>
@@ -508,6 +509,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 								<li>F1 score: average of precision and recall</li>
 								<li>precision: correct positive results / all positive results (how many false positives?)</li>
 								<li>recall: correct positive results / all relevant samples (how many false negatives?)</li>
+								<li>NRC speech, tree depth 3 and 6: 0.52</li>
 							</ul>
 						</aside>
 					</section>
@@ -516,25 +518,22 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 						<table>
 							<tr>
 								<td><img src="img/Fig5.png" width="500"/></td>
-								<td>tree depth: 3<br/>feature set: NRC speech</td>
+								<td>
+									<ul>
+										<li>tree depth: 3</li>
+										<li>feature set: NRC speech</li>
+										<li>F1 training set: 0.75</li>
+										<li>F1 test set: 0.66</li>
+										<li>most important features: 
+										<br/><strong>positive speech</strong>
+										<br/><strong>narrated fear</strong></li>
+									</ul>
+								</td>
 							</tr>
 						</table>
 						<aside class="notes">
 							<ul>
 								<li>A look into the feature importance shows that the eight basic emotions are crucial</li>
-							</ul>
-						</aside>
-					</section>
-					<section>
-						<h2>Feature importance</h2>
-						<table>
-							<tr>
-								<td><img src="img/Fig6.png" width="500"/></td>
-								<td>tree depth: 6<br/>feature set: NRC speech</td>
-							</tr>
-						</table>
-						<aside class="notes">
-							<ul>
 								<li>The most important feature in both example trees is positive speech</li>
 								<li>followed by narrated fear</li>
 							</ul>
@@ -542,7 +541,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 					</section>
 					<section>
 						<h2>Decision tree</h2>
-						<p>tree depth: 3, feature set: NRC speech</p>
+						<p style="font-size: 18pt;">tree depth: 3, feature set: NRC speech, F1 training set: 0.75, F1 test set: 0.66</p>
 						<img src="img/Fig7.png" width="1000"/>
 						<aside class="notes">
 							<ul>
@@ -559,6 +558,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 							value: Zahl der Samples aus den 4 Klassen, Reihenfolge hier: costumbrista, historical, sentimental, sociopolitical
 							 -->
 						</aside>
+					</section>
+					<section>
+						<h2>Comparison of classification methods</h2>
+						<img src="img/classifier_comp.png" width="1200"/>
 					</section>
 				</section>
 				<section>
