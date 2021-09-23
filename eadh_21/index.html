@@ -1,0 +1,405 @@
+<html>
+    <head>
+        <title>Time for Genre</title>
+        <meta name="author" content="Ulrike Henny-Krahmer" />
+        <meta name="description" content="Slides" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../reveal/css/reveal.css" />
+        <link rel="stylesheet" href="../reveal/css/theme/serif.css" />
+        <!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+        <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+        <style type="text/css">
+            .reveal .slides{
+                font-size: 24pt;
+            }
+            .reveal small,
+            .reveal ul.small,
+            .reveal table.small{
+                font-size: 0.7em;
+            }
+            .reveal table.border, .reveal table.border td {
+				border: 1px solid black;
+			}
+            .reveal ul.middle {
+				font-size: 0.8em;
+			}
+			.reveal ul.middle li {
+				margin-bottom: 0.7em;
+			}
+			.reveal table td {
+				vertical-align: top;
+			}
+			.reveal h2, .reveal h3 {
+				font-weight: bold;
+			}
+            .reveal h1{
+                font-size: 1.6em;
+            }
+            .reveal h2 {
+				font-size: 1.3em;
+			}
+            .reveal h3, .reveal h4{
+                font-size: 1.2em;
+            } 
+            .reveal img.logo{
+                margin: 0 0.25em;
+            }
+            .reveal section img{
+                border: none;
+                vertical-align: bottom;
+                margin: 0;
+            }
+            .reveal td.middle{
+                vertical-align: middle;
+            }
+            .reveal li{
+                margin: 0.2em 0;
+            }
+            .reveal li li{
+                font-size: smaller;
+            }
+            .reveal a {
+				color: purple;
+			}
+			.reveal blockquote {
+				width: 1000px;
+				font-size: 18pt;
+				text-align: left;
+			}
+            </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Time for Genre: <br/>Temporal Expressions as Features for the Classification of Literary Subgenres</h1>
+                    <hr />
+                    <small>Ulrike Henny-Krahmer<br />(NFDI4Culture, University of Cologne)</small>
+                    <br />
+                    <br />
+                    <small>Conference "EADH2021", <br />September 23, 2021</small>
+                    <br />
+                    <br />
+                    <small>Slides at: <a href="https://hennyu.github.io/eadh_21/"
+                            >https://hennyu.github.io/eadh_21/</a></small>
+                    <br />
+                    <hr />
+                    <p>
+                        <img height="60" src="img/basics/UzK.jpg" class="logo" />
+                        <img height="60" src="img/basics/n4c.png" class="logo" />
+                    </p>
+                    <aside class="notes">
+					</aside>
+                </section>
+                <section>
+					<h2>Overview</h2>
+					<ul>
+						<li>Introduction: <br/><em>Classification of Literary Subgenres with Temporal Expressions</em></li>
+						<li>Corpus and Methods: <br/><em>19th Century Novels, Temporal Tagging, and Classification</em></li>
+						<li>Results and Discussion</li>
+						<li>Conclusions</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+                </section>
+                <!-- ################ Introduction ############### -->
+                <section>
+					<section>
+						<h2>Introduction: <br/><em>Classification of Literary Subgenres with Temporal Expressions</em></h2>
+					</section>
+					<section>
+						<h2>Classification of Literary Subgenres</h2>
+						<ul>
+							<li>Classification of texts by genre: major concern of Computational Linguistics (e.g. Biber 1992) and Computational Literary Studies (Underwood 2015; Hettinger et al. 2016; Schöch 2017)</li>
+							<li>Use of different types of features (MFW, topics, sentiments, character networks)</li>
+							<li>Overall goal: better understand distinctive features</li>
+							<li>Here: temporal expressions as features</li>
+						</ul>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Temporal expressions</h2>
+						<p>Sequences of tokens that refer to time (Ferro et al. 2005)</p>
+						<table class="border">
+							<tr>
+								<td>DATE/TIME</td><td>When did something happen?</td><td>"on October 5th, 1850", "3 p.m."</td>
+							</tr>
+							<tr>
+								<td>DURATION</td><td>How long did it last?</td><td>"for three hours"</td>
+							</tr>
+							<tr>
+								<td>SET</td><td>How often did it occur?</td><td>"every Tuesday"</td>
+							</tr>
+						</table>
+						<ul>
+							<li>Studies about temporal expressions in literary texts: Bögel et al. 2015; Fischer and Strötgen 2015a, 2015b; Gius and Jacke 2015</li>
+							<li>≠ subgenre classification</li>
+						</ul>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Subgenres of the novel</h2>
+						<ul>
+							<li>Here: Spanish American 19th century novels</li>
+							<li>Types of novels: historical, customs ("<em>novela de costumbres</em>"), sentimental</li>
+							<li>Time in the novels:
+								<ul>
+									<li>temporal perspective: events in the present / past</li>
+									<li>precise / vague temporal location</li>
+								</ul>
+							</li>
+							<li>hypotheses: more precise temporal expressions in historical novels, more fuzzy/unspecified ones in sentimental novels</li>
+						</ul>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Questions</h2>
+						<ul>
+							<li>How useful are temporal features in general for the classification of novels by subgenre?</li>
+							<li>How relevant are different temporal expressions for different subgenres?</li>
+						</ul>
+					</section>
+                </section>
+                <!-- ################ Corpus and Methods ############### -->
+                <section>
+					<section>
+						<h2>Corpus and Methods: <br/><em>19th Century Novels, Temporal Tagging, and Classification</em></h2>
+					</section>
+					<section>
+						<h2>Corpus</h2>
+						<table class="small">
+							<tr>
+								<td style="width: 60%;">
+									<img src="img/bar_novels-by-decade_subgenre-theme.png" width="500px" height="400px"/>
+								</td>
+								<td>
+									<p><strong><em>Conha19</em>: <br/>Corpus of 19th Century Spanish American Novels</strong></p>
+									<p><a href="https://github.com/cligs/conha19" target="_blank">https://github.com/cligs/conha19</a></p>
+									<p>256 novels:</p>
+									<table>
+										<tr>
+											<td>Mexico (108)</td>
+											<td>historical (67)</td>
+										</tr>
+										<tr>
+											<td>Argentina (99)</td>
+											<td>sentimental (55)</td>
+										</tr>
+										<tr>
+											<td>Cuba (49)</td>
+											<td>customs (50)</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Methods</h2>
+						<ul>
+							<li>Temporal tagging: HeidelTime 2.2.1 (Strötgen and Gertz 2015)</li>
+							<li>Linguistic annotation: TreeTagger 3.2.3 (Schmid 1995) and FreeLing 4.0 (Padró and Stanilovsky 2012)</li>
+							<li>Classification: linear SVM, C = 100, undersampling, random selection of novels (10 times), 10-fold cross-validation</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Features: temporal expressions</h2>
+						<ul>
+							<li>499 different features
+								<ul>
+									<li>basic types of temporal expressions (DATE, TIME, DURATION, SET)</li>
+									<li>custom subtypes (e.g. fully vs. unspecified DATES: "Mayo de 1854" vs. "hoy")</li>
+									<li>50 most frequent temporal expressions of each basic type (e.g. "hoy", "las 9 de la noche", "dos horas", "cada día")</li>
+									<li>counts of different verb tenses (present, imperfect, future, past, conditional)</li>
+								</ul>
+							</li>
+							<li>relative / proportional values</li>
+							<li>see <a href="https://github.com/hennyu/time_for_genre_eadh21" target="_blank">https://github.com/hennyu/time_for_genre_eadh21</a></li>
+						</ul>
+						<aside class="notes">
+							<p>relative: to text length</p>
+							<p>proportional: e.g. how many DATE expressions in proportion to the total absolute number of temp. expr. in the text</p>
+						</aside>
+					</section>
+					<section>
+						<h2>Features: MFW</h2>
+						<ul>
+							<li>another feature set of 4,000 MFW</li>
+							<li>tf-idf values</li>
+							<li>for comparison and combination</li>
+							<li>(see Hettinger et al. 2016, Henny-Krahmer forthcoming)</li>
+						</ul>
+					</section>
+				</section>
+                <!-- ################ Results and Discussion ############### -->
+                <section>
+					<section>
+						<h2>Results and Discussion</h2>
+					</section>
+					<section>
+						<h2>Classification results (mean accuracies)</h2>
+						<table class="small">
+							<tr>
+								<th>Subgenres</th>
+								<th>Temporal features</th>
+								<th>MFW</th>
+								<th>Temporal + MFW</th>
+							</tr>
+							<tr>
+								<td>historical novel vs. other</td>
+								<td>0.70</td>
+								<td>0.83</td>
+								<td>0.85</td>
+							</tr>
+							<tr>
+								<td>sentimental novel vs. other</td>
+								<td>0.64</td>
+								<td>0.78</td>
+								<td>0.77</td>
+							</tr>
+							<tr>
+								<td>novel of customs vs. other</td>
+								<td>0.62</td>
+								<td>0.72</td>
+								<td>0.73</td>
+							</tr>
+							<tr>
+								<td>historical novel vs. sentimental novel</td>
+								<td>0.74</td>
+								<td>0.92</td>
+								<td>0.91</td>
+							</tr>
+							<tr>
+								<td>historical novel vs. novel of customs</td>
+								<td>0.76</td>
+								<td>0.86</td>
+								<td>0.89</td>
+							</tr>
+							<tr>
+								<td>sentimental novel vs. novel of customs</td>
+								<td>0.59</td>
+								<td>0.74</td>
+								<td>0.74</td>
+							</tr>
+						</table>
+						<aside class="notes">
+					</section>
+					<section>
+						<h2>Most important features (historical vs. customs)</h2>
+						<img src="img/feat_imp_novela_histórica_novela_de_costumbres.png" height="600px"/>
+					</section>
+					<section>
+						<h2>Most important features (hist. vs. sentimental)</h2>
+						<img src="img/feat_imp_novela_histórica_novela_sentimental.png" height="600px"/>
+					</section>
+					<section>
+						<h2>Most important features (sent. vs. customs)</h2>
+						<img src="img/feat_imp_novela_sentimental_novela_de_costumbres.png" height="600px" />
+					</section>
+                </section>
+                 <!-- ################ Conclusions ############### -->
+                <section>
+					<section>
+						<h2>Conclusions</h2>
+					</section>
+					<section>
+						<h2>Conclusions</h2>
+						<ul>
+							<li>classification of literary subgenres with <strong>temporal features alone</strong>: above baseline of 50%</li>
+							<li><strong>MFW alone</strong>: better</li>
+							<li><strong>MFW + temporal features</strong>: results improve for certain constellations (when the sentimental novel is not involved), but remain the same or get slightly worse for others</li>
+						</ul>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Conclusions</h2>
+						<ul>
+							<li>temporal features add relevant information for the distinction of <strong>some</strong> subgenres, but not for all</li>
+							<li>feature weights: a few very specific temporal features are relevant (fully specified dates, times of the day)</li>
+							<li>subgenres are not all defined on the same textual and linguistic levels</li>
+							<li>next steps: evaluate quality of temporal tagging in more detail, classify other types of novels</li>
+						</ul>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Thank you!</h2>
+						<p>Slides at: <a href="https://hennyu.github.io/eadh_21/"
+								>https://hennyu.github.io/eadh_21/</a></p>
+						<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+								>CC-BY 4.0</a></p>
+					</section>
+					<section>
+						<h2>References (1)</h2>
+						<ul style="font-size: 12pt;">	
+<li>Biber, Douglas (1992): "The multidimensional approach to linguistic analyses of genre variation: An overview of methodology and finding", in: <em>Computers in the Humanities</em> 26, 5-6: 331-347</li>					
+<li>Bögel, Thomas / Strötgen, Jannik / Gertz, Michael (2015): “A Hybrid Approach to Extract Temporal Signals from Narratives”, in: <em>Proceedings of the International Conference of the German Society for Computational Linguistics and Language Technology (GSCL’15)</em>, Duisburg-Essen, September-October 2015: 106-107 <a href="http://web.archive.org/web/20210616084719/https://konvens.org/proceedings/2015/GSCL-201514.pdf" target="_blank">http://web.archive.org/web/20210616084719/https://konvens.org/proceedings/2015/GSCL-201514.pdf</a> [15.06.2021].</li>
+<li>Calderón, Mario (2005): “La novela costumbrista mexicana”, in: Clark de Lara, Belem / Speckman Guerra, Elisa (eds.): <em>La república de las letras. Asomos a la cultura escrita del México decimonónico. Vol. 1: Ambientes, asociaciones y grupos. Movimientos, temas y géneros literarios.</em> México: Universidad Nacional Autónoma de México: 315-324.</li>
+<li>Fernández Prieto, Celia (1996): “Poética de la novela histórica como género literario”, in: <em>Signa. Revista de la Asociación Española de Semiótica</em> 5: 185-202.</li>
+<li>Ferro, Lisa / Gerber, Laurie / Inderjeet, Mani / Sundheim, Beth / Wilson, George (2005): <em>TIDES. 2005 Standard for the Annotation of Temporal Expressions.</em> <a href="http://web.archive.org/web/20200716215051/https://www.ldc.upenn.edu/sites/www.ldc.upenn.edu/files/english-timex2-guidelines-v0.1.pdf" target="_blank">http://web.archive.org/web/20200716215051/https://www.ldc.upenn.edu/sites/www.ldc.upenn.edu/files/english-timex2-guidelines-v0.1.pdf</a> [15.06.2021].</li>
+<li>Fischer, Frank / Strötgen, Jannik (2015a): “Un calendario de la literatura española (aplicación para Android e iOS)”, in: LINHD (ed.): <em>Humanidades Digitales Hispánicas (HDH’15)</em>, Madrid, October 2015 . <a href="http://web.archive.org/web/20210126221259/https://dbs.ifi.uni-heidelberg.de/files/Team/jannik/hdh2015-madrid-slides.pdf" target="_blank">http://web.archive.org/web/20210126221259/https://dbs.ifi.uni-heidelberg.de/files/Team/jannik/hdh2015-madrid-slides.pdf</a> [15.06.2021].</li>
+<li>Fischer, Frank / Strötgen, Jannik (2015b): “When Does German Literature Take Place? – On the Analysis of Temporal Expressions in Large Corpora”, in: ADHO (ed.): <em>DH 2015: Annual Conference of the Alliance of Digital Humanities Organizations</em>, Sydney, June-July 2015. <a href="http://web.archive.org/web/20210616084951/https://dbs.ifi.uni-heidelberg.de/files/Team/jannik/publications/fischer-stroetgen_temporal-expressions-in-literary-corpora_dh2015_final_2015-03-01.pdf" target="_blank">http://web.archive.org/web/20210616084951/https://dbs.ifi.uni-heidelberg.de/files/Team/jannik/publications/fischer-stroetgen_temporal-expressions-in-literary-corpora_dh2015_final_2015-03-01.pdf</a> [15.06.2021].</li>
+						</ul>
+					</section>
+					<section>
+						<h2>References (2)</h2>
+						<ul style="font-size: 12pt;">
+<li>Gius, Evelyn / Jacke, Janina (2015): <em>Zur Annotation narratologischer Kategorien der Zeit. Guidelines zur Nutzung des CATMA-Tagsets.</em> Hamburg. <a href="http://web.archive.org/web/20201212151209/http://heureclea.de/wp-content/uploads/2016/11/guidelinesV2.pdf" target="_blank">http://web.archive.org/web/20201212151209/http://heureclea.de/wp-content/uploads/2016/11/guidelinesV2.pdf</a> [15.06.2021].</li>
+<li>Henny-Krahmer, Ulrike (ed.) (2021): <em>Corpus de novelas hispanoamericanas del siglo XIX (conha19).</em> Version 1.0.1. Github.com. <a href="https://github.com/cligs/conha19" target="_blank">https://github.com/cligs/conha19</a> [15.06.2021]. DOI: 10.5281/zenodo.4766987.</li>
+<li>Henny-Krahmer, Ulrike [Forthcoming]: <em>Genre Analysis and Corpus Design: 19th Century Spanish American Novels (1830-1910).</em> Ph.D. thesis, University of Würzburg.</li>
+<li>Hettinger, Lena / Reger, Isabella / Jannidis, Fotis / Hotho, Andreas (2016): “Classification of Literary Subgenres”, in: <em>DHd2016. Konferenzabstracts</em>, Leipzig, March 2016: 160-164. DOI: 10.5281/zenodo.4645369.</li>	
+<li>Janik, Dieter (2008): <em>Hispanoamerikanische Literaturen. Von der Unabhängigkeit bis zu den Avantgarden (1810-1930).</em> Tübingen: Narr Francke Attempto.</li>
+<li>Lefere, Robin (2013): <em>La novela histórica: (re)definición, caracterización, tipología.</em> Madrid: Visor Libros.</li>
+<li>Padró, Lluis / Stanilovsky, Evgeny (2012): “FreeLing 3.0. Towards Wider Multilinguality”, in: <em>Proceedings of the Language Resources and Evaluation Conference (LREC 2012) ELRA</em>, Istanbul, May 2012. <a href="http://web.archive.org/web/20210117151054/http://nlp.lsi.upc.edu/publications/papers/padro12.pdf" target="_blank">http://web.archive.org/web/20210117151054/http://nlp.lsi.upc.edu/publications/papers/padro12.pdf</a> [15.06.2021].</li>
+						</ul>
+					</section>
+					<section>
+						<h2>References (3)</h2>
+						<ul style="font-size: 12pt;">
+<li>Pedregosa, Fabian / Varoquaux, Gaël / Gramfort, Alexandre / Michel, Vincent / Thirion, Bertrand / Grisel, Olivier / Blondel, Mathieu / Prettenhofer, Peter / Weiss, Ron / Dubourg, Vincent / Vanderplas, Jake / Passos, Alexandre / Cournapeau, David / Brucher, Matthieu / Perrot, Matthieu / Duchesnay, Édouard (2011): “Scikit-learn: Machine Learning in Python”, <em>Journal of Machine Learning Research</em> 12: 2825-2830. <a href="http://web.archive.org/web/20210616092859/https://jmlr.org/papers/volume12/pedregosa11a/pedregosa11a.pdf" target="_blank">http://web.archive.org/web/20210616092859/https://jmlr.org/papers/volume12/pedregosa11a/pedregosa11a.pdf</a> [15.6.2021].</li>
+<li>Schmid, Helmut (1995): “Probabilistic Part-of-Speech Tagging Using Decision Trees”, in: <em>Proceedings of the International Conference on New Methods in Language Processing</em>, Manchester, UK, 1994 . <a href="http://web.archive.org/web/20210616092524/https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger1.pdf" target="_blank">http://web.archive.org/web/20210616092524/https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/tree-tagger1.pdf</a> [15.06.2021].</li>
+<li>Schöch, Christof (2017): “Topic Modeling Genre: An Exploration of French Classical and Enlightenment Drama”, in: <em>Digital Humanities Quarterly</em> 11, 2. <a href="http://web.archive.org/web/20210616092707/http://www.digitalhumanities.org/dhq/vol/11/2/000291/000291.html" target="_blank">http://web.archive.org/web/20210616092707/http://www.digitalhumanities.org/dhq/vol/11/2/000291/000291.html</a> [15.06.2021].</li>
+<li>Spang, Kurt (1998): “Apuntes para una definición de la novela histórica”, in: Spang, Kurt / Arellano, Ignacio / Mata, Carlos (eds.): <em>La novela histórica. Teoría y comentarios.</em> Pamplona: EUNSA: 63-125.</li>
+<li>Strötgen, Jannik / Gertz, Michael (2015): “A Baseline Temporal Tagger for all Languages”, in: Association for Computational Linguistics (ed.): <em>Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing</em>, Lisbon, September 2015: 541-547. DOI: 10.18653/v1/D15-1063.</li>
+<li>Strötgen, Jannik / Gertz, Michael (2016): <em>Domain-Sensitive Temporal Tagging</em>. S. L.: Morgan &amp; Claypool.</li>
+<li>Underwood, Ted (2015): <em>Understanding Genre in a Collection of a Million Volumes.</em> White Paper Report 109365. Urbana-Champaign: University of Illinois. DOI: 10.17613/M6W07V.</li>
+						</ul>
+					</section>
+				</section>
+            </div>
+        </div>
+        <script src="../reveal/lib/js/head.min.js"></script>
+        <script src="../reveal/js/reveal.js"></script>
+        <script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+    </body>
+</html>
