@@ -1,0 +1,571 @@
+<html>
+    <head>
+        <title>Original and American</title>
+        <meta name="author" content="Ulrike Henny-Krahmer" />
+        <meta name="description" content="Slides" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../reveal/css/reveal.css" />
+        <link rel="stylesheet" href="../reveal/css/theme/serif.css" />
+        <!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+        <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+        <style type="text/css">
+            .reveal .slides{
+                font-size: 24pt;
+            }
+            .reveal small,
+            .reveal ul.small,
+            .reveal table.small{
+                font-size: 0.7em;
+            }
+            .reveal small.smaller {
+				font-size: 0.6em;
+			}
+            .reveal table.border, .reveal table.border td, .reveal table.border th {
+				border: 1px solid black;
+			}
+            .reveal ul.middle {
+				font-size: 0.8em;
+			}
+			.reveal ul.middle li {
+				margin-bottom: 0.7em;
+			}
+			.reveal table td {
+				vertical-align: top;
+			}
+			.reveal h2, .reveal h3 {
+				font-weight: bold;
+			}
+            .reveal h1{
+                font-size: 1.4em;
+            }
+            .reveal h2 {
+				font-size: 1.3em;
+			}
+            .reveal h3, .reveal h4{
+                font-size: 1.2em;
+            } 
+            .reveal img.logo{
+                margin: 0 0.25em;
+            }
+            .reveal section img{
+                border: none;
+                vertical-align: bottom;
+                margin: 0;
+            }
+            .reveal td.middle{
+                vertical-align: middle;
+            }
+            .reveal li{
+                margin: 0.2em 0;
+            }
+            .reveal li li{
+                font-size: smaller;
+            }
+            .reveal a {
+				color: purple;
+			}
+			.reveal blockquote {
+				width: 1000px;
+				font-size: 18pt;
+				text-align: left;
+			}
+            </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Original and American:</h1>
+                    <h3>a Digital Analysis of References to Identity in Subtitles of Spanish American 19th Century Novels</h3>
+                    <hr />
+                    <small>Ulrike Henny-Krahmer<br />(University of Rostock)</small>
+                    <br />
+                    <br />
+                    <small class="smaller">Section "Digital, global, transdisziplinär: Impulse für eine transdisziplinäre Digitale Romanistik"<br/> at the conference "Romanistentag 2021", <br />October 3, 2021</small>
+                    <br />
+                    <br />
+                    <small class="smaller">Slides at: <a href="https://hennyu.github.io/romtag_21/"
+                            >https://hennyu.github.io/romtag_21/</a></small>
+                    <small class="smaller">Data at: <a href="https://github.com/hennyu/papers/tree/master/original_american_romtag21"
+                            >https://github.com/hennyu/papers/tree/master/original_american_romtag21</a></small>
+                    <hr />
+                    <p>
+                        <img height="60" src="img/basics/Uni-Rostock.png" class="logo" />
+                    </p>
+                    <aside class="notes">
+					</aside>
+                </section>
+                <!--
+                <section>
+					<h2>Overview</h2>
+					<ul>
+						<li></li>
+					</ul>
+					<aside class="notes">
+					</aside>
+                </section>
+                -->
+                <!-- ################ Introduction, Corpus and Methods ############### -->
+                <section>
+					<section>
+						<h2>Introduction, Corpus and Mehods</h2>
+					</section>
+					<section>
+						<h2>Context</h2>
+						<ul>
+							<li>Project “Computational Literary Genre Stylistics” (CLiGS),  
+							University of Würzburg, 2015-2020, <img height="80" src="img/basics/CLiGS.jpg" style="float: right;"/>
+							<a href="https://cligs.hypotheses.org/" target="_blank">https://cligs.hypotheses.org/</a></li>
+							<li>Dissertation "Genre Analysis and Corpus Design: 19th Century Spanish American Novels (1830-1910)"
+								<ul>
+									<li><strong>Bib-ACMé</strong>: Bibliografía digital de novelas argentinas, cubanas y mexicanas (1830-1910), <a href="http://bibacme.cligs.digital-humanities.de/" target="_blank">http://bibacme.cligs.digital-humanities.de/</a></li>
+									<li><strong>Conha19</strong>: Corpus de novelas hispanoamericanas del siglo XIX, <a href="https://github.com/cligs/conha19" target="_blank">https://github.com/cligs/conha19</a></li>
+								</ul>
+							</li>
+						</ul>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Identity labels (1)</h2>
+						<table>
+							<tr>
+								<td style="width: 350px;">
+									<img src="https://babel.hathitrust.org/cgi/imgsrv/image?id=hvd.hnlght;seq=9;width=400" height="500"/>
+									<p style="font-size: 12pt;">courtesy of HathiTrust, source: <a href="https://catalog.hathitrust.org/Record/100517869" target="_blank">https://catalog.hathitrust.org/Record/100517869</a></p>
+								</td>
+								<td style="width: 350px;">
+									<img src="https://babel.hathitrust.org/cgi/imgsrv/image?id=hvd.32044019184365;seq=7;width=400" height="500" />
+									<p style="font-size: 12pt;">courtesy of HathiTrust, source: <a href="https://catalog.hathitrust.org/Record/100327394" target="_blank">https://catalog.hathitrust.org/Record/100327394</a></p>
+								</td> 
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Identity labels (2)</h2>
+						<table>
+							<tr>
+								<td style="width: 350px;">
+									<img src="https://ia800308.us.archive.org/BookReader/BookReaderImages.php?zip=/28/items/lacampanadelata00rosagoog/lacampanadelata00rosagoog_tif.zip&file=lacampanadelata00rosagoog_tif/lacampanadelata00rosagoog_0006.tif&id=lacampanadelata00rosagoog&scale=4&rotate=0" height="500"/>
+									<p style="font-size: 12pt;">Internet Archive, digitized by Google, source: <a href="https://archive.org/details/lacampanadelata00rosagoog" target="_blank">https://archive.org/details/lacampanadelata00rosagoog</a></p>
+								</td>
+								<td style="width: 350px;">
+									<img src="https://babel.hathitrust.org/cgi/imgsrv/image?id=hvd.hwqxjw;seq=7;width=400" height="500" />
+									<p style="font-size: 12pt;">courtesy of HathiTrust, source: <a href="https://catalog.hathitrust.org/Record/011638496" target="_blank">https://catalog.hathitrust.org/Record/011638496</a></p>
+								</td> 
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section> 
+					<section>
+						<h2>Relevance of the topic</h2>
+						<ul>
+							<li>Spanish America: struggle for independence in the 19th century</li>
+							<li>process of nation building</li>
+							<li>development of a cultural identity</li>
+							<li>role of the novel in this process (Brushwood 1966, Sommer 1993, Lindstrom 2004) -> use of identity labels in subtitles -> no systematic analysis so far</li>
+						</ul>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Bibliography and corpus</h2>
+						<table class="small">
+							<tr>
+								<td>
+									<img src="img/bibacme_conha19.png" height="350px"/>
+									<p><strong>Bib-ACMé &amp; Conha19</strong></p>
+								</td>
+								<td>
+									<img src="img/bar_novels-by-decade_country.png" height="350px"/>
+									<p><strong>Conha19</strong></p>
+								</td>
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Codification of subgenre labels</h2>
+						<ul>
+							<li>in TEI</li>
+							<li>by work (= all editions)</li>
+							<li>only explicit historical labels</li>
+							<li>normalization <br/>
+								<small>e.g. of "novela histórica original", "novela de costumbres mexicanas" <br/> -> "novela histórica", "novela original", "novela de costumbres", "novela mexicana"</small>
+							</li>
+							<li>categorization (theme, mode, literary current, identity)</li>
+							<li>grouping <br/>
+								<small>e.g. "novela camagüeyana" -> "novela cubana"</small>
+							 </li>
+						</ul>
+					</section>
+					<section>
+						<h2>Questions</h2>
+						<ul>
+							<li>How many identity labels of which type are there?</li>
+							<li>Do they correlate with other levels of genre such as thematic subgenres or literary currents?</li>
+							<li>Are they connected to certain extra-textual or textual characteristics of the texts (e.g. period of publication, geographic setting, text style)?</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Methods</h2>
+						<ul>
+							<li>Analysis on the levels of metadata and text</li>
+							<li>Statistical charts</li>
+							<li>Contrastive analyses (Burrows 2007, Craig and Kinney 2009, Hoover 2013)</li>
+							<li>Stylo (Eder et al. 2016)</li>
+						</ul>
+					</section>
+                </section>
+                <!-- ################ Results and Discussion ############### -->
+                <section>
+					<section>
+						<h2>Results and Discussion</h2>
+					</section>
+					<section>
+						<h2>Results: identity labels</h2>
+						<p><small>novels with identity labels: Bib-ACMé: 273 (33%), Conha19: 101 (39%)</small></p>
+						<img src="img/identity-labels.png" height="500"/>
+					</section>
+					<section>
+						<h2>Analysis: identity labels over time</h2>
+						<img src="img/identity-by-decade.png" height="350"/>
+						<p>Works with an identity label, by decade</p>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Groups of identity labels</h2>
+						<table>
+							<tr>
+								<td style="width: 40%;">
+									<table class="border" style="font-size: 12pt;">
+										<tr>
+											<th>Group</th>
+											<th>Labels</th>
+										</tr>
+										<tr>
+											<th>novela original</th>
+											<td>novela original</td>
+										</tr>
+										<tr>
+											<th>novela americana</th>
+											<td>novela americana, novela argentina, novela azteca, novela bonaerense, novela camagüeyana, novela criolla, novela cubana, novela de Tabasco, novela franco-argentina, novela habanera, novela india, novela kantabro-americana, novela mexicana, novela mixteca, novela porteña, novela suriana, novela tapatía, novela yucateca</td>
+										</tr>
+										<tr>
+											<th>novela mexicana</th>
+											<td>novela azteca, novela de Tabasco, novela mexicana, novela mixteca, novela suriana, novela tapatía, novela yucateca</td>
+										</tr>
+										<tr>
+											<th>novela argentina</th>
+											<td>novela argentina, novela bonaerense, novela franco-argentina, novela porteña</td>
+										</tr>
+										<tr>
+											<th>novela cubana</th>
+											<td>novela camagüeyana, novela cubana, novela habanera</td>
+										</tr>
+									</table>
+								</td>
+								<td style="width: 60%;">
+									<p>Bib-ACMé:</p>
+									<img src="img/identity-labels-bibliography.png" />
+									<p>Conha19:</p>
+									<img src="img/identity-labels-corpus.png" />
+								</td>
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Analysis: novela original</h2>
+						<p>over time and by country (Bib-ACMé)</p>
+						<table>
+							<tr>
+								<td style="width: 80%;">
+									<img src="img/novela-original-by-decade.png" height="250"/>
+								</td>
+								<td>
+									<strong>time:</strong><br/> + early
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 80%;">
+									<img src="img/novela-original-by-country.png" height="200"/>
+								</td>
+								<td>
+									<strong>country:</strong><br/> + Mexico <br/> + Cuba<br/>- Argentina
+								</td>
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Analysis: novela original</h2>
+						<p>by subgenre and literary current (Bib-ACMé)</p>
+						<table>
+							<tr>
+								<td style="width: 60%;">
+									<img src="img/novela-original-by-subgenre.png" height="250"/>
+								</td>
+								<td>
+									<strong>subgenre:</strong><br/> + sentimental <br/> + political
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 60%;">
+									<img src="img/novela-original-by-current.png" height="250"/>
+								</td>
+								<td>
+									<strong>literary current:</strong><br/> + romantic <br/> + modernist
+								</td>
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Analysis: novela original</h2>
+						<p>continent and time period of setting (Conha19)</p>
+						<table>
+							<tr>
+								<td style="width: 73%;">
+									<img src="img/novela-original-by-setting-continent.png" height="175"/>
+								</td>
+								<td>
+									<strong>continent of setting:</strong><br/>+ Europe
+								</td>
+							</tr>
+							<tr>
+								<td style="width: 73%;">
+									<img src="img/novela-original-by-setting-time.png" height="175"/>
+								</td>
+								<td>
+									<strong>time period of setting:</strong><br/>+ recent past <br/>+ contemporary<br/>- past
+								</td>
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Analysis: novela original</h2>
+						<table>
+							<tr>
+								<td style="width: 70%;">
+									<img src="img/novela-original-stylo.png" height="600"/>
+								</td>
+								<td>
+									<p>words preferred and avoided<br/> (Stylo, Conha19)</p>
+									<strong>words preferred/avoided:</strong><br/>+ sentimental<br/>- historical
+								</td>
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Analysis: novela americana</h2>
+						<table>
+							<tr>
+								<td>
+									<table style="font-size: 14pt;" class="border">
+										<tr>
+											<th>property</th>
+											<th>values</th>
+										</tr>
+										<tr>
+											<td>period</td>
+											<td>x</td>
+										</tr>
+										<tr>
+											<td>country</td>
+											<td>+ Cuba<br/>= Mexico<br/>- Argentina</td>
+										</tr>
+										<tr>
+											<td>continent of setting</td>
+											<td>+ America</td>
+										</tr>
+										<tr>
+											<td>time period of setting</td>
+											<td>+ recent past<br/>= past<br/>- contemporary</td>
+										</tr>
+										<tr>
+											<td>subgenre</td>
+											<td>+ <em>costumbres</em><br/>+ historical</td>
+										</tr>
+										<tr>
+											<td>literary current</td>
+											<td>+ realist<br/>- modernist</td>
+										</tr>
+										<tr>
+											<td>narrative perspective</td>
+											<td>+ third person</td>
+										</tr>
+										<tr>
+											<td>words preferred/avoided</td>
+											<td>+ forms of address<br/>x</td>
+										</tr>
+									</table>
+								</td>
+								<td style="width: 50%;">
+									<img src="img/novela-americana-stylo.png" height="500"/>
+								</td>
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Analysis: identity types</h2>
+						<table style="font-size: 14pt;">
+							<tr>
+								<th>property</th>
+								<th><em>novela original</em></th>
+								<th><em>novela americana</em></th>
+								<th><em>novela mexicana</em></th>
+								<th><em>novela argentina</em></th>
+								<th><em>novela cubana</em></th>
+							</tr>
+							<tr>
+								<th>period</th>
+								<td>+ early</td>
+								<td>x</td>
+								<td>x</td>
+								<td><span style="color: red;">+ late</span></td>
+								<td>+ early</td>
+							</tr>
+							<tr>
+								<th>country</th>
+								<td>+ Mexico<br/>+ Cuba<br/>- Argentina</td>
+								<td>+ Cuba<br/>= Mexico<br/>- Argentina</td>
+								<td>+ Mexico</td>
+								<td>+ Argentina</td>
+								<td>+ Cuba</td>
+							</tr>
+							<tr>
+								<th>continent of setting</th>
+								<td>+ Europe</td>
+								<td>+ America</td>
+								<td>+ America</td>
+								<td>+ America</td>
+								<td>+ America</td>
+							</tr>
+							<tr>
+								<th>time period of setting</th>
+								<td>+ recent past<br/>+ contemp.<br/>- past</td>
+								<td>+ recent past<br/>= past<br/>- contemp.</td>
+								<td>+ recent past<br/>= past<br/>- contemp.</td>
+								<td><span style="color: red;">+ contemp.<br/>= past<br/>- recent past</span></td>
+								<td>+ recent past<br/>- contemp.<br/>- past</td>
+							</tr>
+							<tr>
+								<th>subgenre</th>
+								<td>+ sentimental<br/>+ political</td>
+								<td>+ <em>costumbres</em><br/>+ historical</td>
+								<td>+ <em>costumbres</em><br/>+ historical</td>
+								<td><span style="color: red;">+ <em>costumbres</em><br/>+ social</span></td>
+								<td><span style="color: red;">+ <em>costumbres</em><br/>(+ sentimental)</span></td>
+							</tr>
+							<tr>
+								<th>literary current</th>
+								<td>+ romantic<br/>+ modernist</td>
+								<td>+ realist<br/>- modernist</td>
+								<td>+ realist<br/>- modernist</td>
+								<td><span style="color: red;">+ naturalistic<br/>+ realist</span></td>
+								<td><span style="color: red;">+ romantic<br/>+ naturalistic</span></td>
+							</tr>
+							<tr>
+								<th>narrative perspective</th>
+								<td>x</td>
+								<td>+ third person</td>
+								<td>+ third person</td>
+								<td><span style="color: red;">+ first person</span></td>
+								<td>+ third person</td>
+							</tr>
+							<tr>
+								<th>words preferred/avoided</th>
+								<td>+ sentimental<br/>- historical</td>
+								<td>+ forms of address<br/>x</td>
+								<td><span style="color: red;">+ <em>costumbres</em><br/>- sentimental</span></td>
+								<td><span style="color: red;">+ people (forms of address)<br/>- ?</span></td>
+								<td><span style="color: red;">+ <em>costumbres</em> (plantation)<br/>- military</span></span></td>
+							</tr>
+						</table>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Conclusions</h2>
+						<ul>
+							<li>tendencies can by observed for novels with different types of identity labels, e.g.:
+								<ul>
+									<li><em>novela original</em>: early, European setting, sentimental, romantic -> linguistic identity (Botrel 2001)</li>
+									<li><em>novela americana</em>: American setting, historical, <em>costumbres</em>, realist, set in recent past, third person narrator</li>
+								</ul>
+							</li>
+							<li>but: statistical significance unclear!</li>
+							<li>more types of textual features could be tested</li>
+						</ul>
+						<aside class="notes">
+							tendencies for contextual &amp, textual metadata, for textual features
+						</aside>
+					</section>
+					<section>
+						<h2>Thank you!</h2>
+						<p>Slides at: <a href="https://hennyu.github.io/romtag_21/"
+								>https://hennyu.github.io/romtag_21/</a></p>
+						<p>Data at: <a href="https://github.com/hennyu/papers/tree/master/original_american_romtag21">https://github.com/hennyu/papers/tree/master/original_american_romtag21</a></p>
+						<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+								>CC-BY 4.0</a></p>
+					</section>
+					<section>
+						<h2>References</h2>
+						<ul style="font-size: 14pt;">	
+<li>Botrel, Jean-François (2001): “La novela, género editorial (España, 1830-1930)”, in: <em>La novela en España en los siglos XIX y XX. Historia, sociedad, búsqueda identitaria</em> [Online]. Edited by Paul Aubert. Madrid: Casa de Velázquez: 35-51.</li>
+<li>Brushwood, John S. (1966). <em>Mexico in its Novel. A Nation’s Search for Identity.</em> Austin: University of Texas Press.</li>
+<li>Burrows, John (2007): “All the Way Through: Testing for Authorship in Different Frequency Strata”, in: <em>Literary and Linguistic Computing</em> 22 (1): 27-47. DOI: <a href="https://doi.org/10.1093/llc/fqi067" target="_blank">10.1093/llc/fqi067</a></li>
+<li>Craig, Hugh and Arthur F. Kinney (2009). <em>Shakespeare, Computers, and the Mystery of Authorship.</em> New York: Cambridge University Press.</li>
+<li>Eder, Maciej, Jan Rybicki, and Mike Kestemont (2016): “Stylometry with R: a package for computational text analysis”, in: <em>R Journal</em> 8 (1): 107-121.</li>
+<li>Hoover, David L. (2013): “Textual Analysis”, in: <em>Literary Studies in the Digital Age.</em> New York: MLA. <a href="https://dlsanthology.mla.hcommons.org/textual-analysis/" target="_blank">https://dlsanthology.mla.hcommons.org/textual-analysis/</a>.</li>
+<li>Lindstrom, Naomi (2004). <em>Early Spanish American Narrative.</em> Austin: University of Texas Press.</li>
+<li>Sommer, Doris (1993). <em>Foundational Fictions. The National Romances of Latin America.</em> Berkeley: University of California Press.</li>
+						</ul>
+					</section>
+				</section>
+            </div>
+        </div>
+        <script src="../reveal/lib/js/head.min.js"></script>
+        <script src="../reveal/js/reveal.js"></script>
+        <script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+    </body>
+</html>
