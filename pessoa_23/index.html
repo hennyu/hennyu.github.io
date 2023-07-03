@@ -1,0 +1,440 @@
+<html>
+    <head>
+        <title>Versioning in the Digital Edition of Fernando Pessoa</title>
+        <meta name="author" content="Ulrike Henny-Krahmer" />
+        <meta name="description" content="Slides" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../reveal/css/reveal.css" />
+        <link rel="stylesheet" href="../reveal/css/theme/serif.css" />
+        <!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+        <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+        <style type="text/css">
+            .reveal .slides{
+                font-size: 24pt;
+            }
+            .reveal small,
+            .reveal ul.small,
+            .reveal table.small{
+                font-size: 0.7em;
+            }
+            .reveal ul.middle {
+				font-size: 0.8em;
+			}
+			.reveal ul.middle li {
+				margin-bottom: 0.7em;
+			}
+			.reveal table td {
+				vertical-align: top;
+			}
+            .reveal h1{
+                font-size: 1.6em;
+            }
+            .reveal h2 {
+				font-size: 1.3em;
+			}
+            .reveal h3, .reveal h4{
+                font-size: 1.2em;
+            } 
+            .reveal img.logo{
+                margin: 0 0.25em;
+            }
+            .reveal section img{
+                border: none;
+                vertical-align: bottom;
+                margin: 0;
+            }
+            .reveal td.middle{
+                vertical-align: middle;
+            }
+            .reveal li{
+                margin: 0.2em 0;
+            }
+            .reveal li li{
+                font-size: smaller;
+            }
+            .reveal a {
+				color: purple;
+			}
+            </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Versioning in the Digital Edition of Fernando Pessoa</h1>
+                    <hr />
+                    <small>Ulrike Henny-Krahmer (University of Rostock)</small>
+                    <br /><br/>
+                    <small>International workshop<br/> "Pessoa digital: development and sustainability measures<br/> for the Digital Edition of Fernando Pessoa"<br />July 3, 2023</small>
+                    <br />
+                    <br />
+                    <small>Slides at: <a href="https://hennyu.github.io/pessoa_23/"
+                            >https://hennyu.github.io/pessoa_23/</a></small>
+                    <br />
+                    <hr />
+                    <p>
+                        <a href="https://www.uni-rostock.de/"><img height="40" src="img/basics/logo-uni-rostock.png" class="logo" /></a>
+                        <a href="https://www.text-plus.org/"><img height="40" src="img/basics/logo-text-plus.png" class="logo" /></a>
+                        <a href="https://www.i-d-e.de/"><img height="40" src="img/basics/logo-ide.png" class="logo" /></a>
+                    </p>
+                </section>
+                <section>
+					<h2>Overview</h2>
+					<ol>
+						<li>Versioning in digital scholarly editions</li>
+						<li>Current practice in "Pessoa digital"</li>
+						<li>Proposals for new approaches</li>
+					</ol>
+					<aside class="notes">
+					</aside>
+                </section>
+            	<!-- ############### Part 1 ################### -->
+                <section>
+					<section>
+						<h2>1. Versioning in digital scholarly editions</h2>
+					</section>
+					<section>
+						<h2>Digital scholarly editions can change...</h2>
+						<table>
+							<tr>
+								<td>
+									<ul>
+										<li>correction of errors</li>
+										<li>addition of new materials</li>
+										<li>new scholarly findings</li>
+									</ul>
+								</td>
+								<td>
+									<blockquote>The fact that such changes can occur 
+									on an ongoing basis is both one of the great potentials and one of the great terrors of 
+									digital scholarly resources. <br/>(Broyles 2020, para. 1)</blockquote>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Why can changes be a problem?</h2>
+						<ul>
+							<li>"Standards for scholarly citation, which solidified around print resources, take advantage of [...] objectual stability."</li>
+							<li>"changes may not merely be possible but required in order to keep [the digital resource] operational"</li>
+						</ul>
+						<p>(Broyles 2020, para. 1, 2)</p>
+					</section>
+					<section>
+						<h2>Why can changes be a problem?</h2>
+						<ul>
+							<li><em>link rot</em>: "online resources linked in references simply disappear from the internet"</li>
+							<li><em>context drift</em>: "links function but the content on the website has changed since it was referenced"</li>
+						</ul>
+						<p>(Broyles 2020, para. 3)</p>
+					</section>
+					<section>
+						<h2>What to do?</h2>
+						<p>Broyles (2020, para. 4): "in order to make sure such editions are citeable and their history is intelligible, their creators and publishers must assign version numbers in tandem with any changes made to edition content"</p>
+					</section>
+					<section>
+						<h2>What to do?</h2>
+						<ul>
+							<li><strong>version numbers</strong> as a simple and practical method</li>
+							<li>to identify a state of a resource</li>
+							<li>to communicate the history of a resource</li>
+							<li>to communicate the relationship between different states</li>
+						</ul>
+						<p>(Broyles 2020, para. 6)</p>
+					</section>
+					<section>
+						<h2>But...</h2>
+						<p><strong>no consensus practice</strong> in digital scholarly editing:</p>
+						<ul>
+							<li>how should different versions be identified?</li>
+							<li>what should version numbers communicate?</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What is the current practice for versioning in DSE?</h2>
+						<table>
+							<tr>
+								<td>Bürgermeister 2023: <br/>65 out of 257 examined editions have a type of versioning</td>
+								<td><img src="img/versioning-pie-chart.png"/></td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Example humboldt digital:</h2>
+						<p><a href="https://edition-humboldt.de/">https://edition-humboldt.de/</a></p>
+						<img src="img/humboldt-digital.png"/>
+					</section>
+					<section>
+						<h2>Example humboldt digital:</h2>
+						<table>
+							<tr>
+								<td><img src="img/humboldt-versionen-1.png"/></td>
+								<td style="vertical-align: middle;"><img src="img/humboldt-versionen-2.png" width="500"/></td>
+								<td style="vertical-align: middle;"><img src="img/humboldt-versionen-3.png" width="500"/></td>
+							</tr>
+						</table>
+						<p>Overviews of different versions, statistics</p>
+					</section>
+					<section>
+						<h2>Example humboldt digital:</h2>
+						<table>
+							<tr>
+								<td style="width: 50%; vertical-align: middle;">Description of the new contents and developments in words for each version</td>
+								<td style="vertical-align: middle;"><img src="img/humboldt-versionen-4.png" width="400"/></td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Example Der Sturm:</h2>
+						<p><a href="https://sturm-edition.de/">https://sturm-edition.de/</a></p>
+						<img src="img/sturm.png" width="600"/>
+					</section>
+					<section>
+						<h2>Example Der Sturm:</h2>
+						<img src="img/sturm-versionen-1.png" width="800"/>
+					</section>
+					<section>
+						<h2>Example Der Sturm:</h2>
+						<img src="img/sturm-versionen-2.png" width="700"/>
+					</section>
+					<section>
+						<h2>Example Der Sturm:</h2>
+						<img src="img/sturm-versionen-3.png" width="700"/>
+					</section>
+					<section>
+						<h2>Example Der Sturm:</h2>
+						<img src="img/sturm-versionen-4.png" width="700"/>
+					</section>
+					<section>
+						<h2>Existing strategies for versioning</h2>
+						<ol>
+							<li>description of changes</li>
+							<li>revision description (directly in data)</li>
+							<li>systems of version control</li>
+							<li>versioning of the whole system</li>
+						</ol>
+						<p>(Bürgermeister 2023)</p>
+						<img src="img/versioning-strategies.png"/>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>2. Current practice in "Pessoa digital"</h2>
+						<a href="http://www.pessoadigital.pt/en/index.html"><img src="img/screenshot-homepage-pessoa.png" width="1000px;"/></a>
+					</section>
+					<section>
+						<h2>Versioning from a content perspective</h2>
+						<ul style="list-style-type: none;">
+							<li><strong>Internal</strong>:<br/> project-internal work from the start (since October <strong>2014</strong>)</li>
+							<li><strong>Beta</strong>:<br/> website on-line, but work in progress (since <strong>2016</strong>)</li>
+							<li><strong>Version 1.0</strong>:<br/> completion of poetry and prose published in lifetime and editorial projects 1913-35 (<strong>2021</strong>)</li>
+							<li><strong>Version 2.0</strong>:<br/> addition of more texts published in lifetime (poetry and prose), modernized spelling (<strong>2022</strong>)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Description of version 1.0</h2>
+						<blockquote>"The website presents, in its 1.0 version, the edition of Fernando Pessoa’s editorial projects, 
+						elaborated between 1913 and 1935, as well as the poetry published by the author in journals and magazines, 
+						from 1914 onwards, and the prose published in journals and literary magazines, after 1912. 
+						This edition includes 248 documents of the literary estate, 72 publications of poetry and 91 of prose."</blockquote>
+					</section>
+					<section>
+						<h2>Description of version 2.0</h2>
+						<blockquote>The website presents, in its 2.0 version, the edition of Fernando Pessoa’s editorial projects, 
+						elaborated between 1913 and 1935, as well as the poetry published by the author, from 1914 onwards, 
+						and the prose published after 1912, independently or in books. 
+						This edition includes 248 documents of the literary estate, 78 publications of poetry and 133 of prose. 
+						All texts published by the author are presented in two versions, with original and modernized spelling.</blockquote>
+					</section>
+					<section>
+						<h2>Citing of versions</h2>
+						<p>Citation suggestions contain version number, e.g.:</p>
+						<p style="text-align: left; font-size: 16pt;"><strong>whole edition:</strong><br/>Sepúlveda, Pedro, Ulrike Henny-Krahmer, and Jorge Uribe (eds). 
+						Digital Edition of Fernando Pessoa. Projects and Publications. 
+						Lisbon and Cologne: IELT, New University of Lisbon and CCeH, University of Cologne 2017-2022. 
+						<span style="color: blue;">Version 2.0</span>. &lt;http://www.pessoadigital.pt&gt;. DOI: 10.18716/cceh/pessoa.</p>
+						<p style="text-align: left; font-size: 16pt;"><strong>single document:</strong><br/>Sepúlveda, Pedro, Ulrike Henny-Krahmer, and Jorge Uribe (eds). 
+						"BNP/E3 8-3v." 
+						Digital Edition of Fernando Pessoa. Projects and Publications. 
+						Lisbon/Cologne: IELT/CCeH, University of Cologne 2017-2022. <span style="color: blue;">Version 2.0.</span> 
+						&lt;http://www.pessoadigital.pt/doc/BNP_E3_8-3v/diplomatic-transcription&gt; DOI: 10.18716/cceh/pessoa</p>
+					</section>
+					<section>
+						<h2>Versioning from a technical perspective</h2>
+						<p>From the beginning, the edition was developed in a public Git repository: <a href="https://github.com/cceh/pessoa">https://github.com/cceh/pessoa</a></p>
+						<img src="img/great.png" width="100"/>
+					</section>
+					<section>
+						<h2>Additions and deletions over time</h2>
+						<img src="img/git-additions-deletions.png" width="800"/>
+					</section>
+					<section>
+						<h2>Commits over time</h2>
+						<img src="img/git-commits.png" width="800"/>
+					</section>
+					<section>
+						<h2>Contributors over time</h2>
+						<img src="img/git-contributors.png" width="800"/>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>3. Proposals for new approaches</h2>
+					</section>
+					<section>
+						<h2>How to improve versioning in "Pessoa digital"?</h2>
+						<table>
+							<tr>
+								<td><img src="img/pessoa-file-tree.png" height="500" width="150"/></td>
+								<td>
+									<ul>
+										<li>Split content (XML-TEI)<br/> and application (eXist-db App)</li>
+										<li>Create new Git repository for content</li>
+										<li>"pessoa-data" vs. "pessoa-app"</li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>How to improve versioning in "Pessoa digital"?</h2>
+						<table>
+							<tr>
+								<td><img src="img/pessoa-file-tree.png" height="500" width="200"/></td>
+								<td>
+									<p>Why and how?</p>
+									<ul>
+										<li>Data can exist without the app.</li>
+										<li>Data can be archived and re-used without the app.</li>
+										<li>App depends on data in a specific version.</li>
+										<li>App can refer to dataset.</li>
+										<li>Both data and app can be developed further independently of each other.</li>
+										<li>E.g.: <span style="color: blue;">Version A2.0-D2.1</span></li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>How to improve versioning in "Pessoa digital"?</h2>
+						<h3>... on the level of contents &amp; data ...</h3>
+						<p>Describe changes in TEI files!</li>
+						<img src="img/revision-TEI.png" width="1000"/>
+					</section>
+					<section>
+						<h2>How to improve versioning in "Pessoa digital"?</h2>
+						<h3>... on the code level ...</h3>
+						<ul>
+							<li>Create technical <strong>Releases</strong> of both repositories.</li>
+							<li><strong>Number</strong> the releases appropriately <br/>(e.g., with "semantic versioning").</li>
+							<li><strong>Document and describe</strong> the releases appropriately in words <br/>(what was done?)</li>
+							<li><strong>Archive</strong> these releases <br/>(e.g., on <a href="https://zenodo.org/">Zenodo</a>).</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What are releases?</h2>
+						<blockquote style="font-size: 18pt;">
+						You can create a release to package software, along with release notes and links to binary files, for other people to use.	
+					    <br/><br/>
+						Releases are deployable software iterations you can package and make available for a wider audience to download and use.
+                        <br/><br/>
+						Releases are based on Git tags, which mark a specific point in your repository's history. A tag date may be different than a release date since they can be created at different times. For more information about viewing your existing tags, see "Viewing your repository's releases and tags."
+						</blockquote>
+						<p style="font-size: 16pt;">Source: <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases">https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases</a></p>
+					</section>
+					<section>
+						<h2>What is semantic versioning?</h2>
+						<img src="img/semver.jpg"/>
+						<p style="font-size: 16pt;">Source: Wikipedia</p>
+					</section>
+					<section>
+						<h2>What is Zenodo?</h2>
+						<img src="img/what-is-zenodo.png"/>
+						<p style="font-size: 16pt;">Source: Wikipedia</p>
+					</section>
+					<section>
+						<h2>Summarized:</h2>
+						<table>
+							<tr>
+								<td>
+									<ul>
+										<li>recognize that content and code are <strong>different layers</strong> that evolve together in a digital edition, but also independently of each other</li>
+										<li>relate the <strong>development cycles</strong> of both layers to each other</li>
+										<li>define and establish meaningful <strong>development units</strong></li>
+									</ul>
+								</td>
+								<td><img src="img/levels-of-versions.png" width="2500px;"/></td>
+							</tr>
+						</table>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Conlusions - Some essential things</h2>
+						<table>
+							<tr>
+								<td>
+								<ul>
+									<li><strong>documentation</strong> of versions <br/>(explanatory, for content and technical level)</li>
+									<li><strong>fixing</strong> of certain states of a digital edition<br/> (archiving of versions, accessibility of versions)</li>
+									<li>specification of version numbers in <strong>citation</strong> proposals</li>
+									<li><strong>awareness</strong> of processuality and changeability of digital editions</li>
+								</ul>
+								</td>
+								<td><img src="img/awareness-icon.png" width="100px;" style="vertical-align: middle;"/></td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>References</h2>
+						<ul style="font-size: 14pt;">
+							<li>Broyles, Paul A. (2020). "Digital Editions and Version Numbering." <em>Digital Humanities Quarterly</em> 14 (2). <a href="https://web.archive.org/web/20230702124317/https://www.digitalhumanities.org/dhq/vol/14/2/000455/000455.html">https://web.archive.org/web/20230702124317/https://www.digitalhumanities.org/dhq/vol/14/2/000455/000455.html</a>.</li>
+							<li>Bürgermeister, Martina (2023). "Versionierung von digitalen Editionen in der Praxis." In: <em>SIDE 16. Digitale Edition in Österreich.</em>
+							 Edited by Roman Bleier and Helmut W. Klug. Norderstedt: Books on Demand, 133-150.</li>
+							<li>Gengnagel, Tessa (2017). "The ‘Beta Dilemma’ – A Review of the Faust Edition." <em>RIDE</em> 7.
+							<a href="https://ride.i-d-e.de/issues/issue-7/faustedition/">https://ride.i-d-e.de/issues/issue-7/faustedition/</a>. DOI: 10.18716/ride.a.7.3.</li>
+							<li>Sepúlveda, Pedro, Ulrike Henny-Krahmer, and Jorge Uribe (eds) (2017-2022). 
+							<em>Digital Edition of Fernando Pessoa. Projects and Publications.</em> 
+							Lisbon and Cologne: IELT, New University of Lisbon and CCeH, University of Cologne. Version 2.0. 
+							<a href="http://www.pessoadigital.pt">http://www.pessoadigital.pt</a>. DOI: 10.18716/cceh/pessoa.</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Thank you!</h2>
+						<p>Slides at: <a href="https://hennyu.github.io/pessoa_23/"
+								>https://hennyu.github.io/pessoa_23/</a></p>
+						<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+								>CC-BY 4.0</a></p>
+					</section>
+                </section>
+            </div>
+        </div>
+        <script src="../reveal/lib/js/head.min.js"></script>
+        <script src="../reveal/js/reveal.js"></script>
+        <script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+    </body>
+</html>
