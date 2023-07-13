@@ -65,6 +65,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             .reveal a {
 				color: purple;
 			}
+			.underline {
+				text-decoration: underline;
+			}
             </style>
     </head>
     <body>
@@ -73,7 +76,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                 <section>
                     <h1>Software Citation in the Digital Humanities</h1>
                     <hr />
-                    <small>Daniel Jettka (University of Paderborn), Ulrike Henny-Krahmer (University of Rostock), Anne Ferger (University of Paderborn), Fernanda Alvares Freire (University of Rostock)</small>
+                    <small>Daniel Jettka (University of Paderborn), <span class="underline">Ulrike Henny-Krahmer</span> (University of Rostock), 
+                    Anne Ferger (University of Paderborn), <span class="underline">Fernanda Alvares Freire</span> (University of Rostock)</small>
                     <br />
                     <br />
                     <small>DH2023<br />July 14, 2023</small>
@@ -93,15 +97,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                 <section>
 					<h2>Overview</h2>
 					<ol>
-						<li>Research Software</li>
+						<li>Software in the Digital Humanities</li>
                         <li>Software Citation Principles</li>
-                        <li>Annotation Criteria</li>
-                        <li>Conclusions</li>
+                        <li>Corpus and Annotation Criteria</li>
+                        <li>Annotation, Analysis and Results</li>
+                        <li>Conclusions and Considerations on Further Steps</li>
 					</ol>
 					<aside class="notes">
 					</aside>
                 </section>
-            	<!-- ############### Research Software ################### -->
+            	<!-- ############### Software in the Digital Humanities ################### -->
                 <section>
 					<section>
 						<h2>1. Software in the Digital Humanities</h2>
@@ -138,8 +143,15 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                     </section>
 					<section>
 						<h4>We understand research software as...</h4>
-                        <blockquote>...software that is used for research questions, objects, data and methods, and thus for the research results.</blockquote>
-                        <small> (Henny-Krahmer, Jettka 2022)</small>
+						<table>
+							<tr>
+								<td style="width: 60%;">
+									<blockquote>... software used in research to generate, process, analyze, link, or present research data.</blockquote>
+									<p style="text-align: center;"><small>(Jettka and Henny-Krahmer 2022,<br/> translated from German)</small></p>
+								</td>
+								<td><strong>broad scope</strong>:<br/> - both software developed in research contexts<br/> - and software developed elsewhere and used in research</td>
+							</tr>
+						</table>
 					</section>
                     <section>
                         <h2>Why is it important to properly cite software?</h2>
@@ -154,7 +166,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 						<h4>Our goal today is to...</h4>
                         <ul>
                             <li>review the practice of software citation in the DH</li>
-                            <li>promote adequate identification, acknowledgement, and tracking of software as a scholarly tool and output</li>
+                            <li>raise awareness and promote adequate identification, acknowledgement, and tracking of software as a scholarly tool and output</li>
                         </ul>
                         </section>
 				</section>
@@ -165,26 +177,25 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                     </section>
                     <section>
                         <h2>Recommendations for software citation</h2>
-
-                        <table>
-							<tr>
-								<td>
-									<ul>
-                                        <li>Part of general guidelines for sustainable software development</li>
-                                        <li>Focus on the relevance of software for the research purposes</li>
-                                        <li>Consider both recommendations from publishers and from developers</li>
-									</ul>
-								</td>
-								<td>
+                        <p style="text-align: center;">When to cite software?</p>
 									<blockquote> "did the software play a critical part in my research?" or "did the software provide something novel?" <br/>
-                                        <small>(Jackson n.d.)</small></blockquote> 
-								</td>
-							</tr>
-						</table>
-                       
+                                        <small>(Jackson n.d.)</small></blockquote>
                     </section>
                     <section>
-                        <h2>Six principles for citing research software:</h2>
+						<h2>Recommendations for software citation</h2>
+						<p style="text-align: center;">What type of recommendations do exist?</p>
+									<ul style="font-size: 18pt;">
+                                        <li>Research and guides on <strong>software citation</strong>, in particular<br/> <span style="font-size: 16pt;">(e. g. 
+                                        Jackson n.d., Smith et al. 2016, Chue Hong et al. 2019a, 2019b, Druskat 2021a, 2021b)</span></li>
+                                        <li>Recommendations as part of <strong>general guides of sustainable software development</strong><br/>
+                                         <span style="font-size: 16pt;">(e. g. Anzt et al. 2021, Jettka/Henny-Krahmer 2022)</span></li>
+                                        <li>Recommendations from <strong>general citation styles</strong><br/>
+                                         <span style="font-size: 16pt;">(e. g. MLA or APA)</span></li>
+                                        <li>Recommendations made by <strong>software developers</strong> themselves for their software</li>
+									</ul>
+                    </section>
+                    <section>
+                        <h2>Six principles for citing research software: <small>(Smith et al. 2016)</small></h2>
                         <ol>
                             <li>Importance</li>
                             <li>Credit and Attribution</li>
@@ -193,20 +204,41 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                             <li>Accessibility</li>
                             <li>Specificity</li>
                         </ol>
-                        <p><small>(Smith et al. 2016))</small></p>
                     </section>
                 </section>
-                <!-- ############### Annotation Criteria ################### -->
+                <!-- ############### Corpus and Annotation Criteria ################### -->
                 <section>
 					<section>
-						<h2>3. Annotation Criteria</h2>
+						<h2>3. Corpus and Annotation Criteria</h2>
+					</section>
+					<section>
+						<h2>Our goals</h2>
+						<ul>
+							<li>Review the <strong>practice of software citation</strong> in the DH:<br/>
+							 <span style="font-size: 18pt;">- through an analysis based on DH conference abstracts</span><br/>
+							 <span style="font-size: 18pt;">- with an annotation model developed from existing software citation recommendations</span><br/>
+							 <span style="font-size: 18pt;">- semi-automatic annotation and analysis</span></li>
+							<li>Preliminary work: <br/>Henny-Krahmer/Jettka 2021, 2022 (using DHd conference abstracts)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Question</h2>
+						<p>How is software cited? Which information is given or omitted?</p>
+					</section>
+					<section>
+						<h2>Corpus</h2>
+						<ul>
+							<li>volumes of DH <strong>conference abstracts</strong> from 2015–2020 in TEI format (not used: 2017)</li>
+							<li>randomly selected <strong>156 abstracts</strong> for manual annotation</li>
+							<li>all <strong>languages</strong> (English, Spanish, French, German, Italian, Portuguese) and all relevant <strong>years</strong> included</li>
+						</ul>
 					</section>
                     <section>
                         <h2>Characteristics of our criteria</h2>
                         <ul>
                             <li>In line with software citation principles</li>
                             <li>Modelled as TEI Taxonomy</li>
-                            <li>Available on Github</li>
+                            <li>Available on Github (Jettka et al. 2022):<br/> <a href="https://github.com/DH-RSE/software-citation">https://github.com/DH-RSE/software-citation</a></li>
                         </ul>
                     </section>
 				    <section>
@@ -215,70 +247,171 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Label</td>
-                                    <td>Description</td>
+                                    <th>Label</th>
+                                    <th>Description</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Bib.Soft</td>
+                                    <th>Bib.Soft</th>
                                     <td>A Bibliographic entry for the software itself</td>
                                 </tr>
                                 <tr>
-                                    <td>Bib.Ref</td>
+                                    <th>Bib.Ref</th>
                                     <td>A Bibliographic entry for a reference publication about the software, e.g. a journal article, book or user manual</td>
                                 </tr>
                                 <tr>
-                                    <td>Name.Only</td>
+                                    <th>Name.Only</th>
                                     <td>Only the name of the software is mentioned</td>
                                 </tr>
                                 <tr>
-                                    <td>Agent</td>
+                                    <th>Agent</th>
                                     <td>The developers or responsible persons are named</td>
                                 </tr>
                                 <tr>
-                                    <td>URL</td>
+                                    <th>URL</th>
                                     <td>The citation contains a URL that points to the software itself</td>
                                 </tr>
                                 <tr>
-                                    <td>PID</td>
+                                    <th>PID</th>
                                     <td>The citation contains a persistent identifier (PID) for the software itself</td>
                                 </tr>
                                 <tr>
-                                    <td>Ver</td>
+                                    <th>Ver</th>
                                     <td>The citation includes an indication of a specific software version</td>
                                 </tr>
                             </tbody>
                         </table>
                         </small> 
-                    </section>   
+                    </section>
+                </section>
+                <!-- ############### Analysis and Results ################### -->
+                <section>
+					<section>
+						<h2>4. Annotation, Analysis and Results</h2>
+					</section>
                     <section>
-                        <h2>Some considerations</h2>
+                        <h2>Annotation</h2>
                         <ul>
-                            <li>We decided to include programming languages when directly connected to the technical development of the research</li>
-                            <li>Only concrete mentions to software were tagged</li>
-                            <li>We did not tag datasets</li>
-                        </ul>
+							<li>manually created software list + ToolXtractor (Barbot et al. 2019; 2021) to find potential software citations</li>
+							<li>manual post-processing</li>
+						</ul>
+                    </section>
+                    <section>
+						<h2>Annotation example</h2>
+						<p><span style="font-size: 18pt;"><span style="color: blue;">&lt;p&gt;</span>Por otro lado, los índices fueron generados por
+									el complemento '<span style="color: blue;">&lt;rs <span style="color: orange">type=</span><span style="color: brown;">"software"</span>
+									 <span style="color: orange;">key=</span><span style="color: brown;">"Omeka_Reference"</span>
+									 <span style="color: orange;">ana=</span><span style="color: brown;">"#Agent #Ver #URL #Bib.Soft"</span>&gt;</span>Reference<span style="color: blue;">&lt;/rs&gt;</span>', 
+									desarrollada para <span style="color: blue;">&lt;rs <span style="color: orange;">type=</span><span style="color: brown;">"software"</span>
+									 <span style="color: orange;">key=</span><span style="color: brown;">"Omeka"</span> 
+									 <span style="color: orange;">ana=</span><span style="color: brown;">"#Name.Only"</span>&gt;</span>Omeka<span style="color: blue;">&lt;/rs&gt;</span>
+									 por Daniel Bertherau. [...]<span style="color: blue;">&lt;/p&gt;</span></span></p>
+						<p>[...]</p>
+					    <p style="font-size: 18pt;">Bertherau, D. (s.f.). “Reference 2.4.2”. Github. <a href="https://github.com/Daniel-KM/Reference">https://github.com/Daniel-KM/Reference</a>.</p>
+						<p><small>(Source: Cid Carmona / Gutiérrez de la Torre / Acosta Samperio 2018)</small></p>
+                    </section>
+                    <section>
+						<h2>What to annotate — what not?</h2>
+						<h2>Some considerations:</h2>
+						<ul style="font-size: 20pt;">
+							<li><strong>any type of computer program</strong>, including desktop and web applications, server software, plugins, extensions and sets of scripts.</li>
+							<li>tagging of <strong>concrete mentions</strong> and references to software in the <strong>main text</strong></li>
+							<li>programming languages, if directly connected to the software developed in a project</li>
+						</ul>
+                    </section>
+                    <section>
+						<h2>Software index</h2>
+						<table>
+							<tr>
+								<td>
+									<ul>
+										<li>cited software was collected in a central index of software names</li>
+										<li>currently 181 entries</li>
+									</ul>
+								</td>
+								<td>
+									<span style="white-space: pre; font-size: 14pt;">&lt;list&gt;
+    &lt;item xml:id="MediaWiki"&gt;
+        &lt;name&gt;MediaWiki&lt;/name&gt;
+        &lt;ref type="URL"&gt;https://www.mediawiki.org&lt;/ref&gt;
+        &lt;note type="description"&gt;a collaboration and documentation platform&lt;/note&gt;
+        &lt;note type="category"&gt;general&lt;/note&gt;
+    &lt;/item&gt;
+    &lt;item xml:id="PoetryLab"&gt;
+        &lt;name&gt;PoetryLab&lt;/name&gt;
+        &lt;ref type="URL"&gt;https://github.com/linhd-postdata/poetrylab&lt;/ref&gt;
+        &lt;note type="description"&gt;an extensible open source toolkit for syllabification, scansion
+            (extraction of stress patterns), enjambment detection (syntactical units split in two
+            lines), rhyme detection, and historical named entity recognition for Spanish
+            poetry&lt;/note&gt;
+        &lt;note type="category"&gt;research&lt;/note&gt;
+    &lt;/item&gt;
+    &lt;item xml:id="Navarro-Colorado_2017"&gt;
+        &lt;name&gt;?&lt;/name&gt;
+        &lt;ref type="DOI"&gt;https://doi.org/10.1093/llc/fqx009&lt;/ref&gt;
+        &lt;note type="description"&gt;A metrical scansion system for fixed-metre Spanish poetry.&lt;/note&gt;
+        &lt;note type="category"&gt;research&lt;/note&gt;
+    &lt;/item&gt;
+&lt;/list&gt;</span>
+								</td>
+							</tr>
+						</table>
+                    </section>
+                    <section>
+                        <h2>Analysis</h2>
+                        <img src="img/results-table.png" width="600"/>
+                    </section>
+                    <section>
+                        <h2>Analysis</h2>
+                        <img src="img/results-bar-chart.png" width="700"/>
                     </section>
                 </section>
                 <!-- ############### Conclusions ################### -->
                 <section>
                     <section>
-                        <h2>?. Conclusions</h2>
+                        <h2>5. Conclusions and Considerations on Further Steps</h2>
                     </section>
 					<section>
-						<h2>Conlusions ...</h2>
+						<h2>Conlusions</h2>
+						<p>Need for <strong>improvement</strong> of software citation practice in DH:</p>
 						<ul>
-							<li>...</li>
+							<li><strong>Recommendation 1</strong>: use of bibliographic entries for research software itself</li>
+							<li><strong>Recommendation 2</strong>: use of persistent identifiers</li>
+							<li><strong>Recommendation 3</strong>: name responsible persons and institutions</li>
 						</ul>
-						<aside class="notes">
-							<ul>
-								<li>...</li>
-							</ul>
-						</aside>
 					</section>
 					<section>
-						<h2>Thank you!</h2>
+						<h2>Conclusions</h2>
+						<table>
+							<tr>
+								<td>Need for <strong>action</strong>:
+								<ul>
+									<li>users</li>
+									<li>developers and operators</li>
+									<li>publishers</li>
+								</ul>
+								</td>
+								<td>For example:<br/><br/>
+								<small style="color: #663399;">Lundberg, Sigfrid / Geertinger, Axel / Stadler, Peter / Siam, Omar / Jettka, Daniel / Wawilow, Anastasia / Richts-Matthaei, Kristina (2023):
+								 “MerMEId.” Version 2.0.0-alpha.10. [Computer software]. &lt;https://github.com/Edirom/MerMEId/releases/tag/2.0.0-alpha.10&gt;</small><br/><br/>
+								(Submission Guidelines for DH2024?)
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Outlook and Further Steps</h2>
+						<p>For continuing the software citation study:</p>
+						<ul>
+							<li>Annotate DH journal articles</li>
+							<li>Revise annotation model<br/> (see <a href="https://teimec2023.uni-paderborn.de/contributions/135.html">upcoming contribution</a> to TEI-MEC conference!)</li>
+							<li>Calculate inter-annotator agreement</li>
+							<li>Use data to train model for recognition of software citations</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Thank you very much!</h2>
 						<p>Slides at: <a href="https://hennyu.github.io/dh_23/"
 								>https://hennyu.github.io/dh_23/</a></p>
 						<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
@@ -286,19 +419,39 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 					</section>
 					<section>
 						<h2>References</h2>
-						<ul style="font-size: 12pt;">
+						<ul style="font-size: 11pt;">
 							<li>Anzt, Hartwig / Bach, Felix / Druskat, Stephan / Löffler, Frank / Loewe, Axel / Renard, Bernhard Y. /
                                 Seemann, Gunnar / Struck, Alexander et al. (2021): “An environment for sustainable research 5
                                 software in Germany and beyond: current state, open challenges, and call for action [version 2; peer
-                                review: 2 approved].” F1000Research 9:295. https://doi.org/10.12688/f1000research.23224.2.</li>
+                                review: 2 approved].” F1000Research 9:295. <a href="https://doi.org/10.12688/f1000research.23224.2">https://doi.org/10.12688/f1000research.23224.2</a>.</li>
+                            <li>Barbot, Laure / Fischer, Frank / Moranville, Yoann / Pozdniakov, Ivan (2019). 
+                            “Which DH Tools Are Actually Used in Research?” weltliteratur.net. A Black Market for the Digital Humanities.
+                             <a href="https://weltliteratur.net/dh-tools-used-in-research/">https://weltliteratur.net/dh-tools-used-in-research/</a> [last accessed: 17.04.2023].</li>
+							<li>Barbot, Laure / Fischer, Frank / Moranville, Yoann (2021). “ToolXtractor.” GitHub.com. 
+							<a href="https://github.com/lehkost/ToolXtractor">https://github.com/lehkost/ToolXtractor</a> [last accessed: 17.04.2023].</li>
+                            <li>Cid Carmona, Victor Julián / Gutiérrez de la Torre, Silvia / Acosta Samperio, Guadelupe Elisa Cihuaxty (2018).
+                             “Indagando La Cultura Impresa Del Siglo XVIII Novohispano: Una Base De Datos Inédita.”
+                            DH2018. Book of Abstracts. <a href="https://dh2018.adho.org/indagando-la-cultura-impresa-del-siglo-xviii-novohispano-una-base-de-datos-inedita/">https://dh2018.adho.org/indagando-la-cultura-impresa-del-siglo-xviii-novohispano-una-base-de-datos-inedita/</a>.</li>
+                            <li>Chue Hong, Neil (ed.) (2019a): “Software Citation Checklist for Authors” (Version 0.9.0). Zenodo. 
+                            <a href="http://doi.org/10.5281/zenodo.3479199">http://doi.org/10.5281/zenodo.3479199</a>.</li>
+							<li>Chue Hong, Neil (ed.) (2019b): "Software Citation Checklist for Developers" (Version 0.9.0). Zenodo.
+							<a href="http://doi.org/10.5281/zenodo.3482769">http://doi.org/10.5281/zenodo.3482769</a>.</li>
+                            <li>Druskat, Stephan (2021a): “Research software citation for researchers.” Research Software Citation. 
+                            Cite and Make Citable! (Version 1.1). <a href="https://cite.research-software.org/researchers/">https://cite.research-software.org/researchers/</a> [last accessed: 04.11.2022].</li>
                             <li>Druskat, Stephan (2021b): “Research software citation for developers.” Research Software Citation.
-                                Cite and Make Citable! (Version 1.1). https://cite.research-software.org/developers/ [last accessed:
+                                Cite and Make Citable! (Version 1.1). <a href="https://cite.research-software.org/developers/">https://cite.research-software.org/developers/</a> [last accessed:
                                 04.11.2022].</li>
                             <li>Henny-Krahmer, Ulrike / Jettka, Daniel (2022): “Softwarezitation als Technik der Wissenschaftskultur.
                             Vom Umgang mit Forschungssoftware in den Digital Humanities.” In: DHd2022.
-                            Konferenzabstracts. https://doi.org/10.5281/zenodo.6328046.</li>
+                            Konferenzabstracts. <a href="https://doi.org/10.5281/zenodo.6328046">https://doi.org/10.5281/zenodo.6328046</a>.</li>
+                            <li>Jettka, Daniel / Henny-Krahmer, Ulrike (2022): “Leitfaden für die nachhaltige Entwicklung und Nutzung von Forschungssoftware.” 
+                            NFDI4Culture Handreichung (Version 1.0.0). https://docs.nfdi4culture.de/ta3-sustainable-research-software [last accessed: 04.11.2022]. 
+                            <a href="https://doi.org/10.5281/zenodo.7194401">https://doi.org/10.5281/zenodo.7194401</a>.</li>
+                            <li>Jettka, Daniel / Henny-Krahmer, Ulrike / Ferger, Anne / Alvares Freire, Fernanda (2022): 
+                            “Software citation in the Digital Humanities.” (Version 0.1) GitHub.com. 
+                            <a href="https://github.com/DH-RSE/software-citation">https://github.com/DH-RSE/software-citation</a> [last accessed: 04.11.2022]. </li>
                             <li>Jackson, Mike (n. d.): “How to cite and describe software.” In: Software and research: The Software
-                                Sustainability Institute’s Blog. https://www.software.ac.uk/how-cite-and-describe-software [last
+                                Sustainability Institute’s Blog. <a href="https://www.software.ac.uk/how-cite-and-describe-software">https://www.software.ac.uk/how-cite-and-describe-software</a> [last
                                 accessed: 04.11.2021].</li>
 						</ul>
 					</section>
