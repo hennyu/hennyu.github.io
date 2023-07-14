@@ -22,7 +22,9 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             .reveal .slides{
                 font-size: 24pt;
             }
-            .reveal small,
+            .reveal small {
+                vertical-align: middle;
+            }
             .reveal ul.small,
             .reveal table.small{
                 font-size: 0.7em;
@@ -199,178 +201,17 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 									</ul>
                     </section>
                     <section>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td></td>
-                                    <td>Publication</td>
-                                    <td>Name</td>
-                                    <td>Label</td>
-                                    <td>Author(s)/Developer(s)</td>
-                                    <td>Version Number</td>
-                                    <td>Release Date</td>
-                                    <td>Location/Repository</td>
-                                    <td>Software License</td>
-                                    <td>Description</td>
-                                    <td>Granularity</td>
-                                    <td>PID</td>
-                                    <td>URL</td>
-                                    <td>Bib. Ref.</td>
-                                    <td>Developer's Recommendation</td>
-                                    <td>Extra</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowspan=6>Software Citation</td>
-                                    <td>Jackson n.d.</td>
-                                    <td class="name">+</td>
-                                    <td class="Label">+</td>
-                                    <td class="Author(s)/Developer(s)">+</td>
-                                    <td class="Version Number">+</td>
-                                    <td class="Release Date"></td>
-                                    <td class="Location/Repository"></td>
-                                    <td class="Software License">+</td>
-                                    <td class="Description">+</td>
-                                    <td class="Granularity"></td>
-                                    <td class="PID">+</td>
-                                    <td class="URL">if nothing else</td>
-                                    <td class="Bib. Ref.">as a complement</td>
-                                    <td class="Developer's Recommendation"></td>
-                                    <td class="Extra"></td>
-                                </tr>
-                                <tr>
-                                    <td>Smith et al. *</td>            
-                                    <td class="name">+</td>
-                                    <td class="Label"></td>
-                                    <td class="Author(s)/Developer(s)">+</td>
-                                    <td class="Version Number">+</td>
-                                    <td class="Release Date">+</td>
-                                    <td class="Location/Repository">+</td>
-                                    <td class="Software License">+</td>
-                                    <td class="Description">+</td>
-                                    <td class="Granularity"></td>
-                                    <td class="PID">+</td>
-                                    <td class="URL">-</td>
-                                    <td class="Bib. Ref."></td>
-                                    <td class="Developer's Recommendation"></td>
-                                    <td class="Extra"></td>
-                                </tr>
-                                <tr>    
-                                    <td>Chue Hong et al. 2019a</td>
-                                    <td class="name">+</td>
-                                    <td class="Label"></td>
-                                    <td class="Author(s)/Developer(s)">+</td>
-                                    <td class="Version Number">+</td>
-                                    <td class="Release Date">+</td>
-                                    <td class="Location/Repository">+</td>
-                                    <td class="Software License"></td>
-                                    <td class="Description">+</td>
-                                    <td class="Granularity">+</td>
-                                    <td class="PID">+</td>
-                                    <td class="URL">+</td>
-                                    <td class="Bib. Ref."></td>
-                                    <td class="Developer's Recommendation">+</td>
-                                    <td class="Extra"></td>
-                                </tr>
-                                <tr>   
-                                    <td>Chue Hong et al. 2019b</td>
-                                    <td class="name">+</td>
-                                    <td class="Label"></td>
-                                    <td class="Author(s)/Developer(s)">+</td>
-                                    <td class="Version Number">+</td>
-                                    <td class="Release Date">+</td>
-                                    <td class="Location/Repository"></td>
-                                    <td class="Software License">+</td>
-                                    <td class="Description">+</td>
-                                    <td class="Granularity"></td>
-                                    <td class="PID">+</td>
-                                    <td class="URL"></td>
-                                    <td class="Bib. Ref."></td>
-                                    <td class="Developer's Recommendation">+</td>
-                                    <td class="Extra"></td>
-                                </tr>
-                                <tr>
-                                    <td>Druskat 2021a</td>
-                                    <td class="name">+</td>
-                                    <td class="Label"></td>
-                                    <td class="Author(s)/Developer(s)">+</td>
-                                    <td class="Version Number">+</td>
-                                    <td class="Release Date">+</td>
-                                    <td class="Location/Repository">complementary</td>
-                                    <td class="Software License"></td>
-                                    <td class="Description"></td>
-                                    <td class="Granularity"></td>
-                                    <td class="PID">+</td>
-                                    <td class="URL">+</td>
-                                    <td class="Bib. Ref.">complementary</td>
-                                    <td class="Developer's Recommendation">+</td>
-                                    <td class="Extra">source code</td>
-                                </tr>
-                                <tr>
-                                    <td>Druskat 2021b</td>
-                                    <td class="name">+</td>
-                                    <td class="Label"></td>
-                                    <td class="Author(s)/Developer(s)">+</td>
-                                    <td class="Version Number">+</td>
-                                    <td class="Release Date">+</td>
-                                    <td class="Location/Repository">+</td>
-                                    <td class="Software License"></td>
-                                    <td class="Description"></td>
-                                    <td class="Granularity"></td>
-                                    <td class="PID">+</td>
-                                    <td class="URL"></td>
-                                    <td class="Bib. Ref."></td>
-                                    <td class="Developer's Recommendation">+</td>
-                                    <td class="Extra"></td>
-                                </tr>
-                                <tr>
-                                    <td rowspan=2>Sustaibnable Software Dev.</td>
-                                    <td>Anzt et al. 2021</td>
-                                    <td class="name">+</td>
-                                    <td class="Label"></td>
-                                    <td class="Author(s)/Developer(s)">+</td>
-                                    <td class="Version Number">+</td>
-                                    <td class="Release Date">+</td>
-                                    <td class="Location/Repository">+</td>
-                                    <td class="Software License">+</td>
-                                    <td class="Description">+</td>
-                                    <td class="Granularity"></td>
-                                    <td class="PID">+</td>
-                                    <td class="URL"></td>
-                                    <td class="Bib. Ref.">+</td>
-                                    <td class="Developer's Recommendation">+</td>
-                                    <td class="Extra"></td>
-                                </tr>
-                                <tr>
-                                    <td>Jettka and Henny-Krahmer 2022</td>            
-                                    <td class="name">+</td>
-                                    <td class="Label"></td>
-                                    <td class="Author(s)/Developer(s)">+</td>
-                                    <td class="Version Number">+</td>
-                                    <td class="Release Date">+</td>
-                                    <td class="Location/Repository">+</td>
-                                    <td class="Software License">+</td>
-                                    <td class="Description"></td>
-                                    <td class="Granularity"></td>
-                                    <td class="PID">+</td>
-                                    <td class="URL"></td>
-                                    <td class="Bib. Ref."></td>
-                                    <td class="Developer's Recommendation">+</td>
-                                    <td class="Extra"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <img src="img/previousrec.png" width="1000"/> 
                     </section>
                     <section>
                         <h2>Six principles for citing research software: <small>(Smith et al. 2016)</small></h2>
                         <ol>
-                            <li>Importance</li>
-                            <li>Credit and Attribution</li>
-                            <li>Unique Identification</li>
-                            <li>Persistence</li>
-                            <li>Accessibility</li>
-                            <li>Specificity</li>
+                            <li>Importance <small>(legitimate and citable product of research)</small></li>
+                            <li>Credit and Attribution <small>(scholarly credit and recognition)</small></li>
+                            <li>Unique Identification <small>(machine actionable, recognized by the community)</small></li>
+                            <li>Persistence <small>(stable id. and metadata)</small></li>
+                            <li>Accessibility <small>(metadata, documentation - informed use of the referenced software)</small></li>
+                            <li>Specificity <small>(specific version)</small></li>
                         </ol>
                     </section>
                 </section>
