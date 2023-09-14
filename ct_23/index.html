@@ -1,0 +1,456 @@
+<html>
+    <head>
+        <title>Computationelle Analysen von Strukturen und Relationen</title>
+        <meta name="author" content="Daniel Jettka" />
+        <meta name="author" content="Ulrike Henny-Krahmer" />
+        <meta name="author" content="Anne Ferger" />
+        <meta name="author" content="Fernanda Alvares Freire" />
+        <meta name="description" content="Slides" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../reveal/css/reveal.css" />
+        <link rel="stylesheet" href="../reveal/css/theme/serif.css" />
+        <!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css"/>
+        <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+        <style type="text/css">
+            .reveal .slides{
+                font-size: 24pt;
+            }
+            .reveal small {
+                vertical-align: middle;
+            }
+            .reveal ul.small,
+            .reveal table.small{
+                font-size: 0.7em;
+            }
+            .reveal ul.middle {
+				font-size: 0.8em;
+			}
+			.reveal ul.middle li {
+				margin-bottom: 0.7em;
+			}
+			.reveal table td {
+				vertical-align: top;
+			}
+            .reveal h1{
+                font-size: 1.6em;
+            }
+            .reveal h2 {
+				font-size: 1.3em;
+			}
+            .reveal h3, .reveal h4{
+                font-size: 1.2em;
+            } 
+            .reveal img.logo{
+                margin: 0 0.25em;
+            }
+            .reveal section img{
+                border: none;
+                vertical-align: bottom;
+                margin: 0;
+            }
+            .reveal td.middle{
+                vertical-align: middle;
+            }
+            .reveal li{
+                margin: 0.2em 0;
+            }
+            .reveal li li{
+                font-size: smaller;
+            }
+            .reveal a {
+				color: purple;
+			}
+			.underline {
+				text-decoration: underline;
+			}
+            </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Methoden einer Computational Theology: <br/> Computationelle Analysen <br/> von Strukturen und Relationen</h1>
+                    <hr />
+                    <small>Ulrike Henny-Krahmer (Universität Rostock)</small>
+                    <br />
+                    <br />
+                    <small>Computational Theology. Methoden - Praktiken - Perspektiven<br />14.-15.9.23<br/>Universität Heidelberg</small>
+                    <br />
+                    <br />
+                    <!--<small>Slides at: <a href="https://hennyu.github.io/dh_23/"
+                            >https://hennyu.github.io/dh_23/</a></small>-->
+                    <br />
+                    <hr />
+                    <p>
+                        <a href="https://www.uni-rostock.de/"><img height="50" src="img/basics/logo-uni-rostock.png" class="logo" /></a>
+                        <a href="https://www.i-d-e.de/"><img height="50" src="img/basics/logo-ide.png" class="logo" /></a>
+                    </p>
+                    <aside class="notes">
+						<p></p>
+					</aside>
+                </section>
+                <section>
+					<h2>Übersicht</h2>
+					<ol>
+						<li>Intertextualität</li>
+                        <li>Netzwerkanalyse</li>
+                        <li>Stilistische Analyse</li>
+                        <li>Räumliche Analyse - Literarische Geographie</li>
+                        <li>Digitale Edition</li>
+                        <li>Fragen und Diskussion</li>
+					</ol>
+					<aside class="notes">
+					</aside>
+                </section>
+            	<!-- ############### Intertextualität ################### -->
+                <section>
+					<section>
+						<h2>Intertextualität</h2>
+					</section>
+                    <section>
+                        <h2>Intertextualität</h2>
+                        <blockquote>"Der Begriff der Intertextualität bezeichnet die Beziehungen,
+Funktionen und Wirkungen, welche zwischen zwei oder mehr Texten
+entstehen, indem die Texte in Zitaten, Anspielungen oder durch
+strukturelle Parallelen aufeinander verweisen." (Nantke)</blockquote>
+                    </section>
+                    <section>
+						<h2>Intertextualität</h2>
+						<ul>
+							<li>Ursprung in der neuphilologischen Literaturwissenschaft: 1960er/1970er-Jahre, Julia Kristeva, Roland Barthes</li>
+							<li>Relevanz intertextualler Referenzen: reicht bis in die Antike zurück (historische Praktiken)</li>
+						</ul>
+						<aside class="notes">
+						   <ul>
+							<li>zunächst poststrukturalistisch-dekonstruktivistisch entgrenzten Textbegriff</li>
+							<li>dann Versuch der Rückführung auf konkret nachweisbare Textstrukturen und/oder Autor:innenintention</li>
+							<li>theologische Zugriff auf Textähnlichkeitsbeziehungen praxisorientierter: Beschreibung von Zitationspraktiken und textuellen
+							Referenzen im Zuge der Rezeption, Verbreitung und Überlieferung biblischer Texte und
+							theologischer Fachliteratur</li>
+							<li>Für beide Fachrichtungen gilt in jedem Fall, dass die wissenschaftliche Auseinandersetzung mit
+							Intertextualitätsphänomenen eine längere und vielfältige wissenschaftliche Tradition im
+							Zeitalter der (weitgehend) analogen geisteswissenschaftlichen Forschung hat.</li>
+					       </ul>
+						</aside>
+                    </section>
+                    <section>
+						<h2>Intertextualität mit digitalen Methoden</h2>
+						<ul>
+							<li>Rekonzeptualisierung des Phänomens</li>
+							<li>methodologisch: Vergleich von Texteigenschaften</li>
+							<li>numerische Werte, messbare Merkmalsausprägungen, Textoberfläche</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>wechselseitige Bezugnahme von theoretischer Konzeptualisierung und methodengeleiteter Praxis</li>
+							</ul>
+						</aside>
+                    </section>
+                    <section>
+						<h2>Ansätze digitaler Intertextualitätsforschung</h2>
+						<ol>
+							<li>Manuelle digitale Modellierung intertextueller Beziehungen</li>
+							<li>Computationelle Analysen von Text Reuse</li>
+							<li>Automatisierte Detektion semantischer Textähnlichkeiten</li>
+						</ol>
+						<aside class="notes">
+							<ul>
+								<li>verschiedene Ansätze zur digitalen Detektion, Modellierung und Analyse intertextueller Schreibweisen</li>
+								<li>manuell: Ziel Systematisierung intertextueller Referenzen, Beziehungen zwischen Ausgangs- und Folgetexten, Akkumulation von Daten Ziel, 
+								auch implizite Bezugnahmen und strukturelle Parallelen</li>
+								<li>computationell/text reuse: „Text reuse refers to citing, copying or alluding text
+								excerpts from a text resource to a new context.“</li>
+								<li>Text Mining/NLP, distant reading</li>
+								<li>konkrete Referenzen zwischen Texten vorranging auf sprachlich-grammatikalischer Ebene</li>
+								<li>Anwendungen: Bibel, Shakespeare-Dramen</li>
+								<li>automatisiert/Textähnlichkeiten: Analyse interpretationsabhängiger inhaltlicher und stilistischer Übereinstimmungen</li>
+							</ul>
+						</aside>
+                    </section>
+                    <section>
+						<h2>Beispiele</h2>
+						<ul>
+							<li>HyperHamlet: <a href="http://www.hyperhamlet.unibas.ch/">http://www.hyperhamlet.unibas.ch/</a></li>
+							<li>WordWeb/IDEM: <a href="http://wordweb-idem.ch/">http://wordweb-idem.ch/</a></li>
+							<li>Intertextual Hub: <a href="https://intertextual-hub.uchicago.edu/">https://intertextual-hub.uchicago.edu/</a></li>
+							<li>Tesserae: <a href="https://tesserae.caset.buffalo.edu/">https://tesserae.caset.buffalo.edu/</a></li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>HyperHamlet: bis 2010
+								eine Datenbank angelegt, die über 8.000 Referenzen auf Shakespeares berühmtes Drama aus
+								literarischen und nicht-literarischen Texten aus dem Zeitraum 1600–2010 versammelt, die
+								maßgeblich der Sekundärliteratur zum Hamlet entnommen</li>
+								<li>WordWeb/IDEM: intertextuelle Beziehungen zwischen englischen Dramen des 16. und 17. Jahrhunderts</li>
+								<li>Intertextual Hub: Sammlungen französischsprachiger literarischer und politischer Texte aus dem 18. Jahrhundert (text reuse, topics, word usage)</li>
+								<li>Tesserae: lateinische und griechische antike Texte</li>
+							</ul>
+						</aside>
+                    </section>
+                    <section>
+						<h2>Beispiel Intertextual Hub</h2>
+						<img src="img/intertextual-hub.png" width="800"/>
+                    </section>
+				</section>
+				<!-- ############### Netzwerkanalyse ################### -->
+                <section>
+					<section>
+						<h2>Netzwerkanalyse</h2>
+					</section>
+                    <section>
+                        <h2>Netzwerkanalyse</h2>
+                        <blockquote>"Network thinking is poised to invade all domains of human activity and most
+fields of human inquiry. It is more than another helpful perspective or tool.
+Networks are by their very nature the fabric of most complex systems, and nodes
+and links deeply infuse all strategies aimed at approaching our interlocked
+universe." (Barabási 2002, zitiert in Burge)</blockquote>
+                    </section>
+                    <section>
+						<h2>Netzwerkanalyse: "network turn"</h2>
+						<ul>
+							<li>Untersuchung von relationalen Objekten/Einheiten, ihrer Beziehungen und der Strukturen, die sie schaffen</li>
+							<li>computergestützte Netzwerkanalyse: Makroanalyse, Distant Reading</li>
+							<li>neue Perspektiven, Rekonzeptualisierung möglich</li>
+						</ul>
+                    </section>
+                    <section>
+						<h2>Netzwerkanalyse: Begriffe, Tools, Kritik</h2>
+						<ul>
+							<li>Knoten, Kanten, gerichtet/ungerichtet, gewichtet/nicht gewichtet</li>
+							<li>Tools: z.B. <a href="https://gephi.org/">Gephi</a>, <a href="http://hdlab.stanford.edu/palladio/">Palladio</a>, <a href="https://networkx.org/">NetworkX</a></li>
+							<li>Visualisierung vs. quantitative Auswertung</li>
+							<li>Abstraktion</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Zentralitätsmaße: degree, betweenness, eigenvector, closeness</li>
+								<li>Bedeutung von Datengrundlage und Fragen der Modellierung, auch Grenzen von Tools</li>
+							</ul>
+						</aside>
+                    </section>
+                    <section>
+						<h2>Beispiel: Personen- und Figurennetzwerke in Fernando Pessoas Publikationsplänen</h2>
+						<img src="img/network-pessoa.png" width="600"/>
+                    </section>
+                    <section>
+						<h2>Beispiel: Topics in hispanoamerikanischen historischen Romanen des 19. Jahrhunderts</h2>
+						<img src="img/network-hispam.png" width="500"/>
+                    </section>
+				</section>
+				<!-- ############### Stilistische Analyse ################### -->
+                <section>
+					<section>
+						<h2>Stilistische Analyse</h2>
+					</section>
+                    <section>
+                        <h2>Stilistische Analyse: Stilometrie</h2>
+                        <ul>
+							<li><strong>stilistischer Vergleich</strong> von Texten oder Textpassagen auf Grundlage statistischer Verteilungen (meist: häufigste Wörter)</li>
+							<li><strong>Untersuchungsziele</strong>: stilistische Entwicklung/Differenzierung von einzelnen Texten, Werken, einer Epoche, usw.</li>
+							<li><strong>Anwendungen</strong>: z.B. Autorschaftsattribution, Gattungsklassifikation</li>
+							<li>schon frühe historische <strong>Ursprünge</strong> auch vor der Digitalität</li>
+                        </ul>
+                    </section>
+                    <section>
+						<h2>Stilometrie: Methoden und Tools</h2>
+						<ul>
+							<li>Distanzmaß: Burrows Delta (2002)</li>
+							<li>Kontrastives Maß: Craigs Zeta (2009)</li>
+							<li>Tools: z.B. <a href="https://github.com/computationalstylistics/stylo">Stylo</a>, <a href="https://github.com/Zeta-and-Company/pydistinto">Pydistinto</a></li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Burrows Delta: Z-Scores (Abweichung einer Worthäufigkeit vom Mittelwert im Korpus, in Standardabweichungen) plus Manhattan-Distanz</li>
+								<li>Craigs Zeta: in wie vielen Segmenten kommt ein Wort mindestens einmal vor? Anteil P1 – Anteil P2</li>
+							</ul>
+						</aside>
+                    </section>
+                    <section>
+						<h2>Beispiel: Roman "Ein Kapitel für sich" <br/>(1975, Walter Kempowski)</h2>
+						<img src="img/kempowski-delta.png" width="500"/>
+                    </section>
+                    <section>
+						<h2>Beispiel: Roman "Ein Kapitel für sich" <br/>(1975, Walter Kempowski)</h2>
+						<h3>Robert vs. Walter</h3>
+						<img src="img/kempowski-zeta.png" width="900"/>
+                    </section>
+				</section>
+				<!-- ############### Räumliche Analyse - Literarische Geographie ################### -->
+                <section>
+					<section>
+						<h2>Räumliche Analyse - Literarische Geographie</h2>
+					</section>
+                    <section>
+                        <h2>Literaturgeographie</h2>
+                        <ul>
+							<li>vielfältige Bezugnahmen von Räumen der Fiktion auf den Realraum</li>
+							<li>Arten von Literaturgeographie (nach Wilkens):
+								<ul>
+									<li><em>thematic</em></li>
+									<li><em>deep</em></li>
+									<li><em>schematic</em></li>
+								</ul>
+							</li>
+                        </ul>
+                        <aside class="notes">
+							<ul>
+								<li>thematic: geography and space as elements of textual content</li>
+								<li>deep: deep or thick literary mapping, assembling and exploring the networked layers of cultural material that can
+be attached to textual places</li>
+								<li>schematic: explicit modeling of texts’ geographic
+content, usually with an eye toward scale and formal comparison</li>
+<li>concerned with patterns of geographic attention, almost always
+as revealed across multiple texts, quantitativ</li>
+							</ul>
+                        </aside>
+                    </section>
+                    <section>
+						<h2>Computergestützte literarische Geographie</h2>
+						<ul>
+							<li>Methoden z.B. Named Entity Extraction,
+automatisches Geocoding, Kartierung, statistische Analyse</li>
+							<li>Entwicklungen (nach Wilkens):
+								<ul>
+									<li>Konvergenz mit benachbarten Feldern</li>
+									<li>größere Rolle für Populär- und Genreliteratur</li>
+									<li>abnehmende sprachliche Vielfalt</li>
+								</ul>
+							</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>Konvergenz: Kulturwissenschaft, Sozialwissenschaft, Wirtschaftswissenschaft</li>
+							</ul>
+						</aside>
+                    </section>
+                    <section>
+						<h2>Beispiel: englische fiktionale Texte 1880-1940</h2>
+						<table>
+							<tr>
+								<td><img src="img/wilkens-1.png" width="700"/></td>
+								<td><img src="img/wilkens-2.png" width="700"/></td>
+							</tr>
+						</table>
+						<aside class="notes">
+							<ul>
+								<li>Fraction of location mentions
+outside the United Kingdom in 7,399
+volumes of British fiction, grouped by
+volume and ordered by publication date</li>
+<li>Fraction of location mentions
+outside the United Kingdom in 576 volumes
+of fiction by prominent British writers,
+grouped by volume and ordered by
+publication date</li>
+							</ul>
+						</aside>
+                    </section>
+				</section>
+				<!-- ############### Digitale Edition ################### -->
+                <section>
+					<section>
+						<h2>Digitale Edition</h2>
+					</section>
+                    <section>
+                        <h2>Was ist eine wissenschaftliche Edition?</h2>
+                        <blockquote>„Edition ist die erschließende Wiedergabe historischer Dokumente.“ (Sahle 2013, 138)</blockquote>
+                    </section>
+                    <section>
+						<h2>Was ist eine digitale Edition?</h2>
+						<blockquote>“Eine digitale Edition ist dadurch bestimmt, dass sie die
+allgemeinen Anforderungen an eine wissenschaftliche Edition
+durch die Berücksichtigung der gegenwärtigen technischen
+Möglichkeiten und ihrer methodischen Implikationen erfüllt. Sie
+folgt einem „digitalen Paradigma“.” (Sahle 2013, 148)</blockquote>
+                    </section>
+                    <section>
+						<h2>Kataloge digitaler Editionen</h2>
+						<ul>
+							<li>Catalog of Digital Scholarly Editions (Sahle 2020ff.)<br/><a href="http://www.digitale-edition.de">http://www.digitale-edition.de</a></li>
+							<li>Catalogue Digital Editions (Franzini 2012ff.)<br/><a href="https://dig-ed-cat.acdh.oeaw.ac.at/">https://dig-ed-cat.acdh.oeaw.ac.at/</a></li>
+						</ul>
+						<img src="img/franzini-map.png" width="400"/>
+                    </section>
+                    <section>
+						<h2>Referenzmodell Digitale Editionen</h2>
+						<img src="img/referenzmodell-editionen.png" width="800"/>
+						<p>Schöch 2020, nach Rehbein und Fritze 2015</p>
+                    </section>
+                    <section>
+						<h2>Beispiel: Tagebücher - Andreas Okopenko</h2>
+						<img src="img/edition-okopenko.png" width="900"/>
+						<aside class="notes">
+							<ul>
+								<li>Okopenko: Österreich, 1930-2010, Schriftsteller</li>
+								<li>Edition: Österreichnische Nationalbibliothek</li>
+							</ul>
+						</aside>
+                    </section>
+				</section>
+				<section>
+					<h2>Bibliografie</h2>
+					<ul style="font-size: 12pt;">
+						<li>Barabási, Albert-László (2002). Linked: The New Science of Networks. New York: Penguin Group.</li>
+						<li>Burge, Caitlin (unveröffentlicht): "Network Analysis." In: Compendium of Computational Theology. Hrsg. von Christopher Nunn und Frederike van Oorschot.</li>
+                        <li>Burrows, John (2002): »›Delta‹: A measure of stylistic difference and a guide to likely authorship«. In: Literary and Linguistic Computing 17/3, 267–87.</li>
+                        <li>Craig, Hugh/Kinney, Arthur F. (2009): Shakespeare, Computers, and the Mystery of Authorship. Cambridge 2009.</li>
+                        <li>Horstmann, Jan (2018): "Stilometrie." In: forTEXT. Literatur digital erforschen. <a href="https://fortext.net/routinen/methoden/stilometrie">https://fortext.net/routinen/methoden/stilometrie</a>. </li>
+						<li>Nantke, Julia (unveröffentlicht): "Intertextualitätsforschung." In: Compendium of Computational Theology. Hrsg. von Christopher Nunn und Frederike van Oorschot.</li>
+                        <li>Sahle, Patrick (2013): Digitale Editionsformen, Zum Umgang mit der Überlieferung unter den Bedingungen des Medienwandels. Bd. 2: Befunde, Theorie und Methodik. Norderstedt: Books on Demand.</li>
+                        <li>Stockhausen, Annette von (unveröffentlicht): "Digitale Edition." In: Compendium of Computational Theology. Hrsg. von Christopher Nunn und Frederike van Oorschot.</li>
+						<li>Wilkens, Matthew (unveröffentlicht): "Spatial Analysis, or The New Literary Geography." In: Compendium of Computational Theology. Hrsg. von Christopher Nunn und Frederike van Oorschot.</li>
+					</ul>
+				</section>
+				<!-- ############### Fragen und Diskussion ################### -->
+                <section>
+					<section>
+                        <h2>Fragen und Diskussion</h2>
+                        <p>Dokumente zum gemeinsamen Bearbeiten:</p>
+                        <ul>
+							<li>Gruppe 1: <a href="https://tinyurl.com/9mwk82wk">https://tinyurl.com/9mwk82wk</a></li>
+							<li>Gruppe 2: <a href="https://tinyurl.com/3przm6fz">https://tinyurl.com/3przm6fz</a></li>
+							<li>Gruppe 3: <a href="https://tinyurl.com/yh6cfspv">https://tinyurl.com/yh6cfspv</a></li>
+                        </ul>
+                    </section>
+				</section>
+                
+					<!-- <section>
+						<h2>Thank you very much!</h2>
+						<p>Slides at: <a href="https://hennyu.github.io/dh_23/"
+								>https://hennyu.github.io/dh_23/</a></p>
+						<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+								>CC-BY 4.0</a></p>
+					</section> -->
+					
+                </section>
+            </div>
+        </div>
+        <script src="../reveal/lib/js/head.min.js"></script>
+        <script src="../reveal/js/reveal.js"></script>
+        <script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+    </body>
+</html>
