@@ -9,13 +9,13 @@
   "enableMouseRotation": true,
   "enableMouseNavigation": true,
   "updateURLOnFrameChange": true,
-  "exportType": "pdf",
+  "exportType": "pptx",
   "exportToPDFPageSize": "A5",
   "exportToPDFPageOrientation": "landscape",
   "exportToPDFInclude": "1:57",
   "exportToPDFExclude": "",
-  "exportToPPTXSlideSize": "screen4x3",
-  "exportToPPTXInclude": "",
+  "exportToPPTXSlideSize": "screen16x9",
+  "exportToPPTXInclude": "1:57",
   "exportToPPTXExclude": "",
   "exportToVideoFormat": "png",
   "exportToVideoWidth": 1280,
@@ -1167,7 +1167,7 @@
         },
         "__sozi_auto__": {
           "link": false,
-          "referenceElementId": "path108",
+          "referenceElementId": "path110",
           "outlineElementId": "",
           "transitionTimingFunction": "ease",
           "transitionRelativeZoom": 0,
@@ -1271,10 +1271,10 @@
           "deltaAngle": 0
         },
         "__sozi_auto__": {
-          "deltaX": 11892.09696891663,
-          "deltaY": 90.78990283209896,
-          "widthFactor": 2.843241969623268,
-          "heightFactor": 1.599467668990581,
+          "deltaX": 7767.09696891663,
+          "deltaY": 4215.789902832099,
+          "widthFactor": 4.264867508078493,
+          "heightFactor": 2.3992015034858714,
           "deltaAngle": 0
         }
       }
@@ -5877,7 +5877,7 @@
         },
         "__sozi_auto__": {
           "link": false,
-          "referenceElementId": "image56716",
+          "referenceElementId": "path116",
           "outlineElementId": "",
           "transitionTimingFunction": "ease",
           "transitionRelativeZoom": 0,
@@ -5981,10 +5981,10 @@
           "deltaAngle": 0
         },
         "__sozi_auto__": {
-          "deltaX": -53.283165658229336,
-          "deltaY": -103.73917262053146,
-          "widthFactor": 1.0548070880916285,
-          "heightFactor": 0.9289044985905252,
+          "deltaX": 592.4131234042707,
+          "deltaY": 2831.3243039419685,
+          "widthFactor": 0.23335731326435405,
+          "heightFactor": 0.08376355000601199,
           "deltaAngle": 0
         }
       }
@@ -6034,7 +6034,7 @@
         },
         "__sozi_auto__": {
           "link": false,
-          "referenceElementId": "path108",
+          "referenceElementId": "image56716",
           "outlineElementId": "",
           "transitionTimingFunction": "ease",
           "transitionRelativeZoom": 0,
@@ -6138,10 +6138,10 @@
           "deltaAngle": 0
         },
         "__sozi_auto__": {
-          "deltaX": 12186.807290368506,
-          "deltaY": 623.2680616017387,
-          "widthFactor": 2.7078494948793788,
-          "heightFactor": 1.5233025418958341,
+          "deltaX": 9836.105141931006,
+          "deltaY": -2251.7954149607613,
+          "widthFactor": 52.277759333341436,
+          "heightFactor": 46.037845563619584,
           "deltaAngle": 0
         }
       }
@@ -6191,7 +6191,7 @@
         },
         "__sozi_auto__": {
           "link": false,
-          "referenceElementId": "path118",
+          "referenceElementId": "path108",
           "outlineElementId": "",
           "transitionTimingFunction": "ease",
           "transitionRelativeZoom": 0,
@@ -6295,10 +6295,10 @@
           "deltaAngle": 0
         },
         "__sozi_auto__": {
-          "deltaX": -66.12119126525977,
-          "deltaY": -3154.317104366809,
-          "widthFactor": 0.8653168475915651,
-          "heightFactor": 0.07977480952953622,
+          "deltaX": 5008.85927748474,
+          "deltaY": -3214.317104366809,
+          "widthFactor": 0.05203448942009976,
+          "heightFactor": 0.029272036776704494,
           "deltaAngle": 0
         }
       }
@@ -6819,7 +6819,7 @@
         },
         "__sozi_auto__": {
           "link": false,
-          "referenceElementId": "path118",
+          "referenceElementId": "image117645",
           "outlineElementId": "",
           "transitionTimingFunction": "ease",
           "transitionRelativeZoom": 0,
@@ -6923,10 +6923,10 @@
           "deltaAngle": 0
         },
         "__sozi_auto__": {
-          "deltaX": -27.05610606389564,
-          "deltaY": -624.7893301049971,
-          "widthFactor": 0.9087064518869236,
-          "heightFactor": 0.08377495979571707,
+          "deltaX": 10.96049549860436,
+          "deltaY": 1134.4030527075029,
+          "widthFactor": 1.4853120688642898,
+          "heightFactor": 1.1357385623451648,
           "deltaAngle": 0
         }
       }
@@ -8976,7 +8976,7 @@
   "elementsToHide": [],
   "customFiles": [],
   "selectedFrames": [
-    "3"
+    "2"
   ],
   "selectedLayers": [
     "layer1",
