@@ -1,0 +1,313 @@
+<html>
+    <head>
+    	<title>Text+ User Story: CLiGS Textbox</title>
+        <meta name="author" content="Ulrike Henny-Krahmer" />
+        <meta name="description" content="Slides" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../reveal/css/reveal.css" />
+        <link rel="stylesheet" href="../reveal/css/theme/solarized.css" />
+        <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+        <style type="text/css">
+            .reveal section img {border: none;}
+            p.small, ul.small, ol.small {font-size: 0.7em;}
+            ul.small li, ol.small li {padding-bottom: 0.5em;}
+            .partial-left {width: 60%; float: left;}
+            .partial-right {float: right;}
+            div.speech-bubble {
+            	background-image: url("img/speech-bubble.png");
+            	background-size: 100% 100%;
+            	background-repeat: no-repeat;
+            	width: 250px;
+            	min-height: 200px;
+            	padding: 50px 35px 100px 35px;}
+            div.speech-bubble p {font-size: 18pt;}
+            .reveal blockquote {font-size: 0.7em;}
+            .green {color: darkgreen;}
+            .red {color: darkred;}
+            .orange {color: darkorange;}
+            .half {width: 50%; float: left;}
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                	<h1>Text+ User Story: CLiGS Textbox</h1>
+                    <hr />
+                    <p><small>Ulrike Henny-Krahmer (Universität Rostock)</small></p>
+                	<p><small>Workshop "Text+: Digitale Forschung auf der Grundlage von 
+                		Text- und Sprachdaten bereichern", DHd 2025, Bielefeld, 3. März 2025.</small></p>
+                    <p><small>Präsentation: <a href="https://hennyu.github.io/dhd25_textplus/"
+                            >https://hennyu.github.io/dhd25_textplus/</a></small></p>
+                    <hr />
+                    <p>
+                        <a href="https://www.uni-rostock.de/">
+                        	<img height="50" src="img/basics/logo-uni-rostock.png" class="logo" />
+                        </a>
+                    	<a href="https://cligs.hypotheses.org/">
+                        	<img height="50" src="img/basics/logo-cligs.jpg" class="logo" />
+                        </a>
+                    </p>
+                </section>
+                <section>
+					<h2>Überblick</h2>
+					<ul>
+						<li class="fragment">Hintergrund: CLiGS Textbox</li>
+						<li class="fragment">User Story: Ziele</li>
+						<li class="fragment">Lösungen im Kontext von Text+</li>
+						<li class="fragment">Was bleibt?</li>
+					</ul>
+                </section>
+                <section>
+					<section><h2>Hintergrund: CLiGS Textbox</h2></section>
+					<section>
+						<h2>CLiGS</h2>
+						<ul class="small partial-left">
+							<li class="fragment"><a href="https://cligs.hypotheses.org/">Projekt CLiGS</a>: 
+								Computergestützte Literarische Gattungsstilistik</li>
+							<li class="fragment">e-Humanities-Nachwuchsgruppe, gefördert vom BMBF
+								(2014–2020, Universität Würzburg, Leitung: Christof Schöch)</li>
+							<li class="fragment"><strong>Ziele des Projekts:</strong> Verknüpfung von Fragestellungen aus dem Bereich
+							der Gattungstheorie und Stilistik mit der quantitativen Analyse literarischer Texte</li>
+							<li class="fragment"><strong>Korpora:</strong> romanische Literaturen, 17.–20. Jahrhundert</li>
+						</ul>
+						<div class="partial-right">
+							<div class="speech-bubble fragment">
+								<p>Im Projekt wurden mehrere neue Korpora in verschiedenen
+									Sprachen und zu verschiedenen Gattungen zusammengestellt
+								und kuratiert.</p>
+							</div>
+						</div>
+					</section>
+                	<section>
+                		<h2>CLiGS Textbox</h2>
+                		<ul class="small partial-left">
+                			<li class="fragment"><strong>Auswahl</strong> der Korpora aus dem CLiGS-Projekt</li>
+                			<li class="fragment"><strong>Sprachen:</strong> Französisch, Spanisch, Italienisch, Portugiesisch</li>
+                			<li class="fragment"><strong>Textsorten:</strong> Romane, Novellen, Kurzgeschichten, Dramen</li>
+                			<li class="fragment">in früher Projektphase publiziert</li>
+                		</ul>
+                		<div class="partial-right">
+                			<div class="speech-bubble fragment">
+                				<p>Die Texte sind in XML-TEI aufbereitet und enthalten verschiedene Metadaten
+                				(u.a. administrativ und deskriptiv).</p>
+                			</div>
+                		</div>
+                	</section>
+                	<section>
+                		<h2>CLiGS Textbox</h2>
+                		<div class="partial-left">
+	                		<img src="img/screenshot-textbox.png" alt="Screenshot Textbox"/>
+	                		<small><a href="https://github.com/cligs/textbox">https://github.com/cligs/textbox</a><br/>
+	                		<a href="https://doi.org/10.5281/zenodo.597430">https://doi.org/10.5281/zenodo.597430</a></small>
+	                	</div>
+                		<div class="partial-right">
+                			<div class="speech-bubble fragment">
+                				<p>Wir haben die Textbox zunächst auf GitHub publiziert und auf Zenodo archiviert.</p>
+                			</div>
+                		</div>
+                	</section>
+				</section>
+            	<section>
+            		<section><h2>User Story: Ziele</h2></section>
+            		<section>
+            			<h2>User Story: CLiGS Textbox</h2>
+            			<ul>
+            				<li class="fragment">2020 verfasst von José Calvo Tello, Christof Schöch, Ulrike Henny-Krahmer</li>
+            				<li class="fragment">Nachteil von GitHub und Zenodo:</li>
+            			</ul>
+            			<blockquote class="fragment">"They are <strong class="red">not necessarily the first place</strong> 
+            				to look for literary corpora, 
+            				do <strong class="red">not offer special features</strong> for text or literary texts, 
+            				such as presenting the works together with other versions 
+            				(different editions, different languages), 
+            				<strong class="red">nor are the texts or metadata properly indexed</strong> by these tools. 
+            				They also do <strong class="red">not facilitate to move the texts to other DH tools</strong>."</blockquote>
+            		</section>
+            		<section>
+            			<h2>Ziele der User Story</h2>
+            			<ol class="small">
+            				<li class="fragment orange">Die Korpora sollten langzeitarchiviert werden,
+            				in Repositorien, die für die Community spezifisch sind</li>
+            				<li class="fragment orange">Die Korpora sollten zitierbar und eindeutig
+            				referenzierbar sein</li>
+            				<li class="fragment orange">Metadaten und Daten sollten vollständig
+            				indexiert werden</li>
+            				<li class="fragment orange">Wichtige Eigenschaften (z. B. Textsprache) sollten
+            				angezeigt werden</li>
+            				<li class="fragment orange">Nutzer:innen sollten sowohl einzelne Texte 
+            					als auch gesamte Korpora mit einem 
+            				Klick herunterladen können</li>
+            				<li class="fragment orange">Es sollte einfach sein, die Texte mit Texten
+            					anderer Korpora zu kombinieren</li>
+            				<li class="fragment orange">Es sollte einfach sein, die Texte an 
+            				verschiedene Tools zu übergeben</li>
+            				<li class="fragment orange">Die Konversion zu anderen Formaten 
+            					(.txt, .pdf, .epub, ...) sollte einfach sein</li>
+            				<li class="fragment orange">Die Konversion der Metadaten in RDF sollte unterstützt werden</li>
+            			</ol>
+            		</section>
+            		<section>
+            			<h2>Ziele der User Story</h2>
+            			<div class="speech-bubble fragment" style="margin: 0 auto;">
+            				<p>Das sind ganz schön viele Ziele und Wünsche! Ob das inzwischen alles geklappt hat?</p>
+            			</div>
+            		</section>
+            	</section>
+            	<section>
+            		<section><h2>Lösungen im Kontext von Text+</h2></section>
+            		<section>
+            			<h2>TextGrid als Daten-Dienst</h2>
+            			<div class="partial-left fragment">
+            				<img src="img/screenshot-textgrid.png" alt="TextGrid"/>	
+            				<small><a href="https://text-plus.org/daten-dienste/dienste/">https://text-plus.org/daten-dienste/dienste/</a>
+            					<br/><a href="https://textgridrep.org/">https://textgridrep.org/</a></small>
+            			</div>
+            			<div class="partial-right">
+            				<div class="speech-bubble fragment">
+            					<p>Das TextGrid Repository & Laboratory erfüllt schon viele 
+            					unserer Anforderungen!</p>
+            				</div>
+            			</div>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="small fragment">Durch die Initiative von José Calvo Tello (SUB Göttingen) ist die Textbox inzwischen
+            			ein Projekt im TextGrid Repository.</p>
+            			<img class="fragment" width="800" src="img/screenshot-textbox-textgrid.png" alt="Textbox in TextGrid"/>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="fragment green">✓ 1. Die Korpora sollten langzeitarchiviert werden.</p>
+            			<img class="fragment" src="img/textgrid-seal.png" alt="TextGrid Seal"/>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="fragment green">✓ 2. Die Korpora sollten zitierbar und eindeutig referenzierbar sein.</p>
+            			<img class="fragment" src="img/textgrid-citation.png" alt="TextGrid Zitation"/>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="fragment green">✓ 3. Metadaten und Daten sollten vollständig indexiert werden.</p>
+            			<div class="partial-left fragment" style="width: 30%;">
+            				<img width="300" src="img/textgrid-search.png" alt="TextGrid Search"/>
+            			</div>
+            			<div class="partial-right">
+            				<div class="speech-bubble fragment red">
+            					<p>Aber: woher die Werte für die Metadaten kennen, nach denen man suchen soll?
+            					(z. B. "por" für Portugiesisch)</p>
+            				</div>
+            			</div>
+            			<div class="partial-right">
+            				<div class="speech-bubble fragment red">
+            					<p>Aber: es werden nicht alle Metadaten indexiert (?)</p>
+            				</div>
+            			</div>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="fragment green">✓ 4. Wichtige Eigenschaften (z. B. Textsprache) sollten angezeigt werden.</p>
+            			<div class="partial-left fragment">
+            				<img width="600" src="img/textgrid-language.png" alt="TextGrid Language"/>
+            			</div>
+            			<div class="partial-right">
+            				<div class="speech-bubble fragment red">
+            					<p>Ja, aber die Sprache wird erst links angezeigt, wenn man danach gesucht hat! (mit der 
+            					Metadatensuche)</p>
+            				</div>
+            			</div>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="fragment green">✓ 5. Nutzer:innen können einzelne Texte und gesamte Korpora mit einem Klick
+            				herunterladen.</p>
+            			<img class="fragment" src="img/download-collection.png" alt="Download Collection"/>
+            			<img class="fragment" src="img/download-novel.png" alt="Download Novel"/>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="fragment green">✓ 6. Nutzer:innen können ihre Texte einfach
+            				mit solchen aus anderen Korpora kombinieren.</p>
+            			<img width="500" class="fragment" src="img/textgrid-shelf.png" alt="TextGrid Shelf"/>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="fragment green">✓ 7. Texte sollten einfach an andere Tools übergeben werden können.</p>
+            			<figure class="fragment half">
+            				<img width="250" src="img/switchboard.png" alt="Switchboard"/>
+            				<figcaption>Language Resource Switchboard</figcaption>
+            			</figure>
+            			<figure class="fragment half">
+            				<img width="250" src="img/voyant.png" alt="Voyant"/>
+            				<figcaption>Voyant</figcaption>
+            			</figure>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="fragment green">✓ 8. Die Konversion in andere Formate sollte einfach sein.</p>
+            			<img class="fragment" src="img/textgrid-formats.png" alt="TextGrid Formate"/>
+            		</section>
+            		<section>
+            			<h2>CLiGS Textbox im TextGrid Repository</h2>
+            			<p class="fragment orange">? 9. Die Konversion der Metadaten in RDF sollten unterstützt werden.</p>
+            			<img class="fragment" width="250" src="img/questionmark.gif" alt="Question Mark"/>
+            		</section>
+            	</section>
+            	<section>
+            		<section><h2>Was bleibt?</h2></section>
+            		<section>
+            			<h2>Was bleibt?</h2>
+            			<p class="fragment">Was wir nicht wissen:</p>
+            			<p class="fragment red">Wie gut hätte die Integration der Textbox in TextGrid geklappt, 
+            					wenn José Calvo Tello nicht zufällig inzwischen Mitarbeiter an 
+            					der SUB Göttingen und im Projekt Text+ beteiligt wäre?
+            			</p>
+            		</section>
+            		<section>
+            			<h2>Was bleibt?</h2>
+            			<p class="fragment">Daher unser Fazit:</p>
+            			<ul>
+            				<li class="fragment green">Dienste von Text+ weiter gut in den Fach-Communities
+            				bekannt machen!</li>
+            				<li class="fragment green">Die Community weiter gut darin unterstützen, die Dienste
+            				für eigene Daten anzuwenden!</li>
+            			</ul>
+            		</section>
+            	</section>
+                <section>
+					<h2>Vielen Dank für die Aufmerksamkeit!</h2>
+					<p>Präsentation: <br/><a href="https://hennyu.github.io/dhd25_textplus/"
+							>https://hennyu.github.io/dhd25_textplus/</a></p>
+					<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+							>CC-BY 4.0</a></p>
+				</section>
+            </div>
+        </div>
+        <script src="../reveal/lib/js/head.min.js"></script>
+        <script src="../reveal/js/reveal.js"></script>
+        <script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+    </body>
+</html>
