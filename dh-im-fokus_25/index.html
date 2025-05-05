@@ -1,0 +1,791 @@
+<html>
+    <head>
+    	<title>Im Haus und unter dem Himmel: Artefakte und natürliche Räume im spanischsprachigen Roman des 19. Jahrhunderts</title>
+        <meta name="author" content="Ulrike Henny-Krahmer" />
+        <meta name="description" content="Slides" />
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="../reveal/css/reveal.css" />
+        <link rel="stylesheet" href="../reveal/css/theme/serif.css" />
+        <!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css"/>
+        <script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+        <style type="text/css">
+            .reveal .slides{
+                font-size: 24pt;
+            }
+            .reveal small {
+                vertical-align: middle;
+            }
+            .reveal ul.small,
+            .reveal table.small{
+                font-size: 0.7em;
+            }
+            .reveal ul.middle {
+				font-size: 0.8em;
+			}
+			.reveal ul.middle li {
+				margin-bottom: 0.7em;
+			}
+			.reveal table td {
+				vertical-align: top;
+			}
+            .reveal h1{
+                font-size: 1.6em;
+            }
+            .reveal h2 {
+				font-size: 1.3em;
+			}
+            .reveal h3, .reveal h4{
+                font-size: 1.2em;
+            } 
+            .reveal img.logo{
+                margin: 0 0.25em;
+            }
+            .reveal section img{
+                border: none;
+                vertical-align: bottom;
+                margin: 0;
+            }
+            .reveal td.middle{
+                vertical-align: middle;
+            }
+            .reveal li{
+                margin: 0.2em 0;
+            }
+            .reveal li li{
+                font-size: smaller;
+            }
+            .reveal a {
+				color: purple;
+			}
+			.underline {
+				text-decoration: underline;
+			}
+            </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+            <section>
+              <h1><em>Im Haus und unter dem Himmel</em>:<br/> 
+                  Artefakte und natürliche Räume im spanischsprachigen Roman des 19. Jahrhunderts</h1>
+                <hr />
+                <small>Ulrike Henny-Krahmer (Universität Rostock)</small>
+                <br />
+                <br />
+                <small>5. Mai 2025<br/>Ringvorlesung "Digital Humanities im Fokus"</small>
+                <br />
+                <br />
+                <small>Präsentation unter: <a href="https://hennyu.github.io/dh-im-fokus_25/"
+                        >https://hennyu.github.io/dh-im-fokus_25/</a></small>
+                <br />
+                <hr />
+                <p>
+                    <a href="https://www.uni-rostock.de/"><img height="50" src="img/basics/logo-uni-rostock.png" class="logo" /></a>
+                </p>
+                <aside class="notes">
+									<p></p>
+								</aside>
+          </section>
+          <section>
+					<h2>Übersicht</h2>
+					<ol>
+						<li>Computergestützte Zugänge zu narrativem Raum</li>
+            <li>Das Projekt CANSpiN</li>
+            <li>Analyse natürlicher Räume und Artefakte im Roman des 19. Jahrhunderts
+            <ul>
+							<li>Forschungsfragen</li>
+							<li>Korpora und Methoden</li>
+							<li>Analyseergebnisse</li>
+            </ul>
+            </li>
+            <li>Fazit und nächste Schritte</li>
+					</ol>
+					<aside class="notes">
+					</aside>
+          </section>
+        <!-- ############### Comp. Approaches to Narr. Space ################### -->
+          <section>
+					<section>
+						<h2>1. Computergestützte Zugänge zu narrativem Raum</h2>
+					</section>
+          <section>
+              <h2>Ausgangspunkte</h2>
+              <ul>
+								<li><strong>Computational Literary Studies (CLS):</strong> Teilfeld der DH, computergestützte, häufig quantitative Analyse literarischer Texte, 
+								z.B. hinsichtlich Autorschaft, Genre, Epoche, auf der Basis verschiedener Textmerkmale</li>
+              	<li><strong>Narrative Texte:</strong> Konzepte aus der Narratologie – was kann mit Hilfe des Computers untersucht werden?</li>
+								<li><strong>Narrativer Raum:</strong> konkreter Raum der erzählten Welt, in dem Figuren leben, handeln, sich bewegen</li>
+	            </ul>
+          </section>
+          <section>
+						<h2>Ebenen der Analyse narrativen Raums</h2>
+						<ul>
+							<li><strong>Raumreferentielle Ausdrücke:</strong> sprachliche Ausdrücke, z.B. benannte Entitäten (“Rostock”), 
+							allgemeine Ausdrücke (“Esszimmer”, “Kirche”, “Auto”), Deiktika (“hier”, “dort”)</li>
+							<li><strong>Narrative Funktionen raumreferentieller Ausdrücke:</strong> z.B. Beschreibungen des Settings, handlungsbezogener oder erwähnter Raum</li>
+							<li><strong>Die räumliche Struktur der erzählten Welt:</strong> die semantische Struktur des erzählten Raums</li>
+						</ul>
+            </section>
+            <section>
+						<h2>Beispiel: <strong><span style="text-decoration: underline; text-decoration-color: #B0C4DE;">Referenzen auf Orte (Container)</span></strong></h2>
+						<table>
+							<tr>
+								<td><blockquote style="padding: 0; margin: 0; width: 100%;">“A las tres, Roman y Gabriel montaron 
+								en un <span style="background-color: #B0C4DE;">coche</span> en la gran <span style="background-color: #B0C4DE;">Plaza de Armas</span>. [...] 
+								Roman se reclinó en el fondo del <span style="background-color: #B0C4DE;">carruaje</span> y con la
+                    cabeza oculta entre las manos, se dejó avasallar por la influencia de una triste
+                    meditación. [...] Pensó en su infancia tan
+                    serena, pasada al lado de su madre en un hermoso <span style="background-color: #B0C4DE;">pueblecito</span> de la <span style="background-color: #B0C4DE;">costa</span>
+                    <span style="background-color: #B0C4DE;">veracruzana</span> [...]”</blockquote></td>
+								<td><blockquote style="padding: 0; margin: 0; width: 100%;">“Um drei Uhr stiegen Roman und Gabriel
+									auf der großen <span style="background-color: #B0C4DE;">Plaza de Armas</span> in einen 
+								<span style="background-color: #B0C4DE;">Wagen</span>. [...] 
+								Roman lehnte sich im hinteren Teil der <span style="background-color: #B0C4DE;">Kutsche</span>
+									zurück und ließ sich, den Kopf in die Hände gestützt, von einer traurigen Grübelei übermannen.
+									[...] Er dachte an seine so heitere Kindheit, die er an der Seite seiner Mutter 
+									in einem schönen kleinen <span style="background-color: #B0C4DE;">Dorf</span> an der 
+									<span style="background-color: #B0C4DE;">Küste</span> von 
+									<span style="background-color: #B0C4DE;">Veracruz</span> verbracht hatte
+									[...]”</blockquote></td>
+							</tr>
+						</table>
+						<p>Juan Díaz Covarrubias, <em>La clase media</em>, Mexiko, 1858</p>
+            </section>
+            <section>
+						<h2>Beispiel: <strong><span style="text-decoration: underline; text-decoration-color: #3CB371;">Handlungsbezogene</span> vs. 
+						<span style="text-decoration: underline; text-decoration-color: #F08080;">erwähnte Orte</span></strong></h2>
+						<table>
+							<tr><!-- 
+								<td><blockquote style="padding: 0; margin: 0; width: 100%;">“A las tres, Roman y Gabriel montaron 
+								en un <span style="background-color: #3CB371;">coche</span> en la gran <span style="background-color: #3CB371;">Plaza de Armas</span>. [...] 
+								Roman se reclinó en el fondo del <span style="background-color: #3CB371;">carruaje</span> y con la
+                    cabeza oculta entre las manos, se dejó avasallar por la influencia de una triste
+                    meditación. [...] Pensó en su infancia tan
+                    serena, pasada al lado de su madre en un hermoso <span style="background-color: #F08080;">pueblecito</span> de la <span style="background-color: #F08080;">costa</span>
+                    <span style="background-color: #F08080;">veracruzana</span> [...]”</blockquote></td> -->
+								<td>
+									<blockquote style="padding: 0; margin: 0; width: 100%;">“Um drei Uhr stiegen Roman und Gabriel
+										auf der großen <span style="background-color: #3CB371;">Plaza de Armas</span> in einen 
+										<span style="background-color: #3CB371;">Wagen</span>. [...] 
+										Roman lehnte sich im hinteren Teil der <span style="background-color: #3CB371;">Kutsche</span>
+										zurück und ließ sich, den Kopf in die Hände gestützt, von einer traurigen Grübelei übermannen.
+										[...] Er dachte an seine so heitere Kindheit, die er an der Seite seiner Mutter 
+										in einem schönen kleinen <span style="background-color: #F08080;">Dorf</span> an der 
+										<span style="background-color: #F08080;">Küste</span> von 
+										<span style="background-color: #F08080;">Veracruz</span> verbracht hatte
+										[...]”</blockquote>
+								</td>
+							</tr>
+						</table>
+						<p>Juan Díaz Covarrubias, <em>La clase media</em>, Mexiko, 1858</p>
+            </section>
+            <section>
+						<h2>Beispiel: <strong>räumliche Struktur der erzählten Welt</strong></h2>
+						<table>
+							<tr>
+								<td>
+									<blockquote style="padding: 0; margin: 0; width: 100%;">“Um drei Uhr stiegen Roman und Gabriel
+										auf der großen <span style="background-color: #3CB371;">Plaza de Armas</span> in einen 
+										<span style="background-color: #3CB371;">Wagen</span>. [...] 
+										Roman lehnte sich im hinteren Teil der <span style="background-color: #3CB371;">Kutsche</span>
+										zurück und ließ sich, den Kopf in die Hände gestützt, von einer traurigen Grübelei übermannen.
+										[...] Er dachte an seine so heitere Kindheit, die er an der Seite seiner Mutter 
+										in einem schönen kleinen <span style="background-color: #F08080;">Dorf</span> an der 
+										<span style="background-color: #F08080;">Küste</span> von 
+										<span style="background-color: #F08080;">Veracruz</span> verbracht hatte
+										[...]”</blockquote>
+									</td>
+                     <td style="text-align: center;"><span style="border: 3px solid #F4A460; padding: 3px; display: inline-block;">
+						 <span style="border: 3px solid #3CB371; padding: 3px; display: inline-block;">
+						 <span style="border: 3px solid #3CB371; padding: 3px; display: inline-block;">
+						 <span style="border: 3px solid #3CB371; padding: 3px; display: inline-block;">car/carriage</span><br/>
+                     Plaza de Armas</span>
+                     Mexico City</span><br/><br/>
+                     Mexico<br/><br/>
+                     <span style="border: 3px solid #F08080; padding: 3px; display: inline-block;">Veracruz<br/>
+                     <span style="border: 3px solid #F08080; padding: 3px; display: inline-block;">Küste<br/>
+                     <span style="border: 3px solid #F08080; padding: 3px; display: inline-block;">Dorf</span>
+                     </span>
+                     </span>
+                     </span></td>
+                     <td style="width: 30%; vertical-align: middle;"><img src="img/map.png" width="400"/>
+                     <p style="text-align: center;"><span style="font-size: 10pt;">erstellt mit Plotly.JS</span></p></td>
+							</tr>
+						</table>
+						<p>Juan Díaz Covarrubias, <em>La clase media</em>, Mexiko, 1858</p>
+            </section>
+            <section>
+						<h2>Forschungsstand</h2>
+						<ul>
+							<li><strong>Literaturtheorie:</strong> ausgearbeitete Konzepte für narrativen Raum
+								(z.B. Dennerlein 2009; Piatti 2008; Ryan 2014; Lotman 1977)</li>
+							<li><strong>CLS:</strong> bereits einige Ansätze zur Formalisierung räumlicher Konzepte
+								(Mapping von Textmerkmalen, Lernen) 
+							(z.B. Viehhauser und Barth 2017; Barth 2022; Viehhauser 2020; Grisot und Herrmann 2023; 
+							Schumacher 2023; Soni et al. 2023)</li>
+						</ul>
+            </section>
+				</section>
+				<!-- ############### Project CANSpiN ################### -->
+                <section>
+					<section>
+						<h2>2. Das Projekt CANSpiN</h2>
+					</section>
+          <section>
+						<h2>Projekt: Computational Approaches to Narrative Space in 19th- and 20th-Century Novels
+							(CANSpiN)</h2>
+						<table style="font-size: 18pt;">
+							<tr>
+								<td>
+									<ul>
+										<li>DFG-Teilprojekt (2023–2026) im DFG-Schwerpunktprogramm 
+											CLS: <a href="https://www.canspin.uni-rostock.de/">https://www.canspin.uni-rostock.de/</a></li>
+										<li>PIs: Holger Helbig (Germanistik), Ulrike Henny-Krahmer (Digital Humanities), Roger Labahn (Mathematik)</li>
+									</ul>
+									<br/><br/>
+									<strong>Ziele</strong>: 
+											<ul>
+												<li>computergestützte Analyse der Räumlichkeit in Romanen des 19. und 20. Jahrhunderts</li>
+												<li>Annotationsrichtlinien und Machine-learning-Modelle für raumreferentielle Ausdrücke in deutschen und spanischen Texten entwickeln</li>
+												<li>literaturgeschichtliche Fragen adressieren, die sich auf den narrativen Raum beziehen</li>
+											</ul>
+								</td>
+								<td style="width: 30%; vertical-align: middle;"><img src="img/logos_canspin.png"/></td>
+							</tr>
+						</table>
+                    </section>
+                    <section>
+						<h2>Workflow des Projekts</h2>
+						<table>
+							<tr>
+								<td>
+									<img src="img/workflow_canspin_de.png" width="750"/>
+									<p style="font-size: 16pt;">* CATMA 7 und das projektspezifische Python-Package <em>gitma_canspin</em><br/>
+									** mindestens zwei Annotator:innen sind involviert</p>	
+								</td>
+								<td style="text-align: center; width: 25%;">
+									
+									<img src="img/catma.png" width="200" style="display: block; margin: 10px auto;"/>
+									<a href="https://catma.de/" style="font-size: 12pt;">https://catma.de/</a>
+									<br/><br/>
+									<img src="img/ntee.png" width="200" style="display: block; margin: 10px auto;"/>
+									<a href="https://github.com/NEISSproject/tei_entity_enricher" style="font-size: 12pt;">https://github.com/NEISSproject/<br/>tei_entity_enricher</a>
+								</td>
+							</tr>
+						</table>
+            </section>
+            <section>
+						<h2>Annotationsrichtlinien</h2>
+						<table>
+							<tr>
+								<td style="width: 50%;"><strong>Kategorienset CANSpiN.CS1</strong> für die Annotation raumreferentieller Ausdrücke in narrativen Texten:
+									
+									<ul style="font-size: 18pt; margin-top: 20px;">
+										<li>Henny-Krahmer, Ulrike; Kellner, Nils; Lemke, Marc (2024):
+										 “CANSpiN.CS1 (1.0.0).” Zenodo. <a href="https://doi.org/10.5281/zenodo.12706812">https://doi.org/10.5281/zenodo.12706812</a>. </li>
+										<li>Lemke, Marc (n.d.): “CANSpiN.CS1 1.1.0 Tutorial.” <a href="https://marc-lemke.github.io/canspin.cs1_tutorial/">https://marc-lemke.github.io/canspin.cs1_tutorial/</a>.</li>
+									</ul>
+								</td>
+								<td><img src="img/category_set_1_de.png" width="1000"/></td>
+							</tr>
+						</table>
+           </section>
+				</section>
+				<!-- ############### Analysis of Natural Places and Artefacts ################### -->
+          <section>
+					<section>
+						<h2>3. Analyse natürlicher Räume und Artefakte im Roman des 19. Jahrhunderts</h2>
+					</section>
+          <section>
+             <h2>Forschungsfragen</h2>
+             <ul>
+										<li>Relevanz von narrativem Raum und der Opposition von 
+											<strong>Stadt vs. Land/Technologie vs. Natur</strong> im Roman des 19. Jahrhunderts (z.B. Figuera
+										Marante 2017, Urroz Kanán 2021)</li>
+									</ul>
+          	<br/>
+          	<img src="img/city.jpg" width="250"/>
+          	<a href="https://commons.wikimedia.org/wiki/File:NYC_wideangle_south_from_Top_of_the_Rock.jpg"
+          		style="font-size: 10pt; display: inline-block; margin: 10px 0 40px 0;">https://commons.wikimedia.org/wiki/<br/>File:NYC_wideangle_south_from<br/>_Top_of_the_Rock.jpg</a>
+          	<img src="img/countryside.jpg" width="250"/>
+          	<a href="https://commons.wikimedia.org/wiki/File:Ayrshire_countryside_-_geograph.org.uk_-_56514.jpg"
+          		style="font-size: 10pt; display: inline-block; martin-top: 10px;">https://commons.wikimedia.org/wiki/<br/>File:Ayrshire_countryside_-_<br/>geograph.org.uk_-_56514.jpg</a>
+          	
+          </section>
+          <section>
+          	<h2>Forschungsfragen</h2>
+          	<ul>
+										<li>Basierend auf den Annotationen der <strong>Räume</strong> und <strong>Orte</strong>:
+											<ul>
+												<li>Wie gut können diese <span style="text-decoration: underline;">automatisch erkannt werden</span>?</li>
+												<li>Was herrscht in Romanen des 19. Jahrhunderts quantitativ vor, <span style="text-decoration: underline;">natürliche Orte/Räume oder Artefakte</span>?</li>
+												<li><span style="text-decoration: underline;">Welche Arten von natürlichen Orten/Räumen und Artefakten</span> werden in den Romanen am häufigsten erwähnt?</li>
+												<li>Wie variiert ihre Zahl hinsichtlich der <span style="text-decoration: underline;">Herkunft der Texte</span> (hier: Spanien vs. Lateinamerika)?</li>
+												<li>Wie variiert ihre Zahl hinsichtlich der <span style="text-decoration: underline;">Zeit (= Teilepoche/Publikationsjahr der Romane)</span>?</li>
+											</ul>
+										</li>
+									</ul>
+                    </section>
+                    <section>
+						<h2>Korpus</h2>
+						<ul>
+							<li>Korpus von <strong>200 Romanen</strong> aus dem langen 19. Jahrhundert <strong>(1840–1920)</strong> aus <strong>Spanien</strong> und <strong>Lateinamerika</strong></li>
+							<li>Quellen für das Korpus: <strong>ELTeC-spa</strong> (Navarro Colorado 2021) und <strong>Conha19</strong> (Henny-Krahmer 2021)</li>
+							<li>Eigenschaften: je 100 Romane; Auswahl nach Teilepochen von 20 Jahren balanciert; viele verschiedene Autor:innen</li>
+						</ul>
+                    </section>
+                    <section>
+						<h2>Kategorien für die Annotation</h2>
+						<table>
+							<tr>
+								<td style="font-size: 22pt;">
+									<ul>
+										<!--<li><strong><a href="https://gitlab.uni-rostock.de/hy2894/cls-natural-artefact/-/blob/main/annotation-guidelines.md">Guidelines</a></strong> 
+										</li>-->
+										<li>Basierend auf den Annotationsrichlinien CANSpiN.CS1, Konzentration auf die Kategorie der <strong>Orte</strong>, unterschieden wird zwischen <strong>Containern</strong> und <strong>Objekten</strong></li>
+										<li>Weiterentwicklung der Richtlinien mit Blick auf <strong>natürliche Orte</strong> und <strong>Artefakte</strong></li>
+									</ul>
+								</td>
+								<td>
+								Sechs Kategorien: 
+								<table>
+									<tr>
+										<td><span style="color: #CD5C5C;">CONTAINER-ARTEFACT</span></td>
+										<td><span style="color: #CD5C5C;">OBJECT-ARTEFACT</span></td>
+									</tr>
+									<tr>
+										<td><span style="color: #008000;">CONTAINER-NATURAL</span></td>
+										<td><span style="color: #008000;">OBJECT-NATURAL</span></td>
+									</tr>
+									<tr>
+										<td><span style="color: #6495ED;">CONTAINER-REGION</span></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td><span style="color: #6495ED;">CONTAINER-SETTLEMENT</span></td>
+										<td></td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+						</table>
+                    </section>
+                    <section>
+						<h2>Annotation: Beispiele</h2>
+						<table>
+							<tr>
+								<td>(1) “A las tres, Roman y Gabriel montaron 
+								en un <span style="background-color: #F08080;">coche</span><sub style="font-size: smaller; color: #666666;">CONT-ART</sub> 
+								en la gran <span style="background-color: #F08080;">Plaza de Armas</span><sub style="font-size: smaller; color: #666666;">CONT-ART</sub>.”</td>
+								<td><blockquote style="padding: 0; margin: 0; width: 100%;">“Um drei Uhr stiegen Roman und Gabriel
+									auf der großen <span style="background-color: #F08080;">Plaza de Armas</span><sub style="font-size: smaller; color: #666666;">CONT-ART</sub>
+									in eine 
+								<span style="background-color: #F08080;">Kutsche</span><sub style="font-size: smaller; color: #666666;">CONT-ART</sub>.”</blockquote></td>
+							</tr>
+							<tr>
+								<td>(2) “Pensó en su infancia tan
+                    serena, pasada al lado de su madre en un hermoso <span style="background-color: #B0C4DE;">pueblecito</span><sub style="font-size: smaller; color: #666666;">CONT-SET</sub> 
+                    de la <span style="background-color: #3CB371;">costa</span><sub style="font-size: smaller; color: #666666;">CONT-NAT</sub>
+                    <span style="background-color: #B0C4DE;">veracruzana</span><sub style="font-size: smaller; color: #666666">CONT-REG</sub> [...]”</td>
+								<td><blockquote style="padding: 0; margin: 0; width: 100%;">“Er dachte an seine so heitere Kindheit, die er an der 
+									Seite seiner Mutter in einem schönen kleinen 
+                     <span style="background-color: #B0C4DE;">Dorf</span><sub style="font-size: smaller; color: #666666">CONT-SET</sub> 
+                    an der <span style="background-color: #3CB371;">Küste</span><sub style="font-size: smaller; color: #666666;">CONT-NAT</sub> von
+                     <span style="background-color: #B0C4DE;">Veracruz</span><sub style="font-size: smaller; color: #666666;">CONT-REG</sub> verbracht hatte [...]”</blockquote></td>
+							</tr>
+						</table>
+						
+                    <p>(Beispiele aus: (1), (2) Juan Díaz Covarrubias, <em>La clase media</em>, Mexiko, 1858.)</p>
+                    </section>
+                    <section>
+						<h2>Annotation: Beispiele</h2>
+						<table>
+							<tr>
+								<td>(3) “En un <span style="background-color: #F08080;">divan</span><sub style="font-size: smaller; color: #666666;">OBJ-ART</sub>, 
+								frente á la <span style="background-color: #F08080;">chimenea</span><sub style="font-size: smaller; color: #666666;">OBJ-ART</sub>, 
+								estaba reclinada la marquesa [...]”</td>
+								<td><blockquote style="padding: 0; margin: 0; width: 100%;">“Auf einem <span style="background-color: #F08080;">Diwan</span><sub style="font-size: smaller; color: #666666;">OBJ-ART</sub>, 
+								vor dem <span style="background-color: #F08080;">Kamin</span><sub style="font-size: smaller; color: #666666;">OBJ-ART</sub>, 
+								lehnte die Markgräfin [...]”</blockquote></td>
+							</tr>
+							<tr>
+								<td>(4) “Una noche en que la <span style="background-color: #3CB371;">luna</span><sub style="font-size: smaller; color: #666666;">OBJ-NAT</sub> empezaba a menguar, 
+								y que algunas <span style="background-color: #3CB371;">nubes</span><sub style="font-size: smaller; color: #666666;">OBJ-NAT</sub>
+								cubrían el <span style="background-color: #3CB371;">cielo</span><sub style="font-size: smaller; color: #666666;">CONT-NAT</sub>, 
+								estaban los dos sentados en una <span style="background-color: #3CB371;">peña</span><sub style="font-size: smaller; color: #666666;">OBJ-NAT</sub> [...]”</td>
+								<td><blockquote style="padding: 0; margin: 0; width: 100%;">“Eines Nachts, als der <span style="background-color: #3CB371;">Mond</span><sub style="font-size: smaller; color: #666666;">OBJ-NAT</sub> 
+								abzunehmen begann und einige <span style="background-color: #3CB371;">Wolken</span><sub style="font-size: smaller; color: #666666;">OBJ-NAT</sub> den 
+								<span style="background-color: #3CB371;">Himmel</span><sub style="font-size: smaller; color: #666666;">CONT-NAT</sub>, 
+								bedeckten, saßen die beiden auf einem <span style="background-color: #3CB371;">Felsen</span><sub style="font-size: smaller; color: #666666;">OBJ-NAT</sub>.”</blockquote></td>
+							</tr>
+						</table>
+      
+                    <p>(Beispiele aus: (3) Teodoro Guerrero, <em>Anatomía del corazón</em>, Spanien, 1856. (4) Carolina Coronado, <em>Jarilla</em>, Spanien, 1850.)</p>
+                    </section>
+                    <section>
+						<h2>Annotation</h2>
+						<table>
+							<tr>
+								<td style="font-size: 20pt;">
+									<ul>
+										<li><strong>Manuelle Annotation</strong> von 20 Kapiteln aus 20 verschiedenen Romanen
+											mit zwei Annotatorinnen (Dank an Caroline Müller!)</li>
+										<li>Kapitel repräsentieren frühe und späte Texte aus beiden Teilkorpora,
+											darüber hinaus zufällig ausgewählt</li>
+										<li><strong>Inter-annotator agreement</strong> (Gamma, Durchschnitt): 0.96</li>
+										<li>Erstellen einer <strong>Gold-Standard-Annotation</strong> und einer
+											<strong>Ground Truth</strong></li>
+									</ul>
+								</td>
+								<td style="width: 50%;"><img src="img/groundtruth.png" width="500"/></td>
+							</tr>
+						</table>
+						
+                    </section>
+                    <section>
+						<h2>Generieren eines Classifiers (= Modelltraining)</h2>
+						<table>
+							<tr>
+								<td>
+									<ul>
+										<li>Mit dem Tool NTEE</li>
+										<li>Modell basiert auf einem allgemeinen Sprachmodell für Spanisch
+											(<a href="https://huggingface.co/Geotrend/bert-base-es-cased">bert-base-es-cased</a>)</li>
+										<li><strong>Training</strong>: 10 Epochen; 0.748 war der höchte, entitätsbezogene F1-score beim Validierungs-Set</li>
+										<li>E-F1-Score von 0.7345 für das <strong>Test Set</strong></li>
+									</ul>
+								</td>
+								<td style="width: 40%;">
+									<img src="img/metrics-train.png"/><br/><img src="img/loss.png"/>
+								</td>
+							</tr>
+						</table>
+						
+                    </section>
+                    <!--
+                    <section>
+						<h2>Examples: Errors</h2>
+                    </section>
+                    -->
+                    <section>
+						<h2>Analyseergebnisse</h2>
+						<table>
+							<tr>
+								<td>
+								<ul>
+									<li>Bisher: Vorhersagen für 174 Romane<br/> (12.673.939 Tokens)</li>
+									<li>Raumreferentielle Ausdrücke: 359.937<br/> (2,8 %)</li>
+								</ul>
+								</td>
+								<td>
+									<table style="font-size: 18pt;">
+										<tr>
+											<th></th>
+											<th>Container</th>
+											<th>Objekte</th>
+											<th>gesamt</th>
+										</tr>
+										<tr>
+											<th>Artefakte</th>
+											<td style="text-align: right;">133.800<br/> (37 %)</td>
+											<td style="text-align: right;">73.138<br/> (20 %)</td>
+											<td style="text-align: right;">206.938<br/> (57 %)</td>
+										</tr>
+										<tr>
+											<th>Natürliche Räume/Orte</th>
+											<td style="text-align: right;">69.139<br/> (19 %)</td>
+											<td style="text-align: right;">22.070<br/> (6 %)</td>
+											<td style="text-align: right;">91.209<br/> (25 %)</td>
+										</tr>
+										<tr>
+											<th>Regionen</th>
+											<td style="text-align: right;">28.978<br/> (8 %)</td>
+											<td style="text-align: right;">-</td>
+											<td style="text-align: right;">28.978<br/> (8 %)</td>
+										</tr>
+										<tr>
+											<th>Settlements</th>
+											<td style="text-align: right;">32.812<br/> (9 %)</td>
+											<td style="text-align: right;">-</td>
+											<td style="text-align: right;">32.812<br/> (9 %)</td>
+										</tr>
+										<tr>
+											<th>gesamt</th>
+											<td style="text-align: right;">264.729<br/> (73 %)</td>
+											<td style="text-align: right;">95.208<br/> (26 %)</td>
+											<td style="text-align: right;">359.937<br/> (100 %)</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+						
+						
+                    </section>
+                    <section>
+						<h2>Die häufigsten Artefakte</h2>
+						
+								  <table style="font-size: 18pt;">
+							<tr>
+								<th>Rang</th>
+								<th>Token</th>
+								<th></th>
+								<th>Zahl (absolut)</th>
+							</tr>
+							<tr>
+								<td style="text-align: center;">1</td>
+								<td>casa</td>
+								<td><em>Haus</em></td>
+								<td style="text-align: right;">17.436</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">2</td>
+								<td>puerta</td>
+								<td><em>Tür</em></td>
+								<td style="text-align: right;">7.718</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">3</td>
+								<td>calle</td>
+								<td><em>Straße</em></td>
+								<td style="text-align: right;">4.584</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">4</td>
+								<td>mesa</td>
+								<td><em>Tisch</em></td>
+								<td style="text-align: right;">3.123</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">5</td>
+								<td>cuarto</td>
+								<td><em>Zimmer</em></td>
+								<td style="text-align: right;">2.757</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">6</td>
+								<td>sala</td>
+								<td><em>Wohnzimmer/Saal</em></td>
+								<td style="text-align: right;">1.935</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">7</td>
+								<td>cama</td>
+								<td><em>Bett</em></td>
+								<td style="text-align: right;">1.906</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">8</td>
+								<td>lecho</td>
+								<td><em>Bett</em></td>
+								<td style="text-align: right;">1.769</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">9</td>
+								<td>ventana</td>
+								<td><em>Fenster</em></td>
+								<td style="text-align: right;">1.684</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">10</td>
+								<td>habitación</td>
+								<td><em>Zimmer</em></td>
+								<td style="text-align: right;">1.612</td>
+							</tr>
+						</table>
+
+                    </section>
+                    <section>
+						<p>Die häufigsten natürlichen Orte</p>
+						<table style="font-size: 18pt;">
+							<tr>
+								<th>Rang</th>
+								<th>Token</th>
+								<th></th>
+								<th>Zahl (absolut)</th>
+							</tr>
+							<tr>
+								<td style="text-align: center;">1</td>
+								<td>cielo</td>
+								<td><em>Himmel</em></td>
+								<td style="text-align: right;">4.179</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">2</td>
+								<td>luz</td>
+								<td><em>Licht</em></td>
+								<td style="text-align: right;">4.030</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">3</td>
+								<td>sol</td>
+								<td><em>Sonne</em></td>
+								<td style="text-align: right;">3.468</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">4</td>
+								<td>aire</td>
+								<td><em>Luft</em></td>
+								<td style="text-align: right;">2.215</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">5</td>
+								<td>tierra</td>
+								<td><em>Boden/Erde</em></td>
+								<td style="text-align: right;">2.119</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">6</td>
+								<td>campo</td>
+								<td><em>Feld</em></td>
+								<td style="text-align: right;">2.069</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">7</td>
+								<td>mar</td>
+								<td><em>Meer</em></td>
+								<td style="text-align: right;">1.623</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">8</td>
+								<td>sombra</td>
+								<td><em>Schatten</em></td>
+								<td style="text-align: right;">1.359</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">9</td>
+								<td>árboles</td>
+								<td><em>Bäume</em></td>
+								<td style="text-align: right;">1.347</td>
+							</tr>
+							<tr>
+								<td style="text-align: center;">10</td>
+								<td>viento</td>
+								<td><em>Wind</em></td>
+								<td style="text-align: right;">1.321</td>
+							</tr>
+						</table>
+
+			
+                    </section>
+          	<section>
+          		<h2>Spanien vs. Lateinamerika</h2>
+          		<ul>
+          			<li><strong>54 %</strong> der raumreferentiellen Ausdrücke kommen in den Romanen aus Spanien vor, 
+          			<strong>46 %</strong> in den Romanen aus Lateinamerika</li>
+          			<li>differenziert nach Unterarten:
+          				<ul>
+          					<li>natürliche Räume/Orte: 54 % (SPA) vs. 46 % (LAT)</li>
+          					<li>Artefakte: 53 % (SPA) vs. 47 % (LAT)</li>
+          					<li>Container: 54 % (SPA) vs. 46 % (LAT)</li>
+          					<li>Objekte: 53 % (SPA) vs. 47 % (LAT)</li>
+          					<li>Regionen: 54 % (SPA) vs. 46 % (LAT)</li>
+          					<li>Settlements: 58 % (SPA) vs. 42 % (LAT)</li>
+          				</ul>
+          			</li>
+          		</ul>
+          	</section>
+          	<section>
+          		<h2>Raumreferentielle Ausdrücke in Teilepochen, insgesamt</h2>
+          		<ul>
+          			<li>1840–1859: 24,5 %</li>
+          			<li>1860–1879: 24,4 %</li>
+          			<li>1880–1900: 28,5 %</li>
+          			<li>1900–1920: 22,2 %</li>
+          		</ul>
+          	</section>
+          	<section>
+          		<h2>Natürliche Räume/Orte in Teilepochen</h2>
+          		<ul>
+          			<li>1840–1859: 24,3 %</li>
+          			<li>1860–1879: 24,5 %</li>
+          			<li>1880–1900: 26,6 %</li>
+          			<li>1900–1920: 24,4 %</li>
+          		</ul>
+          	</section>
+          	<section>
+          		<h2>Artefakte in Teilepochen</h2>
+          		<ul>
+          			<li>1840–1859: 22,2 %</li>
+          			<li>1860–1879: 24,1 %</li>
+          			<li>1880–1900: 30,9 %</li>
+          			<li>1900–1920: 22,2 %</li>
+          		</ul>
+          	</section>
+				</section>
+				<!-- ############### Conclusions ################### -->
+                <section>
+					<section>
+						<h2>4. Fazit und nächste Schritte</h2>
+						<ul>
+							<li>Erkennung räumlicher Entitäten kann noch verbessert werden
+								<br/>(0.75 score vs. 0.96 IAA)</li>
+							<li>Artefakte, also menschengemachte Objekte und Orte/Räume werden in den Romanen insgesamt häufiger erwähnt als natürliche</li>
+							<li>es gibt (leichte) Unterschiede zwischen verschiedenen Teilkorpora (Kontinente/Zeit)</li>
+							<li><strong>als Nächstes:</strong> Textanalyse auf weitere Korpusmetadaten beziehen (z.B. literarische Strömung, Untergattungen, Autor:innen)</li>
+							<li><strong>als Nächstes:</strong> narrative Funktionen der räumlichen Referenzen analysieren</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Bibliographie</h2>
+						<ul style="font-size: 10pt;">
+							<li><strong>Barth, Florian.</strong> 2022. “Von der literaturwissenschaftlichen Theorie zu maschinellen Erkennung: Operationalisierung von Raumentitäten und Settings.” In: <em>Digitale Verfahren in der Literaturwissenschaft.</em> Ed. by Jan Horstmann and Frank Fischer. Sonderausgabe # 6 von Textpraxis. Digitales Journal für Philologie. <a href="https://doi.org/10.17879/64059429732">https://doi.org/10.17879/64059429732</a>.</li>
+							<li><strong>Dennerlein, Katrin</strong> (2009): <em>Narratologie des Raumes.</em> Berlin und New York: De Gruyter. <a href="https://doi.org/10.1515/9783110219920">https://doi.org/10.1515/9783110219920</a>.</li>
+							<li><strong>Gius, Evelyn; Meister, Jan Christoph; Meister, Malte; Petris, Marco; Schumacher, Mareike; Gerstorfer, Dominik</strong> (2023): “CATMA 7, Version 7.0.0.” Zenodo. <a href="https://doi.org/10.5281/zenodo.1470118">https://doi.org/10.5281/zenodo.1470118</a>.</li>
+							<li><strong>Grisot, Giulia; Herrmann, Berenike</strong> (2023): “Examining the representation of landscape and its emotional value in German-Swiss fiction between 1840 and 1940.” <em>Journal of Cultural Analytics</em> 8 (1). <a href="https://doi.org/10.22148/001c.84475">https://doi.org/10.22148/001c.84475</a>.</li>
+							<li><strong>Figuera Marante, Liosdany</strong> (2017): “La ciudad en la novela latinoamericana, aproximaciones a su evolución.” <em>Universidad y Sociedad</em>, 9(2), 270-274.</li>
+							<li><strong>Henny-Krahmer, Ulrike</strong> (ed., 2021): “Corpus de novelas hispanoamericanas del siglo XIX (conha19).” Version 1.0.1. Zenodo. <a href="https://doi.org/10.5281/zenodo.4766987">https://doi.org/10.5281/zenodo.4766987</a>.</li>
+							<li><strong>Henny-Krahmer, Ulrike; Kellner, Nils; Lemke, Marc</strong> (2024): “CANSpiN.CS1 (1.0.0).” Zenodo. <a href="https://doi.org/10.5281/zenodo.12706812">https://doi.org/10.5281/zenodo.12706812</a>. </li>
+							<li><strong>Lemke, Marc</strong> (n.d.): “CANSpiN.CS1 1.1.0 Tutorial.” <a href="https://marc-lemke.github.io/canspin.cs1_tutorial/">https://marc-lemke.github.io/canspin.cs1_tutorial/</a>.</li>
+							<li><strong>Lotman, Jurij Michailowitsch</strong> (1977): <em>Die Struktur literarischer Texte.</em> München: Fink.</li>
+							<li><strong>Navarro Colorado, Borja</strong> (ed., 2021): “ELTeC-spa.” v0.9.1. Zenodo. <a href="https://doi.org/10.5281/zenodo.4662603">https://doi.org/10.5281/zenodo.4662603</a>.</li>
+							<li><strong>Piatti, Barbara</strong> (2008): <em>Die Geographie Der Literatur. Schauplätze, Handlungsräume, Raumphantasien.</em> Göttingen: Wallstein.</li>
+							<li><strong>Ryan, Marie-Laure</strong> (2014): “Space.” In <em>The Living Handbook of Narratology</em>, ed. by Peter Hühn, Jan Christoph Meister, John Pier, and Wolf Schmid. Hamburg: Hamburg University. <a href="http://www.lhn.uni-hamburg.de/node/55.html">http://www.lhn.uni-hamburg.de/node/55.html</a>.</li>
+							<li><strong>Schumacher, Mareike K.</strong> (2023): <em>Orte und Räume im Roman. Ein Beitrag zur digitalen Literaturwissenschaft.</em> Berlin und Heidelberg: Springer. <a href="https://doi.org/10.1007/978-3-662-66035-5">https://doi.org/10.1007/978-3-662-66035-5</a>.</li>
+							<li><strong>Soni, Sandeep; Sihra, Amanpreet; Evans, Elizabeth; Wilkens, Matthew; Bamman, David</strong> (2023): “Grounding Characters and Places in Narrative Text.” In <em>Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</em>, ed. by Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki, 11723–11736. Toronto: Association for Computational Linguistics. <a href="https://doi.org/10.18653/v1/2023.acl-long.655">https://doi.org/10.18653/v1/2023.acl-long.655</a>.</li>
+							<li><strong>Sperfeld, Konrad; Zöllner, Jochen; Lemke, Marc</strong> (2023): “NEISS TEI Entity Enricher NTEE, Version 1.1.1.” <a href="https://github.com/NEISSproject/tei_entity_enricher">https://github.com/NEISSproject/tei_entity_enricher</a>.</li>
+							<li><strong>Urroz Kanán, Raquel</strong> (2021): “El diseño geográfico de la nación en una novela mexicana del siglo XIX. Los bandidos de Río Frío de Manuel Payno.” <em>Revista de Geografía Norte Grande</em> 78: 29-47.</em></li>
+							<li><strong>Viehhauser, Gabriel</strong> (2020): “Zur Erkennung von Raum in narrativen Texten. Spatial Frames und Raumsemantik als Modelle für eine digitale Narratologie des Raums.” In <em>Reflektierte Algorithmische Textanalyse</em>, 373–88. De Gruyter. <a href="https://doi.org/10.1515/9783110693973-015">https://doi.org/10.1515/9783110693973-015</a>.</li>
+							<li><strong>Viehhauser, Gabriel; Barth, Florian</strong> (2017): “Towards a Digital Narratology of Space.” In <em>Digital Humanities 2017. Conference Abstracts, Montréal, Canada, August 8-11, 2017</em>, 643–46. Montréal. <a href="https://dh2017.adho.org/abstracts/DH2017-abstracts.pdf">https://dh2017.adho.org/abstracts/DH2017-abstracts.pdf</a>.</li>
+						</ul>
+					</section>
+				    <section>
+						<h2>Vielen Dank!</h2>
+						<p>Präsentation unter: <a href="https://hennyu.github.io/dh-im-fokus_25/"
+								>https://hennyu.github.io/dh-im-fokus_25/</a></p>
+						<p><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+								>CC-BY 4.0</a></p>
+					</section>
+					
+                </section>
+            </div>
+        </div>
+        <script src="../reveal/lib/js/head.min.js"></script>
+        <script src="../reveal/js/reveal.js"></script>
+        <script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+        { src: '../reveal/plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+    </body>
+</html>
