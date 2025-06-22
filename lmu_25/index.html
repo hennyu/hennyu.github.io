@@ -1,0 +1,517 @@
+<html>
+  <head>
+    <title>ArDraCor: zum Aufbau eines argentinischen Dramenkorpus für die Plattform DraCor</title>
+    <meta name="author" content="Ulrike Henny-Krahmer" />
+    <meta name="description" content="Slides" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../reveal/css/reveal.css" />
+    <link rel="stylesheet" href="../reveal/css/theme/solarized.css" />
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../reveal/css/print/pdf.css': '../reveal/css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);</script>
+    <style type="text/css">
+      .reveal section img {
+        border: none;
+      }
+      p.small,
+      ul.small,
+      ol.small {
+        font-size: 0.7em;
+      }
+      ul.small li,
+      ol.small li {
+        padding-bottom: 0.5em;
+      }
+      .partial-left {
+        width: 60%;
+        float: left;
+      }
+      .partial-right {
+        float: right;
+      }
+      div.speech-bubble {
+        background-image: url("img/speech-bubble.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 250px;
+        min-height: 200px;
+        padding: 50px 35px 100px 35px;
+      }
+      div.speech-bubble p {
+        font-size: 18pt;
+      }
+      .reveal blockquote {
+        font-size: 0.7em;
+      }
+      .green {
+        color: darkgreen;
+      }
+      .red {
+        color: darkred;
+      }
+      .orange {
+        color: darkorange;
+      }
+      .half {
+        width: 50%;
+        float: left;
+      }</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="font-size: 48pt;">ArDraCor: zum Aufbau eines argentinischen Dramenkorpus für die Plattform DraCor</h1>
+          <hr />
+          <p>
+            <small>Ulrike Henny-Krahmer (Universität Rostock)</small>
+          </p>
+          <p>
+            <small>Ringvorlesung LMU (online), 23. Juni 2025.</small>
+          </p>
+          <p>
+            <small>Präsentation: <a href="https://hennyu.github.io/lmu_25/"
+                >https://hennyu.github.io/lmu_25/</a></small>
+          </p>
+          <hr />
+          <p>
+            <a href="https://www.uni-rostock.de/">
+              <img height="50" src="img/basics/logo-uni-rostock.png" class="logo" />
+            </a>
+          </p>
+        </section>
+        <section>
+          <h2>Überblick</h2>
+          <ul>
+            <li>ArDraCor: Ausgangspunkt und Ziele</li>
+            <li>Strategien zum Korpusaufbau</li>
+            <li>Aktueller Arbeitsstand</li>
+            <li>Fazit</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>ArDraCor: Ausgangspunkt und Ziele</h2>
+          </section>
+          <section>
+            <h2>ArDraCor: Ausgangspunkt und Ziele</h2>
+            <table>
+              <tr>
+                <td style="width: 60%; font-size: 24pt;">
+                  <ul>
+                    <li style="padding-bottom: 15px;"><span style="text-decoration: underline;">Ziel:</span> Aufbau eines digitalen Dramenkorpus mit argentinischen Texten
+                      <strong>(ArDraCor)</strong> für die Plattform DraCor</li>
+                    <li><span style="text-decoration: underline;">Hintergrund</span>: für europäische sowie US-amerikanische Dramen 
+                      gibt es bereits digitale 
+                      Korpora (insb. auf der Plattform <strong>DraCor</strong>) - 
+                      für lateinamerikanische Dramen noch gar nicht - <em>das möchten wir ändern</em>!</li>
+                  </ul>
+                </td>
+                <td style="vertical-align: top; text-align: center;">
+                  <img src="img/stage.jpeg" alt="stage" width="500"/>
+                  <p style="font-size: 16pt;">(erstellt mit deepai.org)</p>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Warum überhaupt digitale Dramenkorpora?</h2>
+            <table>
+              <tr>
+                <td style="vertical-align: top; text-align: center;">
+                  <img src="img/networks.png" alt="stage" width="500"/>
+                  <p style="font-size: 16pt;">(Netzwerkgraphen zu 465 Stücken in chronologischer Reihenfolge - 
+                    Trilcke und Fischer 2018)</p>
+                </td>
+                <td style="width: 50%; font-size: 18pt;">
+                  <strong><em>Computational Literary Studies (CLS)</em></strong> bieten die Möglichkeit, 
+                      literaturgeschichtliche Fragen auf neue Weise zu untersuchen, z.&#x00A0;B.:<br/><br/>
+                    ... groß angelegte Studien zu Epochen, Strömungen, Wandel...<br/>
+                    ... neue Blickwinkel auf Strukturen und Textstil (von Autor:innen, Gattungen, ...)<br/>
+                    ... komparativ angelegte Untersuchungen (verschiedene Kulturräume/Sprachen)<br/>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Was ist DraCor?</h2>
+            <p><em>'DraCor is short for "drama corpora", 
+              a growing collection of plays in (mostly) European languages,
+              all encoded in TEI. We are maintaining some in-house corpora 
+              which we built from the ground up (GerDraCor and RusDraCor). 
+              In addition, we adapted (and enhanced) some corpora that were 
+              released under free licenses. We also host corpora maintained by others.'</em></p>
+            <p><a href="https://dracor.org/doc/what-is-dracor">https://dracor.org/doc/what-is-dracor</a></p>
+          </section>
+          <section>
+            <h2>Was ist DraCor?</h2>
+            <img src="img/dracor.png" alt="DraCor" width="800"/>
+            <p style="font-size: 18pt; margin: 0;"><a href="https://dracor.org/">https://dracor.org/</a></p>
+          </section>
+          <section>
+            <h2>Aktueller Umfang von DraCor</h2>
+            <ul>
+              <li><span style="text-decoration: underline;">18 publizierte Korpora</span> (Alsatian, Bashkir, Calderón, Dutch, French, German,
+                German Shakespeare,
+                Greek, Hungarian, Italian, Roman, Russian, Shakespeare, Spanish, Swedish,
+                Tatar, Ukrainian, Yiddish)</li>
+              <li>weitere <span style="text-decoration: underline;">Korpora im Entwurfsstadium</span> (Czech, English, Georgian, Neo-Latin, Polish,
+                Romanian, American, Hebrew, Jesuit Latin, Argentine, ...)</li>
+              <li><span style="text-decoration: underline;">Gesamtumfang aktuell:</span> 7,647 Stücke</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Noch einmal: Was ist DraCor?</h2>
+            <ul>
+              <li>'DraCor is not primarily a website. DraCor is a showcase for the concept of 
+                <span style="text-decoration: underline;">Programmable Corpora</span>.'</li>
+              <li>'DraCor aims to create an <span style="text-decoration: underline;">interface</span> between
+                <span style="text-decoration: underline;">traditional and digital literary studies</span>'</li>
+            </ul>
+            <p>(<a href="https://dracor.org/doc/what-is-dracor">https://dracor.org/doc/what-is-dracor</a>)</p>
+          </section>
+          <section>
+            <h2>Wie sieht ein Stück in DraCor aus?</h2>
+            <img src="img/ardracor-1.png" alt="ArDraCor-1" width="800"/>
+            <p style="font-size: 20pt;">(lokale DraCor-Installation)</p>
+          </section>
+          <section>
+            <h2>DraCor-Ansicht: Einzelwerk</h2>
+            <img src="img/ardracor-2a.png" alt="ArDraCor-2a" width="800"/>
+            <p style="font-size: 20pt;">(lokale DraCor-Installation)</p>
+          </section>
+          <section>
+            <h2>DraCor-Ansicht: Netzwerk</h2>
+            <img src="img/ardracor-2.png" alt="ArDraCor-2" width="800"/>
+            <p style="font-size: 20pt;">(lokale DraCor-Installation)</p>
+          </section>
+          <section>
+            <h2>DraCor-Ansicht: Figurenrede</h2>
+            <img src="img/ardracor-3.png" alt="ArDraCor-3" width="800"/>
+            <p style="font-size: 20pt;">(lokale DraCor-Installation)</p>
+          </section>
+          <section>
+            <h2>DraCor-Ansicht: Volltext</h2>
+            <img src="img/ardracor-4.png" alt="ArDraCor-4" width="750"/>
+            <p style="font-size: 20pt;">(lokale DraCor-Installation)</p>
+          </section>
+          <section>
+            <h2>DraCor-Ansicht: Downloads</h2>
+            <img src="img/ardracor-5.png" alt="ArDraCor-5" width="800"/>
+            <p style="font-size: 20pt;">(lokale DraCor-Installation)</p>
+          </section>
+          <section>
+            <h2>DraCor-Ansicht: Tools</h2>
+            <table>
+              <tr>
+                <td style="vertical-align: middle;"><img src="img/ardracor-6.png" alt="ArDraCor-6" width="500"/></td>
+                <td><img src="img/voyant.png" alt="VoyantTools" width="700"/></td>
+              </tr>
+            </table>
+            <p style="font-size: 12pt;">
+              <a href="https://dracor.org/ger/lessing-emilia-galotti#tools">https://dracor.org/ger/lessing-emilia-galotti#tools</a>
+              <a href="https://voyant-tools.org/?corpus=2f83e02b4336e96e9787661971c74b8b&amp;input=https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/tei">https://voyant-tools.org/?corpus=2f83e02b4336e96e9787661971c74b8b&amp;input=https://dracor.org/api/v1/corpora/ger/plays/lessing-emilia-galotti/tei</a>
+            </p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Strategien zum Korpusaufbau</h2>
+          </section>
+          <section>
+            <h2>Von DraCor zu ArDraCor...</h2>
+            <ul>
+              <li>Ziel: DraCor-Infrastruktur für unser eigenes Projekt nutzen.</li>
+              <li>Wie kommen wir dahin?</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Was soll ArDraCor umfassen?</h2>
+            <ul style="font-size: 24pt;">
+              <li style="padding-bottom: 10px;"><strong>möglichst viele</strong> argentinische Dramentexte vom späten 18. bis zum frühen
+                20. Jahrhundert</li>
+              <li style="padding-bottom: 10px;">grundlegende <strong>Metadaten</strong> zu jedem Drama (Autor:in, Titel, Gattung, Daten, Quellen)</li>
+              <li style="padding-bottom: 10px;">den digitalen <strong>Volltext</strong> jedes Dramas</li>
+              <li style="padding-bottom: 10px;">strukturelles <strong>Markup</strong> für jedes Drama (Figuren, Akte, Szenen, Rede, Bühnenanweisungen)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Was ist interessant an ArDraCor?</h2>
+            <table>
+              <tr>
+                <td style="width: 70%; font-size: 24pt;"><ul>
+                  <li>füllt eine Lücke in der bisherigen DraCor-Sammlung</li>
+                  <li>spezifische Untergattungen in hispanischer Tradition, z.&#x00A0;B. 
+                    <em>Sainete urbano / gauchesco / político</em>;
+                    <em>Zarzuela</em>, <em>Entremés</em>, <em>Juguete</em>, ...</li>
+                </ul></td>
+                <td style="vertical-align: top; text-align: center;">
+                  <img alt="gaucho" src="img/gaucho.jpeg"/>
+                  <p style="font-size: 16pt;">(erstellt mit deepai.org)</p></td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Wer arbeitet an ArDraCor?</h2>
+            <table>
+              <tr>
+                <td>
+                  <table style="font-size: 12pt;">
+                    <tr>
+                      <td style="vertical-align: top;">Gimena del Rio Riande<br/> (HD Lab, CONICET)</td>
+                      <td><img alt="Gimena" src="img/Gimena.jpg" width="100"/></td>
+                    </tr>
+                    <tr>
+                      <td style="vertical-align: top;">Romina de León<br/> (HD Lab, CONICET)</td>
+                      <td><img alt="Romina" src="img/Romina.jpg" width="100"/></td>
+                    </tr>
+                    <tr>
+                      <td style="vertical-align: top;">Laura Volkind<br/> (HD Lab, CONICET)</td>
+                      <td><img alt="Laura" src="img/Laura.jpg" width="100"/></td>
+                    </tr>
+                    <tr>
+                      <td style="vertical-align: top;">Nidia Hernández<br/> (HD Lab, CONICET)</td>
+                      <td><img alt="Nidia" src="img/Nidia.jpg" width="100"/></td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table style="font-size: 12pt;">
+                    <tr>
+                      <td style="vertical-align: top;">María Teresa Ravelo Sánchez<br/> (UNAM)</td>
+                      <td style="text-align: center;"><img alt="Teresa" src="img/Teresa.jpg" width="60"/></td>
+                    </tr>
+                    <tr>
+                      <td style="vertical-align: top;">Ulrike Henny-Krahmer<br/> (Universität Rostock)</td>
+                      <td><img alt="Ulrike" src="img/Ulrike.jpeg" width="100"/></td>
+                    </tr>
+                    <tr>
+                      <td style="vertical-align: top;">Erik Renz<br/> (Universität Rostock)</td>
+                      <td><img alt="Erik" src="img/Erik.jpeg" width="100"/></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Pragmatische Vorgehensweise</h2>
+            <ul>
+              <li><span style="text-decoration: underline;">Recherche:</span> 
+                auf bekannten Plattformen/in Bibliographien</li>
+              <li><span style="text-decoration: underline;">Digitalisierung:</span>
+                Bestehendes nutzen (strukturierte Volltexte;
+              unstrukturierte Volltexte; Bilddigitalisate)</li>
+              <li><span style="text-decoration: underline;">Textkonstitution:</span>
+                Sprachstufe und Orthographie i.&#x00A0;d.&#x00A0;R. abhängig von der Vorlage</li>
+              <li><span style="text-decoration: underline;">Strukturierung:</span>
+                Nutzung vorhandener Tools für Konversion und Aufbereitung</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Einige Quellen</h2>
+            <table style="font-size: 20pt;">
+              <tr>
+                <td>Biblioteca Digital Argentina</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">Biblioteca Virtual Miguel de Cervantes</td>
+                <td><img src="img/logo-cervantes.png" alt="Logo-BCV" width="400"/></td>
+              </tr>
+              <tr>
+                <td>Wikimedia Commons: Sammlung der Argentinischen Akademie</td>
+                <td><img src="img/logo-wikimedia.png" alt="Logo-Wikimedia" width="400"/></td>
+              </tr>
+              <tr>
+              <td style="vertical-align: middle;">Digitale Sammlungen des Ibero-Amerikanischen Instituts (IAI)</td>
+              <td><img src="img/logo_iai.gif" alt="Logo-IAI" width="100"/></td>
+              </tr>
+              <tr>
+                <td>Seibel, Beatriz: Antología de obras de teatro argentino: desde
+                  sus orígenes a la actualidad, Buenos
+                  Aires: Instituto Nacional del Teatro, 2006-2017.</td>
+                <td></td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Metadaten</h2>
+            <p>zunächst Sammlung in Tabelle</p>
+            <img src="img/ardracor-table.png" alt="ArDraCor-Tabelle"/>
+          </section>
+          <section>
+            <h2>Textextraktion</h2>
+            <p><em>Optical Character Recognition</em> (OCR)</p>
+            <ul>
+              <li>Nutzung bestehender OCR-Texte (z.&#x00A0;B. aus PDF)</li>
+              <li>Herstellung eigener OCR-Fassung (z.&#x00A0;B. mit dem Tool OCR4all)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Beispiel: OCR4all</h2>
+            <table>
+              <tr>
+                <td><img src="img/ocr4all-1.png" alt="OCR4all-1" width="300"/></td>
+                <td><img src="img/ocr4all-2.png" alt="OCR4all-2" width="300"/></td>
+                <td><img src="img/ocr4all-3.png" alt="OCR4all-3" width="500"/></td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Markup</h2>
+            <p>Zielformat: TEI (Guidelines der <em>Text Encoding Initiative</em>)</p>
+            <img src="img/beispiel-tei.png" alt="Beispiel-TEI" width="700"/>
+          </section>
+          <section>
+            <h2>Konversion</h2>
+            <p>Optionen (je nach Ausgangslage):</p>
+            <ul>
+              <li>TEI zu TEI (kommt nicht vor)</li>
+              <li>HTML zu TEI</li>
+              <li>OCR4all - PageXML - XSLT - TEI</li>
+              <li>Volltext - EzDrama Markup - TEI</li>
+              <li>immer: halbautomatische/händische Nachbearbeitung</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Aufbereitung in TEI</h2>
+            <p>Was ist (noch) zu tun?</p>
+            <ul>
+              <li>Metadaten codieren (im 'TEI Header'): bibiographisch, administrativ</li>
+              <li>Struktur semantisch auszeichnen: Akte, Szenen, Überschriften, Rede...</li>
+              <li>Cast List erstellen, Figuren und Sprecher identifizieren</li>
+              <li>Normdaten zuweisen: zu Autor:in, ggf. Gattung, ggf. Figur, Bearbeiter:in</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Aktueller Arbeitsstand</h2>
+          </section>
+          <section>
+            <h2>Aktueller Arbeitsstand</h2>
+            <p>DraCor-Repositorium angelegt: 
+              <a href="https://github.com/dracor-org/ardracor">https://github.com/dracor-org/ardracor</a></p>
+            <table>
+              <tr>
+                <td>Werke in TEI</td>
+                <td style="text-align: right;">5</td>
+              </tr>
+              <tr>
+                <td>Werke als bereinigter Volltext</td>
+                <td style="text-align: right;">24</td>
+              </tr>
+              <tr>
+                <td>Werke mit mind. Bilddigitalisat</td>
+                <td style="text-align: right;">100</td>
+              </tr>
+              <tr>
+                <td>Werke bisher ohne Textzugang</td>
+                <td style="text-align: right;">100</td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Eckdaten Werke mit mind. Bilddigitalisat</h2>
+            <table>
+              <tr>
+                <td>Autor:innen</td>
+                <td style="text-align: right;">54</td>
+              </tr>
+              <tr>
+                <td>Autorinnen</td>
+                <td style="text-align: right;">5</td>
+              </tr>
+              <tr>
+                <td>Anonym</td>
+                <td style="text-align: right;">6</td>
+              </tr>
+              <tr>
+                <td>Publikation datiert</td>
+                <td style="text-align: right;">35</td>
+              </tr>
+              <tr>
+                <td>Aufführung datiert</td>
+                <td style="text-align: right;">91</td>
+              </tr>
+              <tr>
+                <td>Untergattung erfasst</td>
+                <td style="text-align: right;">89</td>
+              </tr>
+            </table>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Fazit</h2>
+          </section>
+          <section>
+            <h2>Fazit</h2>
+            <table>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Korpusaufbau arbeitsintensiv (abhängig von Quellenlage)</li>
+                    <li>dennoch: Relevanz neuer digitaler Korpora</li>
+                    <li>digitale Infrastruktur: Effizienz, Standardisierung, Nachhaltigkeit</li>
+                    <li>Ziel hier: ArDraCor als Community-Korpus</li>
+                  </ul>
+                </td>
+                <td style="vertical-align: middle;"><img alt="Community" src="img/community.jpeg"/>
+                <p style="font-size: 20pt;">(erstellt mit deepai.org)</p></td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Literaturhinweise</h2>
+            <ul style="font-size: 18pt;">
+              <li>Fischer, Frank, et al. (2019): Programmable Corpora: Introducing DraCor, an Infrastructure for the Research on European Drama. In: Proceedings of DH2019: "Complexities", Utrecht University, DOI: 10.5281/zenodo.4284002.</li>
+              <li>Seibel, Beatriz, Hrsg. (2006-2017). Antología de obras de teatro argentino: desde
+                sus orígenes a la actualidad. Buenos
+                Aires: Instituto Nacional del Teatro.</li>
+              <li>Trilcke, Peer und Frank Fischer (2018): Literaturwissenschaft als Hackathon. Zur Praxeologie der Digital Literary Studies und ihren epistemischen Dingen. In: Wie Digitalität die Geisteswissenschaften verändert: Neue Forschungsgegenstände und Methoden. Hg. von Martin Huber / Sybille Krämer. (= Sonderband der Zeitschrift für digitale Geisteswissenschaften, 3). text/html Format. DOI: 10.17175/sb003_003</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Vielen Dank für die Aufmerksamkeit!</h2>
+            <p>Präsentation: <br /><a href="https://hennyu.github.io/lmu_25/"
+              >https://hennyu.github.io/lmu_25/</a></p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="../reveal/lib/js/head.min.js"></script>
+    <script src="../reveal/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies:[ {
+          src: '../reveal/lib/js/classList.js', condition: function () {
+            return ! document.body.classList;
+          }
+        }, {
+          src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }, {
+          src: '../reveal/plugin/zoom-js/zoom.js', async: true
+        }, {
+          src: '../reveal/plugin/notes/notes.js', async: true
+        }]
+      });</script>
+  </body>
+</html>
