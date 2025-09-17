@@ -1,0 +1,277 @@
+<html>
+  <head>
+    <title>Encoding Hyperfiction: Preliminary Considerations 
+      for a Digital Edition of Susanne Berkenheger’s 
+      "Hilfe! Ein Hypertext aus vier Kehlen" (1998)</title>
+    <meta name="author" content="Ulrike Henny-Krahmer" />
+    <meta name="description" content="Slides" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../reveal/css/reveal.css" />
+    <link rel="stylesheet" href="../reveal/css/theme/solarized.css" />
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../reveal/css/print/pdf.css': '../reveal/css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);</script>
+    <style type="text/css">
+      .reveal section img {
+        border: none;
+      }
+      p.small,
+      ul.small,
+      ol.small {
+        font-size: 0.7em;
+      }
+      ul.small li,
+      ol.small li {
+        padding-bottom: 0.5em;
+      }
+      .partial-left {
+        width: 60%;
+        float: left;
+      }
+      .partial-right {
+        float: right;
+      }
+      div.speech-bubble {
+        background-image: url("img/speech-bubble.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 250px;
+        min-height: 200px;
+        padding: 50px 35px 100px 35px;
+      }
+      div.speech-bubble p {
+        font-size: 18pt;
+      }
+      .reveal blockquote {
+        font-size: 0.7em;
+      }
+      .green {
+        color: darkgreen;
+      }
+      .red {
+        color: darkred;
+      }
+      .orange {
+        color: darkorange;
+      }
+      .half {
+        width: 50%;
+        float: left;
+      }</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="font-size: 48pt;">Encoding Hyperfiction: Preliminary Considerations 
+            for a Digital Edition of Susanne Berkenheger’s 
+            "Hilfe! Ein Hypertext aus vier Kehlen" (1998)</h1>
+          <hr />
+          <p>
+            <small>Ulrike Henny-Krahmer (Universität Rostock)</small>
+          </p>
+          <p>
+            <small>TEI Conference, Kraków, September 17, 2025.</small>
+          </p>
+          <p>
+            <small>Presentation: <a href="https://hennyu.github.io/tei_25/"
+                >https://hennyu.github.io/tei_25/</a></small>
+          </p>
+          <hr />
+          <p>
+            <a href="https://www.uni-rostock.de/">
+              <img height="50" src="img/basics/logo-uni-rostock.png" class="logo" />
+            </a>
+          </p>
+        </section>
+        <section>
+          <h2>Overview</h2>
+          <ul>
+            <li>The hyperfiction "Hilfe!"</li>
+            <li>Proposals for encoding</li>
+            <li>Considerations: DSE of hyperfiction</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>The hyperfiction "Hilfe!"</h2>
+          </section>
+          <section>
+            <h3>The hyperfiction "Hilfe!"</h3>
+            <table>
+              <tr>
+                <td style="width: 50%; font-size: 18pt; color: #657b83;">
+                  <ul>
+                    <li class="fragment" style="padding-bottom: 10px;"><strong>authored</strong> by Susanne Berkenheger (*1963), German artist and author</li>
+                    <li class="fragment" style="padding-bottom: 10px;"><strong>published</strong> in 1998 on the internet (demo) and in 2000 on a CD-Rom</li>
+                    <li class="fragment" style="padding-bottom: 10px;">text-based <strong>hyperfiction</strong> with traditional elements of narration (Wirth 2005)</li>
+                    <li class="fragment" style="padding-bottom: 10px;"><strong>technique:</strong> linked HTML pages, Java Script elements and pop-up windows</li>
+                    <li class="fragment" style="padding-bottom: 10px;">Hilfe! as an example of genuinely <strong>digital literature</strong> (Landow 1992, Bajohr and Roloff 2024, Short 2024)</li>
+                  </ul>
+                </td>
+                <td style="width: 50%; vertical-align: top;">
+                  <img width="800" alt="Screenshot Hyperfiction Hilfe" src="img/screenshot-hilfe.jpg"/>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h3>The hyperfiction "Hilfe!" — Prologue</h3>
+            <img with="1000" src="img/screenshot-prologue.png" alt="Screenshot Prologue"/>
+          </section>
+          <section>
+            <h3>The hyperfiction "Hilfe!" — Dynamic sequence</h3>
+            <img width="800" src="img/hilfe-sequenz.png" alt="Dynamic Sequence Hilfe"/>
+          </section>
+          <section>
+            <h3>The hyperfiction "Hilfe!" — Static scene</h3>
+            <img width="1000" src="img/hilfe-scene-1.png" alt="Hilfe Scene 1"/>
+          </section>
+          <section>
+            <h3>The hyperfiction "Hilfe!" — Static scene</h3>
+            <img width="1000" src="img/hilfe-scene-2.png" alt="Hilfe Scene 2"/>
+          </section>
+          <section>
+            <h3>The hyperfiction "Hilfe!"</h3>
+            <blockquote>the screen transforms into a stage and 
+              the text sequences into a “fascinating form of kinetic poetry.”</blockquote>
+            <p>(Wirth 2005)</p>
+          </section>
+          <section>
+            <h3>How about the preservation of "Hilfe!"?</h3>
+            <table>
+              <tr>
+                <td style="width: 50%; font-size: 20pt; vertical-align: top; color: #657b83;">
+                  <ul>
+                    <li>Live-Version: <a href="http://www.wargla.de/hilfe.htm">http://www.wargla.de/hilfe.htm</a></li>
+                    <li>has been archived by the German Literature Archive (DLA) in Marbach</li>
+                    <li><a href="https://wwik.dla-marbach.de/line/index.php/Hilfe!">https://wwik.dla-marbach.de/line/index.php/Hilfe!</a></li>
+                    <li><a href="http://literatur-im-netz.dla-marbach.de/bsz402154606.html">http://literatur-im-netz.dla-marbach.de/bsz402154606.html</a></li>
+                  </ul>
+                </td>
+                <td style="vertical-align: top;">
+                  <img width="800" src="img/screenshot-archiving.png" alt="Screenshot Archiving Hilfe"/>
+                </td>
+              </tr>
+            </table>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Proposals for encoding</h2>
+          </section>
+          <section>
+            <h3>TEI chapter on CMC</h3>
+            <img src="img/cmc-chapter.png" alt="Screenshot CMC Chapter" width="800"/>
+          </section>
+          <section>
+            <h3>Encoding of prologue windows</h3>
+            <img src="img/encoding-prologue.png" alt="Encoding example prologue" width="1000"/>
+          </section>
+          <section>
+            <h3>Encoding of a dynamic sequence</h3>
+            <img src="img/encoding-sequence.png" alt="Encoding dynamic sequence" width="1000"/>
+          </section>
+          <section>
+            <h3>Encoding of a static scene</h3>
+            <img src="img/encoding-scene.png" alt="Encoding static scene" width="1000"/>
+          </section>
+          <section>
+            <h3>Open issues in the encoding</h3>
+            <ul>
+              <li>not sure if @next and @prev are good for sequences</li>
+              <li>or @synch in connection with a timeline</li>
+              <li>not sure how user interaction can be encoded more explicitly</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Considerations: DSE of hyperfiction</h2>
+          </section>
+          <section>
+            <h3>Considerations: encoding of hyperfiction</h3>
+            <ul>
+              <li class="fragment">potential to analyze possible paths
+              through the narrative more easily; analyze technical means (windows,
+              alerts, buttons, ...); analyze rendering (colors, etc.)</li>
+              <li class="fragment">work as a whole becomes accessible at once</li>
+              <li class="fragment">independent of presentation media</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Considerations: DSE of hyperfiction</h3>
+            <ul>
+              <li class="fragment">different versions? web vs. CD-Rom</li>
+              <li class="fragment">code level</li>
+              <li class="fragment">many different types of hyperfiction</li>
+            </ul>
+          </section>
+          <section>
+            <h2>References</h2>
+            <ul style="font-size: 16pt;">
+              <li>Bajohr, Hannes and Simon Roloff. 2024. <em>Digitale Literatur. Zur Einführung.</em> Hamburg: Junius
+                Verlag.</li>
+              <li>Berkenheger, Susanne. 1998. “Hilfe! Ein Hypertext aus vier Kehlen.”
+                <a href="http://www.wargla.de/hilfe.htm">http://www.wargla.de/hilfe.htm</a>. Accessed September 16, 2025.</li>
+              <li>Berkenheger, Susanne. 2000. <em>Hilfe! Ein Hypertext aus vier Kehlen.</em> Zürich: update verlag.</li>
+              <li>DLA Marbach, ed. 2015. “Hilfe!” Wiki des Projekts ‚Netzliteratur authentisch archivieren und
+                verfügbar machen.‘ Last changed Mai 3, 2016, accessed September 16, 2025. 
+                <a href="https://wwik.dla-marbach.de/line/index.php?title=Hilfe!&amp;oldid=4070">https://wwik.dla-marbach.de/line/index.php?title=Hilfe!&amp;oldid=4070</a>.</li>
+              <li>Landow, George P. 1992. <em>Hypertext. The Convergence of Contemporary Critical Theory and
+                Technology.</em> Baltimore: Johns Hopkins University Press.</li>
+              <li>Short, Emily. 2024. “Narrative and Interactivity.” In: <em>The Cambridge Companion to Literature in
+                the Digital Age</em>, edited by Adam Hammond, 177–193. Cambridge: Cambridge University Press.
+                <a href="https://doi.org/10.1017/9781009349567.012">https://doi.org/10.1017/9781009349567.012</a>.</li>
+              <li>TEI Consortium. 2025. “Computer-mediated Communication.” In: <em>TEI: Guidelines for Electronic
+                Text Encoding and Interchange.</em> P5 Version 4.10.2, September 4. 
+                <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/CMC.html">https://tei-c.org/release/doc/tei-p5-doc/en/html/CMC.html</a>.</li>
+              <li>Wirth, Uwe. 2005. “Wem der große Wurf gelungen...: 
+                Ansätze einer Hypernarratologie; dargestellt anhand von 
+                Susanne Berkenhegers Hypertext 'Hilfe!'.” <em>Jahrbuch für Computerphilologie</em>,
+                edited by Georg Braungart, Karl Eibl, and Fotis Jannidis, 145–166. Paderborn: mentis.
+                <a href="https://nbn-resolving.org/urn:nbn:de:hebis:30-1138081">https://nbn-resolving.org/urn:nbn:de:hebis:30-1138081</a>.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Thank you very much for your attention!</h2>
+            <p>Presentation: <br /><a href="https://hennyu.github.io/tei_25/"
+              >https://hennyu.github.io/tei_25/</a></p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="../reveal/lib/js/head.min.js"></script>
+    <script src="../reveal/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies:[ {
+          src: '../reveal/lib/js/classList.js', condition: function () {
+            return ! document.body.classList;
+          }
+        }, {
+          src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }, {
+          src: '../reveal/plugin/zoom-js/zoom.js', async: true
+        }, {
+          src: '../reveal/plugin/notes/notes.js', async: true
+        }]
+      });</script>
+  </body>
+</html>
