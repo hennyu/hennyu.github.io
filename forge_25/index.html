@@ -1,0 +1,376 @@
+<html>
+  <head>
+    <title>Partiell reusable: 
+      Zur Nachnutzung von Quellen für Korpora der 
+      Computational Literary Studies</title>
+    <meta name="author" content="Ulrike Henny-Krahmer" />
+    <meta name="description" content="Slides" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../reveal/css/reveal.css" />
+    <link rel="stylesheet" href="../reveal/css/theme/sky.css" />
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../reveal/css/print/pdf.css': '../reveal/css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);</script>
+    <style type="text/css">
+      .reveal section img {
+        border: none;
+      }
+      p.small,
+      ul.small,
+      ol.small {
+        font-size: 0.7em;
+      }
+      ul.small li,
+      ol.small li {
+        padding-bottom: 0.5em;
+      }
+      .partial-left {
+        width: 60%;
+        float: left;
+      }
+      .partial-right {
+        float: right;
+      }
+      div.speech-bubble {
+        background-image: url("img/speech-bubble.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 250px;
+        min-height: 200px;
+        padding: 50px 35px 100px 35px;
+      }
+      div.speech-bubble p {
+        font-size: 18pt;
+      }
+      .reveal blockquote {
+        font-size: 0.7em;
+      }
+      .green {
+        color: darkgreen;
+      }
+      .red {
+        color: darkred;
+      }
+      .orange {
+        color: darkorange;
+      }
+      .half {
+        width: 50%;
+        float: left;
+      }</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="font-size: 48pt;">Partiell <em>reusable</em>: 
+            Zur Nachnutzung von Quellen für Korpora der 
+            Computational Literary Studies</h1>
+          <hr />
+          <p>
+            <small>Ulrike Henny-Krahmer (Universität Rostock)</small>
+          </p>
+          <p>
+            <small>FORGE-Konferenz, 25. September 2025 in Rostock.</small>
+          </p>
+          <p>
+            <small>Presentation: <a href="https://hennyu.github.io/forge_25/"
+                >https://hennyu.github.io/forge_25/</a></small>
+          </p>
+          <hr />
+          <p>
+            <a href="https://www.uni-rostock.de/">
+              <img height="50" src="img/basics/logo-uni-rostock.png" class="logo" />
+            </a>
+          </p>
+        </section>
+        <section>
+          <h2>Überblick</h2>
+          <ul>
+            <li>Korpora in den <em>Computational Literary Studies</em> (CLS): Quellen und Standards</li>
+            <li>Analyse von <em>Reuse</em> im ELTeC-Korpus
+            <ul>
+              <li>methodischer Ansatz</li>
+              <li>quantitative Perspektive</li>
+              <li>qualitative Perspektive</li>
+            </ul></li>
+            <li>Fazit zu <em>Reuse</em> in den CLS</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>Korpora in den CLS: Quellen und Standards</h2>
+          </section>
+          <section>
+            <h3>Korpora in den CLS</h3>
+            <ul>
+              <li>Computational Literary Studies (CLS): Teilfeld der DH, computergestützte (quantitative)
+              Analyse literarischer Texte</li>
+              <li>Aufbauen und Zusammenstellen von Textkorpora als wichtiges Arbeitsfeld</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Korpora in den CLS</h3>
+            <blockquote>„The number of available corpora is large, 
+              and increases every year. [… M]any corpora are created for 
+              specific research purposes and are therefore as diverse as the 
+              projects they support.“ (Fileva 2023)</blockquote>
+          </section>
+          <section>
+            <h3>Korpora in den CLS</h3>
+            <img src="img/corpora-types.png" alt="Typen von Korpora" width="800"/>
+            <p>(Schöch 2017, 224; vgl. National Science Board 2005, 20–21)</p>
+            <aside class="notes">
+              Referenz-Datensammlungen (reference data collections): auf stark institutionali-
+              sierter Basis erstellt; für die Bearbeitung von Fragestellungen aus mehreren Diszip-
+              linen geeignet; oft sehr umfangreich und/oder repräsentatives Sample des Gegen-
+              standsbereichs; hohe Ansprüche an die Erschließungstiefe und -qualität sowie die
+              Einhaltung von internationalen und disziplinübergreifenden Standards; langfris-
+              tige, institutionalisierte Archivierung der Daten; technische und inhaltliche Nach-
+              nutzbarkeit ist sichergestellt.
+            </aside>
+          </section>
+          <section>
+            <h3>Korpora in den CLS: Beispiele</h3>
+            <table style="vertical-align: top; font-size: 20pt; border-collapse: collapse;">
+              <tr>
+                <td style="width: 40%; vertical-align: top;">
+                  <p><a href="https://dracor.org/">DraCor</a> (Fischer et al. 2019)</p>
+                </td>
+                <td>
+                  <img src="img/dracor.png" alt="DraCor Korpus" width="700"/>
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 40%; vertical-align: top;">
+                  <p><a href="https://www.distant-reading.net/eltec/">ELTeC</a> 
+                    (Odebrecht et al. 2021)</p>
+                </td>
+                <td>
+                  <img src="img/eltec.png" alt="ELTeC Korpus" width="700"/>
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">In DraCor aktuell 23 Korpora.</aside>
+          </section>
+          <section>
+            <h3>Korpora in den CLS: Rolle von Standards</h3>
+            <ul>
+              <li>für projektbezogene Korpora: <em>plain text</em></li>
+              <li>für Gemeinschaftskorpora: XML-TEI</li>
+            </ul>
+            <aside class="notes">
+              Interesse an weiter strukturierten und erschlossenen Texten, 
+              im Falle narrativer Texte zumindest Einteilungen in 
+              Kapitel, Überschriften und Sätze. 
+              Auch grundlegende Metadaten zu Autor:innen, Werktiteln, 
+              Erscheinungsjahr, Gattung, Sprache, usw. sind wichtig.
+            </aside>
+          </section>
+          <section>
+            <h3>Korpora in den CLS: Formate von Quellen</h3>
+            <ol>
+              <li>Text liegt noch <strong>gar nicht</strong> digital vor</li>
+              <li>Text steht als <strong>Bilddigitalisat</strong> zur Verfügung</li>
+              <li>es gibt bereits ein <strong>Volltextdigitalisat</strong></li>
+              <li>es gibt einen digitalen Volltext mit zusätzlichem 
+                strukturellem <strong>Markup</strong> (z.B. HTML, epub)</li>
+              <li>Text liegt bereits als <strong>TEI</strong>-codierter Text vor</li>
+            </ol>
+          </section>
+          <section>
+            <h3>Korpora in den CLS: Nachnutzungsmöglichkeiten</h3>
+            <img src="img/nachnutzung.png" alt="Nachnutzung in CLS-Korpora" width="600"/>
+            <aside class="notes">
+              Müssen also alle CLS-Korpora jeweils von Grund auf neu erstellt werden? 
+              Neue digitale Textkorpora aufzubauen ist aufwendig.
+              Angesichts des hohen Aufwands bei der Erstellung großer digitaler Textkorpora, 
+              die den Anforderungen der CLS genügen, macht es  Sinn, 
+              dass Korpora nachgenutzt werden, aber auch, 
+              dass diese selbst auf bestehenden Vorarbeiten aufbauen.
+              Je mehr Texte der 5. Stufe vorhanden sind, umso leichter 
+              können diese nachgenutzt werden, selbst, wenn sie für den 
+              jeweiligen Anwendungskontext noch angepasst werden müssen.
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Analyse von <em>Reuse</em> im ELTeC-Korpus</h2>
+          </section>
+          <section>
+            <h3>Methodischer Ansatz</h3>
+            <ul>
+              <li>Nachnutzungen finden in CLS bereits statt (kontextabhängig)</li>
+              <li>Hier: Fallstudie mit dem ELTeC-Korpus</li>
+              <li>Untersuchung der Nachnutzung der Quellen von ELTeC
+              (noch nicht des <em>Reuse</em> von ELTeC in anderen
+                Zusammenhängen)</li>
+            </ul>
+            <aside class="notes">
+              Solche Nachnutzungen in den CLS finden beim jetzigen Stand 
+              der Verfügbarkeit von Korpora bereits statt – in Abhängigkeit 
+              von der Textsprache eines Korpus und der Epoche oder Gattung. 
+              Häufig geschieht dies für einzelne Teile von Korpora, die dann
+              eine je eigene Nachnutzungsgeschichte haben.
+            </aside>
+          </section>
+          <section>
+            <h3>Methodischer Ansatz</h3>
+            <ul>
+              <li class="fragment"><strong>Frage 1:</strong> Welcher der fünf Verarbeitungsstufen sind die meisten Quellen der
+                Texte in ELTeC zuzuordnen?</li>
+              <li class="fragment"><strong>Frage 2:</strong> Ist die Herkunft der Texte jeweils bis zum zugrundeliegenden analogen
+                Text nachzuverfolgen? Und ist dies direkt im entsprechenden Zielkorpus dokumentiert?</li>
+            </ul>
+            <aside class="notes">(Notiz: hier keine Behandlung von born digital-Werken.)</aside>
+          </section>
+          <section>
+            <h3>Methodischer Ansatz</h3>
+            <ul>
+              <li>Ansatz: Untersuchen der <em>source descriptions</em> in den einzelnen
+              TEI-Dateien der Teilkorpora von ELTeC</li>
+              <li>Bisher 7 von 14 Teilkorpora der Korpus-Version 1.1.0 untersucht</li>
+              <li>Übernahme und Analyse der <em>source descriptions</em> in eigener
+              TEI-Datei</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Beispiel für eine <em>Source Description</em> aus ELTeC (1)</h3>
+            <img src="img/source-desc-example.png" alt="Beispiel Source Description" width="1000"/>
+          </section>
+          <section>
+            <h3>Taxonomie für <em>Source Types</em></h3>
+            <img src="img/taxonomy-source-types.png" alt="Taxonomie für Source Types" width="1000"/>
+          </section>
+          <section>
+            <h3>Taxonomie für <em>Source Descriptions</em></h3>
+            <img src="img/taxonomy-source-descs.png" alt="Taxonomnie für Source Descriptions" width="1000"/>
+          </section>
+          <section>
+            <h3>Beispiel für eine <em>Source Description</em> aus ELTeC (2)</h3>
+            <img src="img/source-desc-analyzed.png" alt="Beispiel Source Description" width="800"/>
+          </section>
+          <section>
+            <h3>Beispiel: zusammenfassende Beschreibung für Quellen eines Teilkorpus</h3>
+            <img src="img/example-summary.png" alt="Beispiel Zusammenfassung für Quellen eines Teilkorpus" width="1000"/>
+          </section>
+          <section>
+            <h3>Quantitative Perspektive</h3>
+            <img src="img/analysis-source-types.png" alt="Analyse der Quelltypen" width="800"/>
+          </section>
+          <section>
+            <h3>Quantitative Perspektive</h3>
+            <img src="img/analysis-source-descs.png" alt="Analyse der Quellbeschreibungen" width="800"/>
+          </section>
+          <section>
+            <h3>Qualitative Perspektive</h3>
+            <p>Auszug aus einer zusammenfassenden Beschreibung der Quellen:</p>
+            <blockquote>In many cases, only a first edition is indicated
+              besides the digital source and no print edition (supposedly when the first edition
+              corresponds to the underlying print edition, but I have not checked that in every case).</blockquote>
+          </section>
+          <section>
+            <h3>Qualitative Perspektive</h3>
+            <img src="img/beispiel-tschechisch.png" alt="Beispiel Faksimile Tschechisches Korpus" width="400"/>
+          </section>
+          <section>
+            <h3>Qualitative Perspektive</h3>
+            <img src="img/beispiel-textgrid.png" alt="Beispiel aus TextGrid" width="1000"/>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Fazit zu <em>Reuse</em> in den CLS</h2>
+          </section>
+          <section>
+            <h3>Fazit zu <em>Reuse</em> in den CLS</h3>
+            <img src="img/eltec-schema.png" alt="ELTeC Schema zu Source Descs" width="1000"/>
+          </section>
+          <section>
+            <h3>Fazit zu <em>Reuse</em> in den CLS</h3>
+            <ul>
+              <li class="fragment">Nachnutzung zu begrüßen</li>
+              <li class="fragment">erleichtert Erstellen neuer Korpora</li>
+              <li class="fragment">Grad der Nachnutzung: abhängig vom Material/Kontext</li>
+              <li class="fragment">wichtig aber: Herkunft der Texte sollte immer vollständig dokumentiert sein!</li>
+              <li class="fragment">plus: Art der Übernahmen/Anpassungen/Erweiterungen</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Literaturhinweise</h2>
+            <ul style="font-size: 16pt;">
+              <li>Fileva, Evgeniia. 2023. 
+                “Introduction to Corpus Building.” 
+                In: <em>Survey of Methods in Computational Literary Studies</em> 
+                (= D 3.2: Series of Five Short Survey Papers on Methodological Issues), 
+                hrsg. von Christof Schöch, Julia Dudar und Evegniia Fileva. 
+                Trier: CLS INFRA. 
+                <a href="https://methods.clsinfra.io/corpus-intro.html">https://methods.clsinfra.io/corpus-intro.html</a>, <a href="https://doi.org/10.5281/zenodo.7892112">https://doi.org/10.5281/zenodo.7892112</a>.</li>
+              <li>Fischer, Frank, Ingo Börner, Mathias Göbel, Angelika Hechtl,
+                Christopher Kittel und Carsten Milling. 2019. “Programmable Corpora:
+                Introducing DraCor, an Infrastructure for the Research on European Drama.” 
+                In: <em>DH2019. Complexities. Book of Abstracts.</em> Utrecht: Utrecht University. 
+                <a href="https://doi.org/10.5281/zenodo.4284002">https://doi.org/10.5281/zenodo.4284002</a>.</li>
+              <li>National Science Board. 2005. <em>Long-Lived Digital Data Collections Enabling
+                Research and Education in the
+                21st Century.</em> Arlington.
+                <a href="https://web.archive.org/web/20210227013747/http://www.nsf.gov/pubs/2005/nsb0540/nsb0540.pdf">https://web.archive.org/web/20210227013747/http://www.nsf.gov/pubs/2005/nsb0540/nsb0540.pdf</a></li>
+              <li>Odebrecht, Carolin, Lou Burnard und Christof Schöch, 
+                Hrsg. 2021. 
+                European Literary Text Collection (ELTeC), Version 1.1.0. 
+                COST Action Distant Reading for European Literary History (CA16204). 
+                <a href="https://doi.org/10.5281/zenodo.4662444">https://doi.org/10.5281/zenodo.4662444</a>.</li>
+              <li>Schöch, Christof. 2017. “Aufbau von Datensammlungen.” In:
+                <em>Digital Humanities. Eine Einführung.</em> Hrsg. von Fotis Jannidis,
+                Hubertus Kohle und Malte Rehbein. Stuttgart: J.B. Metzler,
+                223–233.</li>
+              <li>Schöch, Christof, Roxana Patras, Tomaž Erjavec und Diana Santos. 2021. 
+                “Creating the European Literary Text Collection (ELTeC): 
+                Challenges and Perspectives.” 
+                <em>Modern Languages Open 2021</em> (1). 
+                <a href="https://doi.org/10.3828/mlo.v0i0.364">https://doi.org/10.3828/mlo.v0i0.364</a>.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Vielen Dank für die Aufmerksamkeit!</h2>
+            <p>Präsentation: <br /><a href="https://hennyu.github.io/forge_25/"
+              >https://hennyu.github.io/forge_25/</a></p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="../reveal/lib/js/head.min.js"></script>
+    <script src="../reveal/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies:[ {
+          src: '../reveal/lib/js/classList.js', condition: function () {
+            return ! document.body.classList;
+          }
+        }, {
+          src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }, {
+          src: '../reveal/plugin/zoom-js/zoom.js', async: true
+        }, {
+          src: '../reveal/plugin/notes/notes.js', async: true
+        }]
+      });</script>
+  </body>
+</html>
