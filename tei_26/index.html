@@ -1,0 +1,405 @@
+<html>
+  <head>
+    <title>Creating a Digital Edition with Generative AI in a
+      Seminar Setting</title>
+    <meta name="author" content="Ulrike Henny-Krahmer" />
+    <meta name="description" content="Slides" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../reveal/css/reveal.css" />
+    <link rel="stylesheet" href="../reveal/css/theme/solarized.css" />
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../reveal/css/print/pdf.css': '../reveal/css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);</script>
+    <style type="text/css">
+      .reveal section img {
+        border: none;
+      }
+      p.small,
+      ul.small,
+      ol.small {
+        font-size: 0.7em;
+      }
+      ul.small li,
+      ol.small li {
+        padding-bottom: 0.5em;
+      }
+      .reveal blockquote {
+        font-size: 0.7em;
+      }
+      .green {
+        color: darkgreen;
+      }
+      .red {
+        color: darkred;
+      }
+      .orange {
+        color: darkorange;
+      }
+      .half {
+        width: 50%;
+        float: left;
+      }</style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="font-size: 48pt;">Creating a Digital Edition with Generative AI<br/> in a
+            Seminar Setting</h1>
+          <hr />
+          <p>
+            <small>Ulrike Henny-Krahmer (Universität Rostock)</small>
+          </p>
+          <p>
+            <small>TEI Conference, Vancouver, August 13, 2026.</small>
+          </p>
+          <p>
+            <small>Presentation: <a href="https://hennyu.github.io/tei_26/"
+                >https://hennyu.github.io/tei_26/</a></small>
+          </p>
+          <hr />
+          <p>
+            <a href="https://www.uni-rostock.de/">
+              <img height="50" src="img/basics/logo-uni-rostock.png" class="logo" />
+            </a>
+            <a href="https://www.i-d-e.de/">
+              <img height="50" src="img/basics/logo-ide.png" class="logo" />
+            </a>
+          </p>
+        </section>
+        <section>
+          <h2>Overview</h2>
+          <table style="font-size: 0.9em;">
+            <tr>
+              <td style="width: 80%;"><span>Digital Scholarly Editions, Generative AI, and DH teaching and learning</span></td>
+              <td style="width: 15%; vertical-align: bottom;">
+                <img width="200" src="img/Verhalend_leren.webp.png" alt="a group of people sitting together in a circle for learning"/>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 80%;"><span>The seminar: <em>Sophie Tiecks Dramatische Fantasien.
+                  Workflows für eine digitale Edition mit
+                  generativer KI</em></span></td>
+              <td style="width: 15%; vertical-align: bottom;">
+                <img width="200" src="img/Sophie_Tieck.jpg" alt="a portrait of Sophie Tieck"/>
+              </td>
+            </tr>
+            <!--<tr>
+              <td style="width: 80%;"><span>Conclusions: <em>GenAI makes things easier and complicates them</em></span></td>
+              <td style="width: 15%; vertical-align: bottom;">
+                <img width="200" src="img/Twemoji2_1f914.svg.webp" alt="thinking emoji"/>
+              </td>
+            </tr>-->
+          </table>
+        </section>
+        <section>
+          <section>
+            <h2>Digital Scholarly Editions, Generative AI, and DH teaching and learning</h2>
+          </section>
+          <section>
+            <h3>DSE and generative AI</h3>
+            <ul>
+              <li><strong>typical steps</strong> in a digital scholarly edition workflow: 
+                <ul>
+                  <li class="fragment"><!--producing transcriptions from digital images-->text transcription</li>
+                  <li class="fragment"><!--adding TEI markup to the transcribed text to edit it-->text encoding</li>
+                  <li class="fragment"><!--prepare a presentation layer, e.g. with HTML, CSS, and JavaScript-->text conversion</li>
+                </ul>
+              </li>
+              <li class="fragment"><strong>GenAI</strong> can support these and other steps in a DSE workflow (see, e.g., experiments
+                documented in <a href="https://doi.org/10.17175/2025_008">Pollin et al. 2025</a>)</li>
+            </ul>
+          </section>
+          <!--<section>
+            <h3>Some potential benefits of using GenAI in DSE workflows</h3>
+            <table>
+              <tr>
+                <td style="vertical-align: middle;">
+                  <img src="img/benefit.png" alt="benefit icon" width="200"/><br/>
+                  <a style="font-size: 10pt;" href="https://www.flaticon.com/free-icons/benefits" title="benefits icons">Benefits icons created by Good Ware - Flaticon</a>
+                </td>
+                <td>
+                  <ul>
+                    <li class="fragment">make the preparation of the DSE <strong>faster</strong></li>
+                    <li class="fragment"><strong>free</strong> the editors from cumbersome (repetitive, time-consuming, technically challenging) tasks</li>
+                    <li class="fragment">provide an <strong>alternative</strong> way of processing the data</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </section>-->
+          <!--<section>
+            <h3>Some potential drawbacks of using GenAI in DSE workflows</h3>
+            <table>
+              <tr>
+                <td style="vertical-align: middle;">
+                  <img src="img/drawback.png" alt="drawback icon" width="200"/><br/>
+                  <a style="font-size: 10pt;" href="https://www.flaticon.com/free-icons/drawback" title="drawback icons">Drawback icons created by Flat Icons - Flaticon</a>
+                </td>
+                <td>
+                  <ul>
+                    <li class="fragment">risk of <strong>unreliable</strong> results</li>
+                    <li class="fragment"><strong>less transparency</strong>, traceability, reproduceability</li>
+                    <li class="fragment"><strong>ethical</strong> issues</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </section>-->
+          <section>
+            <h3>Some reasons for using GenAI in teaching and learning about DSE</h3>
+            <ul>
+              <li class="fragment">current <strong>ubiquity</strong> of GenAI (relevance for job market and to students' daily lives)</li>
+              <li class="fragment">possiblity to <strong>combine</strong> GenAI topics with other DH topics (hence, also DSE)</li>
+              <li class="fragment">methods easily <strong>accessible</strong> to users from a single platform via
+                conversation with the bot</li>
+              <li class="fragment"><strong>reflective</strong> aspect is essential</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>The seminar: <em>Sophie Tiecks Dramatische Fantasien.
+                Workflows für eine digitale Edition mit
+                generativer KI</em></h2>
+          </section>
+          <section>
+            <h3>Practical information about the seminar</h3>
+            <table>
+              <tr class="fragment">
+                <td style="vertical-align: middle;">
+                  <img src="img/clock.png" alt="icon clock" width="80"/><br/>
+                  <a style="font-size: 10pt;" href="https://www.flaticon.com/free-icons/clock" title="clock icons">Clock icons created by Magnific - Flaticon</a>
+                </td>
+                <td>
+                  <strong>Duration:</strong> April to July 2026, weekly, 13 sessions of 1,5 hours each
+                </td>
+              </tr>
+              <tr class="fragment" style="border: none;">
+                <td style="vertical-align: middle;">
+                  <img src="img/networking.png" alt="networking icon" width="80"/><br/>
+                  <a style="font-size: 10pt;" href="https://www.flaticon.com/free-icons/team" title="team icons">Team icons created by Magnific - Flaticon</a>
+                </td>
+                <td>
+                  <strong>Participants:</strong> 9 students of German Studies (Bachelor or Teacher education)
+                </td>
+              </tr>
+              <tr class="fragment">
+                <td style="vertical-align: middle;">
+                  <img src="img/group.png" alt="group room icon" width="80"/><br/>
+                  <a style="font-size: 10pt;" href="https://www.flaticon.com/free-icons/meeting-room" title="meeting room icons">Meeting room icons created by cube29 - Flaticon</a>
+                </td>
+                <td>
+                  <strong>Room:</strong> traditional seminar room with screen, whiteboard, flip chart, eduroam
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h3>Goals of the seminar</h3>
+            <ol>
+              <li class="fragment">learn about the female German writer <strong>Sophie Tieck</strong> (*1775, †1833)</li>
+              <li class="fragment">create a <strong>DSE prototype</strong> of one of her Romantic plays (<em>Frühlingszauber</em>, 1804)</li>
+              <li class="fragment">thereby <strong>learn</strong>:
+                <ul>
+                  <li>what a DSE is</li>
+                  <li>about DSE workflows (steps, collaborative work)</li>
+                  <li>about GenAI</li>
+                </ul>
+              </li>
+              <li class="fragment"><strong>reflect</strong> on the usage of GenAI for scholarly tasks</li>
+            </ol>
+          </section>
+          <!--<section>
+            <h3>The seminar schedule</h3>
+            <img src="img/Seminarplan_Tieck-Edition-KI_SoSe26.png" alt="seminar schedule"/>
+          </section>-->
+          <section>
+            <h3>The play <em>Frühlingszauber</em></h3>
+            <table>
+              <tr>
+                <td>
+                  <img src="img/261.png" alt="a page of the play Frühlingszauber" width="400"/>
+                </td>
+                <td>
+                  <img src="img/263.png" alt="another page of the play Frühlingszauber" width="400"/>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h3>Workflow and tools used in the seminar</h3>
+            <table>
+              <tr>
+                <td style="width: 50%; font-size: 24pt;">
+                  <ul>
+                    <li><strong>GitLab</strong> repository (hosted by University of Rostock)</li>
+                    <li><strong>Visual Studio Code</strong> Editor (hosted by University of Greifswald)</li>
+                    <li><strong>Chatbot</strong> (gemma4, hosted by University of Greifswald)</li>
+                    <li><strong>Browser</strong> (to look at HTML results)</li>
+                  </ul>
+                </td>
+                <td style="width: 50%; vertical-align: top;">
+                  <img src="img/workflow.png" alt="workflow diagram"/>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h3>Step 1: text recognition</h3>
+            <ul>
+              <li><strong>zero shot prompt</strong> with role, instructions, goal, constraints</li>
+              <li>text was extracted <strong>from PDF</strong> of images that contained basic OCR</li>
+              <li><strong>problem:</strong> chatbot did not process the whole file at once</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Step 2: text encoding</h3>
+            <table>
+              <tr>
+                <td style="width: 50%;">
+                  <ul>
+                    <li>a very <strong>long prompt</strong> (one shot) 
+                      explaining the TEI encoding strategy and giving one example</li>
+                    <li>this worked very <strong>well</strong>!</li>
+                  </ul>
+                </td>
+                <td style="width: 45%; vertical-align: middle;">
+                  <img src="img/tei-encoding.png" alt="TEI encoding example"/>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h3>Step 3: text conversion</h3>
+            <table>
+              <tr>
+                <td style="vertical-align: middle; width: 45%;">
+                  <img src="img/webpage.png" alt="screenshot of the homepage"/>
+                </td>
+                <td style="width: 50%;">
+                  <ul>
+                    <li><strong>individual prompts</strong> to produce HTML (with CSS and JS), directly from TEI</li>
+                    <li><strong>astonishing</strong> results were produced</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h3>Evaluation of the seminar by the students (1)</h3>
+            <img src="img/rating-AI-usage.png" alt="rating of AI usage"/>
+          </section>
+          <section>
+            <h3>Evaluation of the seminar by the students (2)</h3>
+            <img src="img/advantages-AI-usage.png" alt="advantages of AI usage"/>
+          </section>
+          <section>
+            <h3>Evaluation of the seminar by the students (3)</h3>
+            <img src="img/drawbacks-AI-usage.png" alt="drawbacks of AI usage"/>
+          </section>
+          <section>
+            <h3>Evaluation of the seminar by the students (4)</h3>
+            <img src="img/ranking-chatbot.png" alt="ranking of chatbot usage"/>
+          </section>
+        </section>
+        <section>
+          <!--<section>
+            <h2>Conclusions: <em>GenAI makes things easier and complicates them</em></h2>
+          </section>
+          <section>
+            <h3>Conclusions 1: <em>GenAI makes things easier</em></h3>
+            <table>
+              <tr>
+                <td>
+                  <ul>
+                    <li class="fragment">lowers the barrier to using digital methods for creating editions</li>
+                    <li class="fragment">allows for the entire DSE workflow to be covered in a single seminar</li>
+                    <li class="fragment">enables students to produce actual, complete results quickly</li>
+                    <li class="fragment">it can be fun to experiment, especially together</li>
+                  </ul>
+                </td>
+                <td style="vertical-align: middle;">
+                  <img src="img/relief.png" alt="relief icon" width="150"/><br/>
+                  <a style="font-size: 10pt;" href="https://www.flaticon.com/free-icons/relief" title="relief icons">Relief icons created by Eucalyp - Flaticon</a>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h3>Conclusions 2: <em>GenAI complicates things</em></h3>
+            <table>
+              <tr>
+                <td style="vertical-align: middle;">
+                  <img src="img/headache.png" alt="headache icon" width="150"/><br/>
+                  <a style="font-size: 10pt;" href="https://www.flaticon.com/free-icons/complicated" title="complicated icons">Complicated icons created by max.icons - Flaticon</a>
+                </td>
+                <td>
+                  <ul>
+                    <li class="fragment">one more thing to be explained and understood, 
+                      in addition to the already complex tasks, methods, and layers of DSE</li>
+                    <li class="fragment">students do not necessarily have to delve deeper 
+                      into the methods taught</li>
+                    <li class="fragment">critical review of the results is still necessary</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </section>-->
+          <section>
+            <h2>Thank you very much for your attention!</h2>
+          </section>
+          <section>
+            <h2>References</h2>
+            <ul style="font-size: 16pt;">
+              <li>Pollin, Christopher, Franz Fischer, Patrick Sahle, Martina Scholger, and Georg Vogeler (2025):
+              “When it was 2024 – Generative AI in the Field of Digital Scholarly Editions.” <em>Zeitschrift für
+                digitale Geisteswissenschaften</em> 10. <a href="https://doi.org/10.17175/2025_008">https://doi.org/10.17175/2025_008</a>.</li>
+              <li>Fritsche, Katrin und Sander Münster (2024): “Taking up Artificial Intelligence as Teaching and
+              Learning Content in the Digital Humanities – Topics, Categorisations, and Examples.” In
+              <em>Proceedings of the 8th International Conference on Advanced Research in Teaching and Education.</em>
+                <a href="https://doi.org/10.33422/icate.v1i1.225">https://doi.org/10.33422/icate.v1i1.225</a>.</li>
+              <li>Haberstok, Monika (ed.) (n.d.). <em>Sophie Tieck</em> [Website]. <a href="https://doi.org/10.33422/icate.v1i1.225">https://www.sophie-tieck.de/</a>.</li>
+            </ul>
+          </section>
+          <section>
+            <p>Presentation: <br /><a href="https://hennyu.github.io/tei_26/"
+              >https://hennyu.github.io/tei_26/</a></p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="../reveal/lib/js/head.min.js"></script>
+    <script src="../reveal/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies:[ {
+          src: '../reveal/lib/js/classList.js', condition: function () {
+            return ! document.body.classList;
+          }
+        }, {
+          src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }, {
+          src: '../reveal/plugin/zoom-js/zoom.js', async: true
+        }, {
+          src: '../reveal/plugin/notes/notes.js', async: true
+        }]
+      });</script>
+  </body>
+</html>
